@@ -6,6 +6,7 @@ import { configs as eslintConfigs } from './eslint.js';
 import { configs as jsdocConfigs } from './jsdoc.js';
 import { configs as mochaConfigs } from './mocha.js';
 import { configs as promiseConfigs } from './promise.js';
+import { configs as reactConfigs } from './react.js';
 import { configs as securityConfigs } from './security.js';
 import { configs as typescriptEslintConfigs } from './typescriptEslint.js';
 import { configs as unicornConfigs } from './unicorn.js';
@@ -14,6 +15,7 @@ export {
   eslintConfigs, //
   jsdocConfigs,
   promiseConfigs,
+  reactConfigs,
   securityConfigs,
   typescriptEslintConfigs,
   unicornConfigs,
@@ -49,7 +51,7 @@ export function defaultConfig(parserOptions?: NonNullable<ConfigWithExtends['lan
       },
     },
     {
-      files: ['**/*.ts', '**/*.js', '**/*.cjs', '**/*.mjs'],
+      files: ['**/*.ts', '**/*.js', '**/*.cjs', '**/*.mjs', '**/*.tsx'],
       plugins: {
         ...jsdocConfigs.base.plugins,
         ...promiseConfigs.base.plugins,
@@ -79,8 +81,12 @@ export function defaultConfig(parserOptions?: NonNullable<ConfigWithExtends['lan
       ...eslintConfigs.cjs,
     },
     {
-      files: ['**/*.ts'],
+      files: ['**/*.ts', '**/*.tsx'],
       ...typescriptEslintConfigs.base,
+    },
+    {
+      files: ['**/*.tsx'],
+      ...reactConfigs.base,
     },
     {
       files: ['**/*.tests.ts', 'tests/tests.ts'],
