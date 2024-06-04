@@ -3,6 +3,7 @@ import globals from 'globals';
 import tsEslint, { type ConfigWithExtends } from 'typescript-eslint';
 import prettier from 'eslint-plugin-prettier/recommended';
 import { configs as eslintConfigs } from './eslint.js';
+import { configs as extensionConfigs } from './extension.js';
 import { configs as jsdocConfigs } from './jsdoc.js';
 import { configs as mochaConfigs } from './mocha.js';
 import { configs as promiseConfigs } from './promise.js';
@@ -21,7 +22,13 @@ export {
   unicornConfigs,
 };
 
-export function defaultConfig(parserOptions?: NonNullable<ConfigWithExtends['languageOptions']>['parserOptions']): ConfigWithExtends[] {
+export interface DefaultConfigOptions {
+  parserOptions?: NonNullable<ConfigWithExtends['languageOptions']>['parserOptions'];
+  enableRequireExtensionRule?: boolean;
+}
+
+export function defaultConfig(options?: DefaultConfigOptions): ConfigWithExtends[] {
+  const enableRequireExtensionRule = options?.enableRequireExtensionRule ?? true;
   const languageOptions: ConfigWithExtends['languageOptions'] = {
     globals: {
       ...globals.node,
@@ -33,7 +40,7 @@ export function defaultConfig(parserOptions?: NonNullable<ConfigWithExtends['lan
         defaultProject: 'tsconfig.json',
       },
       tsconfigRootDir: import.meta.dirname,
-      ...parserOptions,
+      ...options?.parserOptions,
     },
   };
 
@@ -53,6 +60,7 @@ export function defaultConfig(parserOptions?: NonNullable<ConfigWithExtends['lan
     {
       files: ['**/*.ts', '**/*.js', '**/*.cjs', '**/*.mjs', '**/*.tsx'],
       plugins: {
+        ...extensionConfigs.base.plugins,
         ...jsdocConfigs.base.plugins,
         ...promiseConfigs.base.plugins,
         ...securityConfigs.base.plugins,
@@ -60,6 +68,7 @@ export function defaultConfig(parserOptions?: NonNullable<ConfigWithExtends['lan
       },
       rules: {
         ...eslintConfigs.base.rules,
+        ...(enableRequireExtensionRule ? extensionConfigs.base.rules : {}),
         ...jsdocConfigs.base.rules,
         ...promiseConfigs.base.rules,
         ...securityConfigs.base.rules,
