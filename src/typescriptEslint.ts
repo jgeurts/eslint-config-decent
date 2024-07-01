@@ -50,14 +50,6 @@ const base: ConfigWithExtends = {
     '@typescript-eslint/no-empty-interface': 'error',
     '@typescript-eslint/no-extra-semi': 'error',
     '@typescript-eslint/no-shadow': 'error',
-    '@typescript-eslint/no-use-before-define': [
-      'error',
-      {
-        functions: true,
-        classes: true,
-        variables: true,
-      },
-    ],
     '@typescript-eslint/parameter-properties': [
       'error',
       {
@@ -67,6 +59,7 @@ const base: ConfigWithExtends = {
     '@typescript-eslint/restrict-template-expressions': ['error', { allowNumber: true }],
     '@typescript-eslint/return-await': 'error',
     '@typescript-eslint/sort-type-constituents': 'error',
+    '@typescript-eslint/use-unknown-in-catch-callback-variable': 'off',
   },
 };
 
