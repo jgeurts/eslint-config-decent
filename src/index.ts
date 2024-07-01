@@ -34,9 +34,8 @@ export function defaultConfig(options?: DefaultConfigOptions): ConfigWithExtends
       ...globals.node,
     },
     parserOptions: {
-      // @ts-expect-error - This is a valid option
       projectService: {
-        allowedDefaultProject: ['./*.{js,cjs,mjs}', './tests/**/*.{ts,js,cjs,mjs}'],
+        allowDefaultProject: ['./*.{js,cjs,mjs}'],
         defaultProject: 'tsconfig.json',
       },
       tsconfigRootDir: import.meta.dirname,

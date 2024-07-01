@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-decent",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "A decent ESLint configuration",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
@@ -85,7 +85,7 @@
     "eslint-plugin-testing-library": "^6.2.2",
     "eslint-plugin-unicorn": "^54.0.0",
     "globals": "^15.7.0",
-    "typescript-eslint": "8.0.0-alpha.29"
+    "typescript-eslint": "8.0.0-alpha.39"
   },
   "devDependencies": {
     "@swc/core": "1.6.6",

@@ -1,5 +1,9 @@
 # Change Log
 
+## 1.2.2 - 2024-07-01
+
+- Update typescript eslint npm
+
 ## 1.2.1 - 2024-07-01
 
 - Update npms
