@@ -35,7 +35,6 @@ export function defaultConfig(options?: DefaultConfigOptions): ConfigWithExtends
     },
     parserOptions: {
       projectService: {
-        allowDefaultProject: ['./*.{js,cjs,mjs}'],
         defaultProject: 'tsconfig.json',
       },
       tsconfigRootDir: import.meta.dirname,
@@ -100,15 +99,6 @@ export function defaultConfig(options?: DefaultConfigOptions): ConfigWithExtends
         sourceType: 'script',
       },
       ...eslintConfigs.cjs,
-    },
-    {
-      name: 'eslint-config-decent/js-cleanup',
-      files: ['**/*.js', '**/*.cjs', '**/*.mjs'],
-      rules: {
-        '@typescript-eslint/no-unsafe-assignment': 'off',
-        '@typescript-eslint/no-unsafe-call': 'off',
-        '@typescript-eslint/no-unsafe-member-access': 'off',
-      },
     },
     {
       name: 'eslint-config-decent/tests',

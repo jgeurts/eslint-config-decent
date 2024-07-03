@@ -1,5 +1,9 @@
 # Change Log
 
+## 1.2.7 - 2024-07-03
+
+- Exclude js files from default project to avoid linting with typescript rules
+
 ## 1.2.6 - 2024-07-03
 
 - Turn off @typescript-eslint/no-unsafe-call in js cleanup
