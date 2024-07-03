@@ -76,6 +76,16 @@ export function defaultConfig(options?: DefaultConfigOptions): ConfigWithExtends
       },
     },
     {
+      name: 'eslint-config-decent/ts',
+      files: ['**/*.ts', '**/*.tsx'],
+      ...typescriptEslintConfigs.base,
+    },
+    {
+      name: 'eslint-config-decent/tsx',
+      files: ['**/*.tsx'],
+      ...reactConfigs.base,
+    },
+    {
       name: 'eslint-config-decent/cjs-and-esm',
       files: ['**/*.js', '**/*.cjs', '**/*.mjs'],
       languageOptions: {
@@ -92,14 +102,12 @@ export function defaultConfig(options?: DefaultConfigOptions): ConfigWithExtends
       ...eslintConfigs.cjs,
     },
     {
-      name: 'eslint-config-decent/ts',
-      files: ['**/*.ts', '**/*.tsx'],
-      ...typescriptEslintConfigs.base,
-    },
-    {
-      name: 'eslint-config-decent/tsx',
-      files: ['**/*.tsx'],
-      ...reactConfigs.base,
+      name: 'eslint-config-decent/mjs-cleanup',
+      files: ['**/*.mjs'],
+      rules: {
+        '@typescript-eslint/no-unsafe-assignment': 'off',
+        '@typescript-eslint/no-unsafe-member-access': 'off',
+      },
     },
     {
       name: 'eslint-config-decent/tests',
