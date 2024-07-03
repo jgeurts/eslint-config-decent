@@ -1,5 +1,9 @@
 # Change Log
 
+## 1.2.6 - 2024-07-03
+
+- Turn off @typescript-eslint/no-unsafe-call in js cleanup
+
 ## 1.2.5 - 2024-07-03
 
 - Cleanup typescript rules for all js files
