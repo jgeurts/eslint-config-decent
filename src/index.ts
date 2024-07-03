@@ -35,6 +35,7 @@ export function defaultConfig(options?: DefaultConfigOptions): ConfigWithExtends
     },
     parserOptions: {
       projectService: {
+        allowDefaultProject: ['./*.{js,cjs,mjs}'],
         defaultProject: 'tsconfig.json',
       },
       tsconfigRootDir: import.meta.dirname,
@@ -47,8 +48,23 @@ export function defaultConfig(options?: DefaultConfigOptions): ConfigWithExtends
       ignores: ['**/dist/**', '**/node_modules/**'],
     },
     eslint.configs.recommended,
-    ...tsEslint.configs.strictTypeChecked,
-    ...tsEslint.configs.stylisticTypeChecked,
+    {
+      languageOptions: {
+        ...tsEslint.configs.base.languageOptions,
+      },
+    },
+    ...tsEslint.configs.strictTypeChecked.map((config) => {
+      return {
+        ...config,
+        files: ['**/*.ts', '**/*.tsx'],
+      };
+    }),
+    ...tsEslint.configs.stylisticTypeChecked.map((config) => {
+      return {
+        ...config,
+        files: ['**/*.ts', '**/*.tsx'],
+      };
+    }),
     {
       languageOptions,
       settings: {

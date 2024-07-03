@@ -1,5 +1,9 @@
 # Change Log
 
+## 1.2.8 - 2024-07-03
+
+- Try constraining typescript rules to only ts and tsx files
+
 ## 1.2.7 - 2024-07-03
 
 - Exclude js files from default project to avoid linting with typescript rules
