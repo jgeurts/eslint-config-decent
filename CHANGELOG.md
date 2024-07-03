@@ -1,5 +1,9 @@
 # Change Log
 
+## 1.2.5 - 2024-07-03
+
+- Cleanup typescript rules for all js files
+
 ## 1.2.4 - 2024-07-03
 
 - Cleanup typescript rules for mjs files

@@ -102,8 +102,8 @@ export function defaultConfig(options?: DefaultConfigOptions): ConfigWithExtends
       ...eslintConfigs.cjs,
     },
     {
-      name: 'eslint-config-decent/mjs-cleanup',
-      files: ['**/*.mjs'],
+      name: 'eslint-config-decent/js-cleanup',
+      files: ['**/*.js', '**/*.cjs', '**/*.mjs'],
       rules: {
         '@typescript-eslint/no-unsafe-assignment': 'off',
         '@typescript-eslint/no-unsafe-member-access': 'off',
