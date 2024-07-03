@@ -1,5 +1,9 @@
 # Change Log
 
+## 1.2.3 - 2024-07-03
+
+- Provide config names
+
 ## 1.2.2 - 2024-07-01
 
 - Update typescript eslint npm

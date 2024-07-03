@@ -57,6 +57,7 @@ export function defaultConfig(options?: DefaultConfigOptions): ConfigWithExtends
       },
     },
     {
+      name: 'eslint-config-decent/base',
       files: ['**/*.ts', '**/*.js', '**/*.cjs', '**/*.mjs', '**/*.tsx'],
       plugins: {
         ...extensionConfigs.base.plugins,
@@ -75,6 +76,7 @@ export function defaultConfig(options?: DefaultConfigOptions): ConfigWithExtends
       },
     },
     {
+      name: 'eslint-config-decent/cjs-and-esm',
       files: ['**/*.js', '**/*.cjs', '**/*.mjs'],
       languageOptions: {
         sourceType: 'script',
@@ -82,6 +84,7 @@ export function defaultConfig(options?: DefaultConfigOptions): ConfigWithExtends
       ...eslintConfigs.cjsAndEsm,
     },
     {
+      name: 'eslint-config-decent/cjs',
       files: ['**/*.js', '**/*.cjs'],
       languageOptions: {
         sourceType: 'script',
@@ -89,14 +92,17 @@ export function defaultConfig(options?: DefaultConfigOptions): ConfigWithExtends
       ...eslintConfigs.cjs,
     },
     {
+      name: 'eslint-config-decent/ts',
       files: ['**/*.ts', '**/*.tsx'],
       ...typescriptEslintConfigs.base,
     },
     {
+      name: 'eslint-config-decent/tsx',
       files: ['**/*.tsx'],
       ...reactConfigs.base,
     },
     {
+      name: 'eslint-config-decent/tests',
       files: ['**/*.tests.ts', 'tests/tests.ts'],
 
       ...mochaConfigs.base,
