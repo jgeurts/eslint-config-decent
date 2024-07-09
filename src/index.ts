@@ -35,7 +35,6 @@ export function defaultConfig(options?: DefaultConfigOptions): ConfigWithExtends
     },
     parserOptions: {
       projectService: {
-        allowDefaultProject: ['./*.{js,cjs,mjs}'],
         defaultProject: 'tsconfig.json',
       },
       tsconfigRootDir: import.meta.dirname,

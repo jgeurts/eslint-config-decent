@@ -1,5 +1,10 @@
 # Change Log
 
+## 1.2.9 - 2024-07-09
+
+- Do not include js files in default project
+- Update npms
+
 ## 1.2.8 - 2024-07-03
 
 - Try constraining typescript rules to only ts and tsx files
