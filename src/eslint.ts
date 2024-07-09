@@ -5,12 +5,7 @@ const base: ConfigWithExtends = {
     'array-callback-return': ['error', { allowImplicit: true }],
     'block-scoped-var': 'error',
     'callback-return': ['error', ['callback', 'cb', 'next', 'done']],
-    'class-methods-use-this': [
-      'error',
-      {
-        exceptMethods: [],
-      },
-    ],
+    'class-methods-use-this': 'off',
     'default-case': ['error', { commentPattern: '^no default$' }],
     'default-case-last': 'error',
     eqeqeq: ['error', 'smart'],

@@ -1,5 +1,9 @@
 # Change Log
 
+## 1.3.0 - 2024-07-09
+
+- Turn off `class-methods-use-this`
+
 ## 1.2.9 - 2024-07-09
 
 - Do not include js files in default project
