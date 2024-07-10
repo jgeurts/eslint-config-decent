@@ -10,6 +10,7 @@ const base: ConfigWithExtends = {
 
     'max-classes-per-file': 'off',
 
+    '@typescript-eslint/no-confusing-void-expression': 'off',
     '@typescript-eslint/no-empty-function': 'off',
     '@typescript-eslint/no-unsafe-member-access': 'off',
     '@typescript-eslint/no-unsafe-argument': 'off',

@@ -1,5 +1,9 @@
 # Change Log
 
+## 1.4.0 - 2024-07-10
+
+- Turn off `@typescript-eslint/no-confusing-void-expression` for tests
+
 ## 1.3.0 - 2024-07-09
 
 - Turn off `class-methods-use-this`
