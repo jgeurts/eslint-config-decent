@@ -1,5 +1,5 @@
 declare module 'eslint-plugin-unicorn' {
-  import type { ESLint } from 'eslint';
-  const value: ESLint.Plugin;
+  import type { TSESLint } from '@typescript-eslint/utils';
+  const value: TSESLint.FlatConfig.Plugin;
   export default value;
 }

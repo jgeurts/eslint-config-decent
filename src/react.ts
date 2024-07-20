@@ -2,9 +2,9 @@ import a11y from 'eslint-plugin-jsx-a11y';
 import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
 import testingLibrary from 'eslint-plugin-testing-library';
-import type { ConfigWithExtends } from 'typescript-eslint';
+import type { TSESLint } from '@typescript-eslint/utils';
 
-const base: ConfigWithExtends = {
+const base: TSESLint.FlatConfig.Config = {
   plugins: {
     'jsx-a11y': a11y,
     react,

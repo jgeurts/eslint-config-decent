@@ -1,6 +1,6 @@
-import type { ConfigWithExtends } from 'typescript-eslint';
+import type { TSESLint } from '@typescript-eslint/utils';
 
-const base: ConfigWithExtends = {
+const base: TSESLint.FlatConfig.Config = {
   rules: {
     'array-callback-return': ['error', { allowImplicit: true }],
     'block-scoped-var': 'error',
@@ -201,7 +201,7 @@ const base: ConfigWithExtends = {
   },
 };
 
-const cjsAndEsm: ConfigWithExtends = {
+const cjsAndEsm: TSESLint.FlatConfig.Config = {
   rules: {
     curly: ['error', 'multi-line'],
     'dot-notation': ['error', { allowKeywords: true }],
@@ -236,7 +236,7 @@ const cjsAndEsm: ConfigWithExtends = {
   },
 };
 
-const cjs: ConfigWithExtends = {
+const cjs: TSESLint.FlatConfig.Config = {
   rules: {
     strict: ['error', 'global'],
   },

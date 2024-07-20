@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-decent",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "A decent ESLint configuration",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
@@ -72,31 +72,32 @@
     "node": ">=20.11.0"
   },
   "dependencies": {
-    "@eslint/js": "^9.6.0",
+    "@eslint/js": "^9.7.0",
+    "@typescript-eslint/utils": "8.0.0-alpha.46",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-jsdoc": "^48.7.0",
     "eslint-plugin-mocha": "^10.4.3",
-    "eslint-plugin-prettier": "^5.1.3",
+    "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-promise": "^6.4.0",
     "eslint-plugin-jsx-a11y": "^6.9.0",
-    "eslint-plugin-react": "^7.34.3",
+    "eslint-plugin-react": "^7.34.4",
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-security": "^3.0.1",
     "eslint-plugin-testing-library": "^6.2.2",
     "eslint-plugin-unicorn": "^54.0.0",
     "globals": "^15.8.0",
-    "typescript-eslint": "8.0.0-alpha.41"
+    "typescript-eslint": "8.0.0-alpha.46"
   },
   "devDependencies": {
-    "@swc/core": "1.6.13",
+    "@swc/core": "1.7.0",
     "@types/node": ">=20",
-    "eslint": "^9.6.0",
-    "husky": "^9.0.11",
+    "eslint": "^9.7.0",
+    "husky": "^9.1.1",
     "lint-staged": "^15.2.7",
     "markdownlint-cli": "^0.41.0",
     "npm-run-all": "^4.1.5",
     "pinst": "^3.0.0",
-    "prettier": "^3.3.2",
+    "prettier": "^3.3.3",
     "typescript": "^5.5.3",
     "unbuild": "2.0.0"
   },

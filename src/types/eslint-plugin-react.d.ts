@@ -1,8 +1,8 @@
 declare module 'eslint-plugin-react' {
-  import type { ESLint, Linter } from 'eslint';
-  const value: ESLint.Plugin & {
+  import type { TSESLint } from '@typescript-eslint/utils';
+  const value: TSESLint.FlatConfig.Plugin & {
     configs: {
-      recommended: Linter.FlatConfig;
+      recommended: TSESLint.FlatConfig.Config;
     };
   };
   export default value;

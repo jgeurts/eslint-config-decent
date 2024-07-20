@@ -1,5 +1,10 @@
 # Change Log
 
+## 1.4.2 - 2024-07-19
+
+- Update npms
+- Use types from @typescript-eslint/utils
+
 ## 1.4.1 - 2024-07-10
 
 - Update npms

@@ -1,34 +1,41 @@
 import { existsSync } from 'fs';
 import { dirname, resolve } from 'path';
-import type { Rule } from 'eslint';
+import type { TSESTree } from '@typescript-eslint/utils';
+import { ESLintUtils } from '@typescript-eslint/utils';
 
-export const requireExtensionRule: Rule.RuleModule = {
+type Options = [];
+type MessageIds = 'requireExtension';
+
+export const requireExtensionRule = ESLintUtils.RuleCreator(() => 'https://github.com/jgeurts/eslint-config-decent/tree/main/src/rules/requireExtensionRule.ts')<Options, MessageIds>({
+  name: 'require-extension',
   meta: {
     type: 'suggestion',
     docs: {
       description: 'Ensure import and export statements include a file extension',
-      category: 'Best Practices',
-      recommended: true,
     },
     fixable: 'code',
     schema: [],
+    messages: {
+      requireExtension: 'Relative imports and exports must include a file extension.',
+    },
   },
-  create(context: Rule.RuleContext) {
-    function checkSource(source: Parameters<NonNullable<Rule.NodeListener['ImportDeclaration']>>[0]['source']): void {
-      const importPath = source.value as string;
+  defaultOptions: [],
+  create(context) {
+    function checkSource(source: TSESTree.StringLiteral): void {
+      const importPath = source.value;
 
       if (!importPath || !importPath.startsWith('.') || importPath.endsWith('.js')) {
         return;
       }
 
-      const resolvedPath = resolve(dirname(context.filename), importPath);
+      const resolvedPath = resolve(dirname(context.getFilename()), importPath);
 
       // If the import/export path doesn't end with a file extension, report an error
       // eslint-disable-next-line security/detect-non-literal-fs-filename
       if (!existsSync(resolvedPath)) {
         context.report({
           node: source,
-          message: 'Relative imports and exports must include a file extension.',
+          messageId: 'requireExtension',
           fix(fixer) {
             const fixedPath = `${importPath}.js`;
             return fixer.replaceText(source, `'${fixedPath}'`);
@@ -38,17 +45,17 @@ export const requireExtensionRule: Rule.RuleModule = {
     }
 
     return {
-      ImportDeclaration(node: Parameters<NonNullable<Rule.NodeListener['ImportDeclaration']>>[0]): void {
+      ImportDeclaration(node: TSESTree.ImportDeclaration): void {
         checkSource(node.source);
       },
-      ExportNamedDeclaration(node: Parameters<NonNullable<Rule.NodeListener['ExportNamedDeclaration']>>[0]): void {
+      ExportNamedDeclaration(node: TSESTree.ExportNamedDeclaration): void {
         if (node.source) {
           checkSource(node.source);
         }
       },
-      ExportAllDeclaration(node: Parameters<NonNullable<Rule.NodeListener['ExportAllDeclaration']>>[0]): void {
+      ExportAllDeclaration(node: TSESTree.ExportAllDeclaration): void {
         checkSource(node.source);
       },
     };
   },
-};
+});

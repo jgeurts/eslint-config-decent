@@ -1,7 +1,7 @@
 import jsdoc from 'eslint-plugin-jsdoc';
-import type { ConfigWithExtends } from 'typescript-eslint';
+import type { TSESLint } from '@typescript-eslint/utils';
 
-const base: ConfigWithExtends = {
+const base: TSESLint.FlatConfig.Config = {
   settings: {
     jsdoc: {
       preferredTypes: {
@@ -14,6 +14,7 @@ const base: ConfigWithExtends = {
     },
   },
   plugins: {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     jsdoc,
   },
   rules: {
