@@ -1,9 +1,11 @@
 import eslint from '@eslint/js';
+import prettier from 'eslint-plugin-prettier/recommended';
 import globals from 'globals';
 import tsEslint, { type ConfigWithExtends } from 'typescript-eslint';
-import prettier from 'eslint-plugin-prettier/recommended';
+
 import { configs as eslintConfigs } from './eslint.js';
 import { configs as extensionConfigs } from './extension.js';
+import { configs as importConfigs } from './import.js';
 import { configs as jsdocConfigs } from './jsdoc.js';
 import { configs as mochaConfigs } from './mocha.js';
 import { configs as promiseConfigs } from './promise.js';
@@ -14,6 +16,7 @@ import { configs as unicornConfigs } from './unicorn.js';
 
 export {
   eslintConfigs, //
+  importConfigs,
   jsdocConfigs,
   promiseConfigs,
   reactConfigs,
@@ -76,6 +79,7 @@ export function defaultConfig(options?: DefaultConfigOptions): ConfigWithExtends
       files: ['**/*.ts', '**/*.js', '**/*.cjs', '**/*.mjs', '**/*.tsx'],
       plugins: {
         ...extensionConfigs.base.plugins,
+        ...importConfigs.base.plugins,
         ...jsdocConfigs.base.plugins,
         ...promiseConfigs.base.plugins,
         ...securityConfigs.base.plugins,
@@ -84,6 +88,7 @@ export function defaultConfig(options?: DefaultConfigOptions): ConfigWithExtends
       rules: {
         ...eslintConfigs.base.rules,
         ...(enableRequireExtensionRule ? extensionConfigs.base.rules : {}),
+        ...importConfigs.base.rules,
         ...jsdocConfigs.base.rules,
         ...promiseConfigs.base.rules,
         ...securityConfigs.base.rules,

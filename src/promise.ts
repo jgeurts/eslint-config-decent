@@ -1,5 +1,5 @@
-import promise from 'eslint-plugin-promise';
 import type { TSESLint } from '@typescript-eslint/utils';
+import promise from 'eslint-plugin-promise';
 
 const base: TSESLint.FlatConfig.Config = {
   plugins: {

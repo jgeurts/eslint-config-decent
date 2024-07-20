@@ -194,6 +194,14 @@ const base: TSESLint.FlatConfig.Config = {
       },
     ],
     'prefer-template': 'error',
+    'sort-imports': [
+      'error',
+      {
+        ignoreCase: true,
+        ignoreDeclarationSort: true,
+        allowSeparatedGroups: true,
+      },
+    ],
     'symbol-description': 'error',
     'unicode-bom': ['error', 'never'],
     'vars-on-top': 'error',

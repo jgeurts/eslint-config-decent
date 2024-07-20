@@ -1,5 +1,9 @@
 # Change Log
 
+## 1.5.0 - 2024-07-19
+
+- Enable `sort-imports` and `import/order`
+
 ## 1.4.2 - 2024-07-19
 
 - Update npms

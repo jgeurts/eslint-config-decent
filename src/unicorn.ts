@@ -1,5 +1,5 @@
-import unicorn from 'eslint-plugin-unicorn';
 import type { TSESLint } from '@typescript-eslint/utils';
+import unicorn from 'eslint-plugin-unicorn';
 
 const base: TSESLint.FlatConfig.Config = {
   plugins: {
