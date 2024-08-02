@@ -56,18 +56,10 @@ export function defaultConfig(options?: DefaultConfigOptions): ConfigWithExtends
         ...tsEslint.configs.base.languageOptions,
       },
     },
-    ...tsEslint.configs.strictTypeChecked.map((config) => {
-      return {
-        ...config,
-        files: ['**/*.ts', '**/*.tsx'],
-      };
-    }),
-    ...tsEslint.configs.stylisticTypeChecked.map((config) => {
-      return {
-        ...config,
-        files: ['**/*.ts', '**/*.tsx'],
-      };
-    }),
+    {
+      files: ['**/*.ts', '**/*.tsx'],
+      extends: [...tsEslint.configs.strictTypeChecked, ...tsEslint.configs.stylisticTypeChecked],
+    },
     {
       languageOptions,
       settings: {
@@ -126,6 +118,11 @@ export function defaultConfig(options?: DefaultConfigOptions): ConfigWithExtends
       files: ['**/*.tests.ts', 'tests/tests.ts'],
 
       ...mochaConfigs.base,
+    },
+    {
+      name: 'eslint-config-decent/cjs-and-esm-disable-ts-rules',
+      files: ['**/*.js', '**/*.cjs', '**/*.mjs'],
+      extends: [tsEslint.configs.disableTypeChecked],
     },
     prettier,
   ];
