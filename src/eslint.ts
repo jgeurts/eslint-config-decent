@@ -23,7 +23,7 @@ const base: TSESLint.FlatConfig.Config = {
     'id-length': [
       'error',
       {
-        exceptions: ['_', '$', 'e', 'i', 'j', 'k', 'q', 'x', 'y'],
+        exceptions: ['_', '$', 'e', 'i', 'j', 'k', 'q', 't', 'x', 'y'],
       },
     ],
     'lines-around-directive': [

@@ -1,5 +1,9 @@
 # Change Log
 
+## 2.0.3 - 2024-08-02
+
+- Add exception for `t` for `id-length`, to account for i18next helper function.
+
 ## 2.0.2 - 2024-08-02
 
 - Fix testing-library rule compatibility with eslint 9
