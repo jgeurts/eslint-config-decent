@@ -56,7 +56,19 @@ export default [
     rules: {
       '@typescript-eslint/no-confusing-void-expression': 'off',
     },
-  }
+  },
+];
+```
+
+## Use typescript-eslint config
+
+```mjs
+// eslint.config.mjs
+
+import { tsEslintConfig } from 'eslint-config-decent';
+import tsEslint from 'typescript-eslint';
+
+export default tsEslint(...tsEslintConfig());
 ```
 
 ## License

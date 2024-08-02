@@ -1,5 +1,10 @@
 # Change Log
 
+## 2.0.1 - 2024-08-02
+
+- Add documentation for `tsEslint()`
+- Deprecate `defaultConfig`
+
 ## 2.0.0 - 2024-08-02
 
 - Export `config()` so that projects do not need to wrap the output of this project with `tsEslint.config()`. This is now the preferred way to consume this config library.

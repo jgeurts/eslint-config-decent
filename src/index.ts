@@ -32,11 +32,16 @@ export interface DefaultConfigOptions {
 }
 
 /**
+ * @deprecated Use `tsEslintConfig` instead
+ */
+export const defaultConfig = tsEslintConfig;
+
+/**
  * Exports the default configuration to be passed to `tsEslint.config`. Use this if you want more control of typescript-eslint configuration output.
  * @param {DefaultConfigOptions} options
  * @returns Array of typescript-eslint configurations
  */
-export function defaultConfig(options?: DefaultConfigOptions): ConfigWithExtends[] {
+export function tsEslintConfig(options?: DefaultConfigOptions): ConfigWithExtends[] {
   const enableRequireExtensionRule = options?.enableRequireExtensionRule ?? true;
   const languageOptions: ConfigWithExtends['languageOptions'] = {
     globals: {
@@ -140,5 +145,5 @@ export function defaultConfig(options?: DefaultConfigOptions): ConfigWithExtends
  * @returns An array of eslint configurations
  */
 export function config(options?: DefaultConfigOptions): TSESLint.FlatConfig.ConfigArray {
-  return tsEslint.config(...defaultConfig(options));
+  return tsEslint.config(...tsEslintConfig(options));
 }
