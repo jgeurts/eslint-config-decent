@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-decent",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "A decent ESLint configuration",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
@@ -72,6 +72,7 @@
     "node": ">=20.11.0"
   },
   "dependencies": {
+    "@eslint/compat": "1.1.1",
     "@eslint/js": "^9.8.0",
     "@typescript-eslint/utils": "8.0.0",
     "eslint-config-prettier": "^9.1.0",

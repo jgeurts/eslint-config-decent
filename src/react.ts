@@ -1,3 +1,4 @@
+import { fixupPluginRules } from '@eslint/compat';
 import type { TSESLint } from '@typescript-eslint/utils';
 import a11y from 'eslint-plugin-jsx-a11y';
 import react from 'eslint-plugin-react';
@@ -9,7 +10,7 @@ const base: TSESLint.FlatConfig.Config = {
     'jsx-a11y': a11y,
     react,
     'react-hooks': reactHooks,
-    'testing-library': testingLibrary,
+    'testing-library': fixupPluginRules(testingLibrary) as typeof testingLibrary,
   },
   rules: {
     ...a11y.configs.recommended.rules,

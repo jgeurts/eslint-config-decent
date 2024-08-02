@@ -1,5 +1,9 @@
 # Change Log
 
+## 2.0.2 - 2024-08-02
+
+- Fix testing-library rule compatibility with eslint 9
+
 ## 2.0.1 - 2024-08-02
 
 - Add documentation for `tsEslint()`
