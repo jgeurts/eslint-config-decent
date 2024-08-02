@@ -1,5 +1,9 @@
 # Change Log
 
+## 1.6.0 - 2024-08-02
+
+- Update npms (support typescript-eslint 8.0.0)
+
 ## 1.5.0 - 2024-07-19
 
 - Enable `sort-imports` and `import/order`
