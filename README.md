@@ -17,19 +17,22 @@ export default tsEslint.config(...defaultConfig());
 
 ## Override parserOptions
 
-````mjs
+```mjs
 // eslint.config.mjs
 
 import { defaultConfig } from 'eslint-config-decent';
 import tsEslint from 'typescript-eslint';
 
-export default tsEslint.config(...defaultConfig({
-  projectService: {
-    allowDefaultProject: ['./*.{js,cjs,mjs}'],
-    defaultProject: 'tsconfig.json',
-  },
-  tsconfigRootDir: import.meta.dirname,
-}));
+export default tsEslint.config(
+  ...defaultConfig({
+    projectService: {
+      allowDefaultProject: ['./*.{js,cjs,mjs}'],
+      defaultProject: 'tsconfig.json',
+    },
+    tsconfigRootDir: import.meta.dirname,
+  }),
+);
+```
 
 ## Disable require-extensions rules
 
@@ -39,10 +42,12 @@ export default tsEslint.config(...defaultConfig({
 import { defaultConfig } from 'eslint-config-decent';
 import tsEslint from 'typescript-eslint';
 
-export default tsEslint.config(...defaultConfig({
-  enableRequireExtensions: false,
-}));
-````
+export default tsEslint.config(
+  ...defaultConfig({
+    enableRequireExtensions: false,
+  }),
+);
+```
 
 ## License
 
