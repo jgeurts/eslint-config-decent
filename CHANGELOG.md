@@ -1,8 +1,12 @@
 # Change Log
 
+## 2.0.0 - 2024-08-02
+
+- Export `config()` so that projects do not need to wrap the output of this project with `tsEslint.config()`. This is now the preferred way to consume this config library.
+
 ## 1.6.0 - 2024-08-02
 
-- Update npms (support typescript-eslint 8.0.0)
+- Update npms (Specifically, support typescript-eslint 8.0.0)
 
 ## 1.5.0 - 2024-07-19
 

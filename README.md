@@ -9,10 +9,9 @@ A decent ESLint configuration for TypeScript projects.
 ```mjs
 // eslint.config.mjs
 
-import { defaultConfig } from 'eslint-config-decent';
-import tsEslint from 'typescript-eslint';
+import { config } from 'eslint-config-decent';
 
-export default tsEslint.config(...defaultConfig());
+export default config();
 ```
 
 ## Override parserOptions
@@ -20,18 +19,15 @@ export default tsEslint.config(...defaultConfig());
 ```mjs
 // eslint.config.mjs
 
-import { defaultConfig } from 'eslint-config-decent';
-import tsEslint from 'typescript-eslint';
+import { config } from 'eslint-config-decent';
 
-export default tsEslint.config(
-  ...defaultConfig({
-    projectService: {
-      allowDefaultProject: ['./*.{js,cjs,mjs}'],
-      defaultProject: 'tsconfig.json',
-    },
-    tsconfigRootDir: import.meta.dirname,
-  }),
-);
+export default config({
+  projectService: {
+    allowDefaultProject: ['./*.{js,cjs,mjs}'],
+    defaultProject: 'tsconfig.json',
+  },
+  tsconfigRootDir: import.meta.dirname,
+});
 ```
 
 ## Disable require-extensions rules
@@ -39,14 +35,28 @@ export default tsEslint.config(
 ```mjs
 // eslint.config.mjs
 
-import { defaultConfig } from 'eslint-config-decent';
-import tsEslint from 'typescript-eslint';
+import { config } from 'eslint-config-decent';
 
-export default tsEslint.config(
-  ...defaultConfig({
-    enableRequireExtensions: false,
-  }),
-);
+export default config({
+  enableRequireExtensions: false,
+});
+```
+
+## Override a rule
+
+```mjs
+// eslint.config.mjs
+
+import { config } from 'eslint-config-decent';
+
+export default [
+  ...config(),
+  {
+    files: ['**/*.ts'],
+    rules: {
+      '@typescript-eslint/no-confusing-void-expression': 'off',
+    },
+  }
 ```
 
 ## License

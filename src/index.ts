@@ -1,4 +1,5 @@
 import eslint from '@eslint/js';
+import type { TSESLint } from '@typescript-eslint/utils';
 import prettier from 'eslint-plugin-prettier/recommended';
 import globals from 'globals';
 import tsEslint, { type ConfigWithExtends } from 'typescript-eslint';
@@ -30,6 +31,11 @@ export interface DefaultConfigOptions {
   enableRequireExtensionRule?: boolean;
 }
 
+/**
+ * Exports the default configuration to be passed to `tsEslint.config`. Use this if you want more control of typescript-eslint configuration output.
+ * @param {DefaultConfigOptions} options
+ * @returns Array of typescript-eslint configurations
+ */
 export function defaultConfig(options?: DefaultConfigOptions): ConfigWithExtends[] {
   const enableRequireExtensionRule = options?.enableRequireExtensionRule ?? true;
   const languageOptions: ConfigWithExtends['languageOptions'] = {
@@ -126,4 +132,13 @@ export function defaultConfig(options?: DefaultConfigOptions): ConfigWithExtends
     },
     prettier,
   ];
+}
+
+/**
+ * Exports eslint configurations. Use this if you do not need to explicitly import typescript-eslint in your project.
+ * @param options
+ * @returns An array of eslint configurations
+ */
+export function config(options?: DefaultConfigOptions): TSESLint.FlatConfig.ConfigArray {
+  return tsEslint.config(...defaultConfig(options));
 }
