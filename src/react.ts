@@ -6,10 +6,18 @@ import reactHooks from 'eslint-plugin-react-hooks';
 import testingLibrary from 'eslint-plugin-testing-library';
 
 const base: TSESLint.FlatConfig.Config = {
+  settings: {
+    react: {
+      version: 'detect',
+    },
+  },
+  languageOptions: {
+    ...react.configs['jsx-runtime'].languageOptions,
+  },
   plugins: {
     'jsx-a11y': a11y,
     react,
-    'react-hooks': reactHooks,
+    'react-hooks': fixupPluginRules(reactHooks) as typeof reactHooks,
     'testing-library': fixupPluginRules(testingLibrary) as typeof testingLibrary,
   },
   rules: {
@@ -20,6 +28,7 @@ const base: TSESLint.FlatConfig.Config = {
     'jsx-a11y/role-has-required-aria-props': 'error',
 
     ...react.configs.recommended.rules,
+    ...react.configs['jsx-runtime'].rules,
     'react/default-props-match-prop-types': 'error',
     'react/display-name': ['error', { ignoreTranspilerName: false }],
     'react/forbid-foreign-prop-types': ['error', { allowInPropTypes: true }],

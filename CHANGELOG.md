@@ -1,5 +1,11 @@
 # Change Log
 
+## 2.0.4 - 2024-08-03
+
+- Fix react-hooks rule compatibility with eslint 9
+- Add setting to auto-detect react version for react-hooks plugin
+- Include JSX runtime language options
+
 ## 2.0.3 - 2024-08-02
 
 - Add exception for `t` for `id-length`, to account for i18next helper function.
