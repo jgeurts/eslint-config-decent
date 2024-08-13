@@ -1,5 +1,11 @@
 # Change Log
 
+## 2.1.0 - 2024-08-13
+
+- Add rules for jest, jest-dom, and testing-library
+- Add options to disable jest, mocha, react, and testing library rules
+- Update npms
+
 ## 2.0.4 - 2024-08-03
 
 - Fix react-hooks rule compatibility with eslint 9

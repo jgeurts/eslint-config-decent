@@ -7,21 +7,27 @@ import tsEslint, { type ConfigWithExtends } from 'typescript-eslint';
 import { configs as eslintConfigs } from './eslint.js';
 import { configs as extensionConfigs } from './extension.js';
 import { configs as importConfigs } from './import.js';
+import { configs as jestConfigs } from './jest.js';
 import { configs as jsdocConfigs } from './jsdoc.js';
 import { configs as mochaConfigs } from './mocha.js';
 import { configs as promiseConfigs } from './promise.js';
 import { configs as reactConfigs } from './react.js';
 import { configs as securityConfigs } from './security.js';
+import { configs as testingLibraryConfigs } from './testingLibrary.js';
 import { configs as typescriptEslintConfigs } from './typescriptEslint.js';
 import { configs as unicornConfigs } from './unicorn.js';
 
 export {
   eslintConfigs, //
+  extensionConfigs,
   importConfigs,
+  jestConfigs,
   jsdocConfigs,
+  mochaConfigs,
   promiseConfigs,
   reactConfigs,
   securityConfigs,
+  testingLibraryConfigs,
   typescriptEslintConfigs,
   unicornConfigs,
 };
@@ -29,6 +35,10 @@ export {
 export interface DefaultConfigOptions {
   parserOptions?: NonNullable<ConfigWithExtends['languageOptions']>['parserOptions'];
   enableRequireExtensionRule?: boolean;
+  enableJest?: boolean;
+  enableMocha?: boolean;
+  enableReact?: boolean;
+  enableTestingLibrary?: boolean;
 }
 
 /**
@@ -43,6 +53,10 @@ export const defaultConfig = tsEslintConfig;
  */
 export function tsEslintConfig(options?: DefaultConfigOptions): ConfigWithExtends[] {
   const enableRequireExtensionRule = options?.enableRequireExtensionRule ?? true;
+  const enableJest = options?.enableJest ?? true;
+  const enableMocha = options?.enableMocha ?? true;
+  const enableReact = options?.enableReact ?? true;
+  const enableTestingLibrary = options?.enableTestingLibrary ?? true;
   const languageOptions: ConfigWithExtends['languageOptions'] = {
     globals: {
       ...globals.node,
@@ -103,11 +117,15 @@ export function tsEslintConfig(options?: DefaultConfigOptions): ConfigWithExtend
       files: ['**/*.ts', '**/*.tsx'],
       ...typescriptEslintConfigs.base,
     },
-    {
-      name: 'eslint-config-decent/tsx',
-      files: ['**/*.tsx'],
-      ...reactConfigs.base,
-    },
+    ...(enableReact
+      ? [
+          {
+            name: 'eslint-config-decent/tsx',
+            files: ['**/*.tsx'],
+            ...reactConfigs.base,
+          },
+        ]
+      : []),
     {
       name: 'eslint-config-decent/cjs-and-esm',
       files: ['**/*.js', '**/*.cjs', '**/*.mjs'],
@@ -124,12 +142,36 @@ export function tsEslintConfig(options?: DefaultConfigOptions): ConfigWithExtend
       },
       ...eslintConfigs.cjs,
     },
-    {
-      name: 'eslint-config-decent/tests',
-      files: ['**/*.tests.ts', 'tests/tests.ts'],
+    ...(enableMocha
+      ? [
+          {
+            name: 'eslint-config-decent/mocha-tests',
+            files: ['**/*.tests.ts', 'tests/tests.ts'],
 
-      ...mochaConfigs.base,
-    },
+            ...mochaConfigs.base,
+          },
+        ]
+      : []),
+    ...(enableJest
+      ? [
+          {
+            name: 'eslint-config-decent/jest-tests',
+            files: ['**/__tests__/**/*.ts?(x)', '**/*.{spec,test}.ts?(x)'],
+
+            ...jestConfigs.base,
+          },
+        ]
+      : []),
+    ...(enableTestingLibrary
+      ? [
+          {
+            name: 'eslint-config-decent/testing-library',
+            files: ['**/__tests__/**/*.ts?(x)', '**/*.{spec,test}.ts?(x)'],
+
+            ...testingLibraryConfigs.base,
+          },
+        ]
+      : []),
     {
       name: 'eslint-config-decent/cjs-and-esm-disable-ts-rules',
       files: ['**/*.js', '**/*.cjs', '**/*.mjs'],

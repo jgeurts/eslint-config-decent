@@ -3,7 +3,6 @@ import type { TSESLint } from '@typescript-eslint/utils';
 import a11y from 'eslint-plugin-jsx-a11y';
 import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
-import testingLibrary from 'eslint-plugin-testing-library';
 
 const base: TSESLint.FlatConfig.Config = {
   settings: {
@@ -18,7 +17,6 @@ const base: TSESLint.FlatConfig.Config = {
     'jsx-a11y': a11y,
     react,
     'react-hooks': fixupPluginRules(reactHooks) as typeof reactHooks,
-    'testing-library': fixupPluginRules(testingLibrary) as typeof testingLibrary,
   },
   rules: {
     ...a11y.configs.recommended.rules,
@@ -73,8 +71,6 @@ const base: TSESLint.FlatConfig.Config = {
 
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'error',
-
-    ...testingLibrary.configs.react.rules,
   },
 };
 
