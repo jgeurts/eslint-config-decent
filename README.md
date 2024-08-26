@@ -11,7 +11,9 @@ A decent ESLint configuration for TypeScript projects.
 
 import { config } from 'eslint-config-decent';
 
-export default config();
+export default config({
+  tsconfigRootDir: import.meta.dirname,
+});
 ```
 
 ## Override parserOptions
@@ -22,11 +24,12 @@ export default config();
 import { config } from 'eslint-config-decent';
 
 export default config({
-  projectService: {
-    allowDefaultProject: ['./*.{js,cjs,mjs}'],
-    defaultProject: 'tsconfig.json',
+  parserOptions: {
+    projectService: {
+      defaultProject: 'tsconfig.json',
+    },
+    tsconfigRootDir: import.meta.dirname,
   },
-  tsconfigRootDir: import.meta.dirname,
 });
 ```
 
@@ -39,6 +42,7 @@ import { config } from 'eslint-config-decent';
 
 export default config({
   enableRequireExtensions: false,
+  tsconfigRootDir: import.meta.dirname,
 });
 ```
 
@@ -50,7 +54,9 @@ export default config({
 import { config } from 'eslint-config-decent';
 
 export default [
-  ...config(),
+  ...config({
+    tsconfigRootDir: import.meta.dirname,
+  }),
   {
     files: ['**/*.ts'],
     rules: {
@@ -68,7 +74,11 @@ export default [
 import { tsEslintConfig } from 'eslint-config-decent';
 import tsEslint from 'typescript-eslint';
 
-export default tsEslint(...tsEslintConfig());
+export default tsEslint(
+  ...tsEslintConfig({
+    tsconfigRootDir: import.meta.dirname,
+  }),
+);
 ```
 
 ## License

@@ -29,7 +29,7 @@ export const requireExtensionRule = ESLintUtils.RuleCreator(() => 'https://githu
         return;
       }
 
-      const resolvedPath = resolve(dirname(context.getFilename()), importPath);
+      const resolvedPath = resolve(dirname(context.filename), importPath);
 
       // If the import/export path doesn't end with a file extension, report an error
       // eslint-disable-next-line security/detect-non-literal-fs-filename

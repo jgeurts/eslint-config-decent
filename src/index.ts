@@ -34,6 +34,7 @@ export {
 
 export interface DefaultConfigOptions {
   parserOptions?: NonNullable<ConfigWithExtends['languageOptions']>['parserOptions'];
+  tsconfigRootDir?: string;
   enableRequireExtensionRule?: boolean;
   enableJest?: boolean;
   enableMocha?: boolean;
@@ -65,7 +66,7 @@ export function tsEslintConfig(options?: DefaultConfigOptions): ConfigWithExtend
       projectService: {
         defaultProject: 'tsconfig.json',
       },
-      tsconfigRootDir: import.meta.dirname,
+      tsconfigRootDir: options?.tsconfigRootDir ?? import.meta.dirname,
       ...options?.parserOptions,
     },
   };

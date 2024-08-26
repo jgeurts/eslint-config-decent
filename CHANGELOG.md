@@ -1,5 +1,10 @@
 # Change Log
 
+## 2.2.0 - 2024-08-26
+
+- Update npms
+- Support specifying only tsconfigRootDir and updated example usage accordingly.
+
 ## 2.1.0 - 2024-08-13
 
 - Add rules for jest, jest-dom, and testing-library
