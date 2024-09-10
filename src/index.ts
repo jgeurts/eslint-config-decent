@@ -71,7 +71,6 @@ export function tsEslintConfig(options?: DefaultConfigOptions): ConfigWithExtend
     },
   };
 
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-return
   return [
     {
       ignores: ['**/dist/**', '**/node_modules/**'],

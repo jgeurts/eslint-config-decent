@@ -1,3 +1,4 @@
+import type { FixupPluginDefinition } from '@eslint/compat';
 import { fixupPluginRules } from '@eslint/compat';
 import type { TSESLint } from '@typescript-eslint/utils';
 import a11y from 'eslint-plugin-jsx-a11y';
@@ -16,7 +17,7 @@ const base: TSESLint.FlatConfig.Config = {
   plugins: {
     'jsx-a11y': a11y,
     react,
-    'react-hooks': fixupPluginRules(reactHooks) as typeof reactHooks,
+    'react-hooks': fixupPluginRules(reactHooks as FixupPluginDefinition) as typeof reactHooks,
   },
   rules: {
     ...a11y.configs.recommended.rules,

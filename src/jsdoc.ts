@@ -14,7 +14,6 @@ const base: TSESLint.FlatConfig.Config = {
     },
   },
   plugins: {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     jsdoc,
   },
   rules: {

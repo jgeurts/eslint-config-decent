@@ -1,10 +1,11 @@
+import type { FixupPluginDefinition } from '@eslint/compat';
 import { fixupPluginRules } from '@eslint/compat';
 import type { TSESLint } from '@typescript-eslint/utils';
 import testingLibrary from 'eslint-plugin-testing-library';
 
 const base: TSESLint.FlatConfig.Config = {
   plugins: {
-    'testing-library': fixupPluginRules(testingLibrary) as typeof testingLibrary,
+    'testing-library': fixupPluginRules(testingLibrary as FixupPluginDefinition) as typeof testingLibrary,
   },
   rules: {
     ...testingLibrary.configs['flat/react'].rules,
