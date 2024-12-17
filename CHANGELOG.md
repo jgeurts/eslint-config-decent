@@ -1,5 +1,10 @@
 # Change Log
 
+## 2.3.0 - 2024-12-17
+
+- Update npms
+- Enable unicorn/prefer-node-protocol
+
 ## 2.2.3 - 2024-11-29
 
 - Update npms

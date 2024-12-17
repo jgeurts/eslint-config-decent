@@ -1,5 +1,5 @@
-import { existsSync, lstatSync } from 'fs';
-import { dirname, resolve } from 'path';
+import { existsSync, lstatSync } from 'node:fs';
+import { dirname, resolve } from 'node:path';
 
 import type { TSESTree } from '@typescript-eslint/utils';
 import { ESLintUtils } from '@typescript-eslint/utils';
