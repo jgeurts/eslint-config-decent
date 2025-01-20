@@ -9,6 +9,7 @@ const base: TSESLint.FlatConfig.Config = {
   settings: {
     react: {
       version: 'detect',
+      runtime: 'automatic',
     },
   },
   languageOptions: {
