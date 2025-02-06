@@ -1,5 +1,10 @@
 # Change Log
 
+## 2.4.1 - 2024-02-06
+
+- Update npms
+- Disable @typescript-eslint/explicit-function-return-type for tsx files
+
 ## 2.4.0 - 2024-01-20
 
 - Update npms

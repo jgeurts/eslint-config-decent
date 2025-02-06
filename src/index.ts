@@ -118,13 +118,20 @@ export function tsEslintConfig(options?: DefaultConfigOptions): ConfigWithExtend
       ...typescriptEslintConfigs.base,
     },
     ...(enableReact
-      ? [
+      ? ([
           {
             name: 'eslint-config-decent/tsx',
             files: ['**/*.tsx'],
             ...reactConfigs.base,
           },
-        ]
+          {
+            name: 'eslint-config-decent/tsx-disable-ts-rules',
+            files: ['**/*.tsx'],
+            rules: {
+              '@typescript-eslint/explicit-function-return-type': 'off',
+            },
+          },
+        ] as TSESLint.FlatConfig.Config[])
       : []),
     {
       name: 'eslint-config-decent/cjs-and-esm',
@@ -163,14 +170,21 @@ export function tsEslintConfig(options?: DefaultConfigOptions): ConfigWithExtend
         ]
       : []),
     ...(enableTestingLibrary
-      ? [
+      ? ([
           {
             name: 'eslint-config-decent/testing-library',
-            files: ['**/__tests__/**/*.ts?(x)', '**/*.{spec,test}.ts?(x)'],
+            files: ['**/__tests__/**/*.ts?(x)', '**/*.{spec,test,tests}.ts?(x)'],
 
             ...testingLibraryConfigs.base,
           },
-        ]
+          {
+            name: 'eslint-config-decent/testing-library-disable-ts-rules',
+            files: ['**/__tests__/**/*.ts?(x)', '**/*.{spec,test,tests}.ts?(x)'],
+            rules: {
+              '@typescript-eslint/explicit-function-return-type': 'off',
+            },
+          },
+        ] as TSESLint.FlatConfig.Config[])
       : []),
     {
       name: 'eslint-config-decent/cjs-and-esm-disable-ts-rules',
