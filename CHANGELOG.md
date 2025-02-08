@@ -1,5 +1,10 @@
 # Change Log
 
+## 2.4.3 - 2024-02-08
+
+- Update npms
+- Disable callback-return. ESLint has deprecated that rule
+
 ## 2.4.2 - 2024-02-06
 
 - Update npms

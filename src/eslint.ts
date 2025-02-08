@@ -4,7 +4,7 @@ const base: TSESLint.FlatConfig.Config = {
   rules: {
     'array-callback-return': ['error', { allowImplicit: true }],
     'block-scoped-var': 'error',
-    'callback-return': ['error', ['callback', 'cb', 'next', 'done']],
+    'callback-return': 'off',
     'class-methods-use-this': 'off',
     'default-case': ['error', { commentPattern: '^no default$' }],
     'default-case-last': 'error',
