@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-decent",
-  "version": "2.4.3",
+  "version": "2.5.0",
   "description": "A decent ESLint configuration",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
@@ -25,7 +25,7 @@
   "scripts": {
     "build": "unbuild",
     "test": "tsc --noEmit --skipLibCheck",
-    "lint:markdown": "prettier --cache --write '*.md' '!(node_modules|dist)/**/*.md' && markdownlint '*.md' '!(node_modules|dist)/**/*.md' --config=.github/linters/.markdown-lint.yml --fix",
+    "lint:markdown": "prettier --cache --write '*.md' '!**/(node_modules|dist)/**/*.md' && markdownlint '*.md' '!**/(node_modules|dist)/**/*.md' --config=.github/linters/.markdown-lint.yml --fix",
     "lint:code": "eslint --fix",
     "prelint": "npm run build",
     "lint": "run-p lint:*",
@@ -74,7 +74,8 @@
   "dependencies": {
     "@eslint/compat": "1.2.6",
     "@eslint/js": "9.20.0",
-    "@typescript-eslint/utils": "8.23.0",
+    "@typescript-eslint/utils": "8.24.0",
+    "@next/eslint-plugin-next": "^15.1.7",
     "eslint-config-prettier": "10.0.1",
     "eslint-plugin-import-x": "4.6.1",
     "eslint-plugin-jest": "28.11.0",
@@ -90,7 +91,7 @@
     "eslint-plugin-testing-library": "7.1.1",
     "eslint-plugin-unicorn": "56.0.1",
     "globals": "15.14.0",
-    "typescript-eslint": "8.23.0"
+    "typescript-eslint": "8.24.0"
   },
   "devDependencies": {
     "@swc/core": "^1.10.15",
@@ -101,7 +102,7 @@
     "markdownlint-cli": "^0.44.0",
     "npm-run-all": "^4.1.5",
     "pinst": "^3.0.0",
-    "prettier": "^3.4.2",
+    "prettier": "3.4.2",
     "typescript": "^5.7.3",
     "unbuild": "3.3.1"
   },

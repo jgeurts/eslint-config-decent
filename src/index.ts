@@ -10,6 +10,7 @@ import { configs as importConfigs } from './import.js';
 import { configs as jestConfigs } from './jest.js';
 import { configs as jsdocConfigs } from './jsdoc.js';
 import { configs as mochaConfigs } from './mocha.js';
+import { configs as nextJsConfigs } from './nextjs.js';
 import { configs as promiseConfigs } from './promise.js';
 import { configs as reactConfigs } from './react.js';
 import { configs as securityConfigs } from './security.js';
@@ -26,6 +27,7 @@ export {
   mochaConfigs,
   promiseConfigs,
   reactConfigs,
+  nextJsConfigs,
   securityConfigs,
   testingLibraryConfigs,
   typescriptEslintConfigs,
@@ -39,6 +41,8 @@ export interface DefaultConfigOptions {
   enableJest?: boolean;
   enableMocha?: boolean;
   enableReact?: boolean;
+  enableNextJs?: boolean;
+  nextJsRootDir?: string;
   enableTestingLibrary?: boolean;
 }
 
@@ -57,6 +61,7 @@ export function tsEslintConfig(options?: DefaultConfigOptions): ConfigWithExtend
   const enableJest = options?.enableJest ?? true;
   const enableMocha = options?.enableMocha ?? true;
   const enableReact = options?.enableReact ?? true;
+  const enableNextJs = options?.enableNextJs ?? false;
   const enableTestingLibrary = options?.enableTestingLibrary ?? true;
   const languageOptions: ConfigWithExtends['languageOptions'] = {
     globals: {
@@ -132,6 +137,20 @@ export function tsEslintConfig(options?: DefaultConfigOptions): ConfigWithExtend
             },
           },
         ] as TSESLint.FlatConfig.Config[])
+      : []),
+    ...(enableNextJs
+      ? [
+          {
+            name: 'eslint-config-decent/nextjs',
+            files: ['**/*.tsx'],
+            settings: {
+              next: {
+                rootDir: options?.nextJsRootDir,
+              },
+            },
+            ...nextJsConfigs.base,
+          },
+        ]
       : []),
     {
       name: 'eslint-config-decent/cjs-and-esm',

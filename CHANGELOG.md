@@ -1,5 +1,10 @@
 # Change Log
 
+## 2.5.0 - 2024-02-10
+
+- Add Next.js rules
+- Update npms
+
 ## 2.4.3 - 2024-02-08
 
 - Update npms
