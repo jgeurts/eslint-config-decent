@@ -1,5 +1,11 @@
 # Change Log
 
+## 2.6.0 - 2024-02-21
+
+- Add stylistic rules
+- Fix jsdoc rules
+- Update npms
+
 ## 2.5.0 - 2024-02-10
 
 - Add Next.js rules

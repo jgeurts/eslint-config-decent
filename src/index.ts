@@ -14,6 +14,7 @@ import { configs as nextJsConfigs } from './nextjs.js';
 import { configs as promiseConfigs } from './promise.js';
 import { configs as reactConfigs } from './react.js';
 import { configs as securityConfigs } from './security.js';
+import { configs as stylisticConfigs } from './stylistic.js';
 import { configs as testingLibraryConfigs } from './testingLibrary.js';
 import { configs as typescriptEslintConfigs } from './typescriptEslint.js';
 import { configs as unicornConfigs } from './unicorn.js';
@@ -206,17 +207,31 @@ export function tsEslintConfig(options?: DefaultConfigOptions): ConfigWithExtend
         ] as TSESLint.FlatConfig.Config[])
       : []),
     {
+      ...stylisticConfigs.base,
+      name: 'eslint-config-decent/stylistic',
+      files: ['**/*.ts', '**/*.js', '**/*.cjs', '**/*.mjs', '**/*.tsx'],
+    },
+    {
       name: 'eslint-config-decent/cjs-and-esm-disable-ts-rules',
       files: ['**/*.js', '**/*.cjs', '**/*.mjs'],
       extends: [tsEslint.configs.disableTypeChecked],
     },
-    prettier,
+    {
+      ...prettier,
+      rules: {
+        ...prettier.rules,
+        curly: ['error', 'all'],
+        'prettier/prettier': 'error',
+        'arrow-body-style': 'off',
+        'prefer-arrow-callback': 'off',
+      },
+    },
   ];
 }
 
 /**
  * Exports eslint configurations. Use this if you do not need to explicitly import typescript-eslint in your project.
- * @param options
+ * @param {object} options
  * @returns An array of eslint configurations
  */
 export function config(options?: DefaultConfigOptions): TSESLint.FlatConfig.ConfigArray {

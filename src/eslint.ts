@@ -65,7 +65,6 @@ const base: TSESLint.FlatConfig.Config = {
     'no-labels': ['error', { allowLoop: false, allowSwitch: false }],
     'no-lone-blocks': 'error',
     'no-lonely-if': 'error',
-    'no-mixed-spaces-and-tabs': 'error',
     'no-multi-assign': ['error'],
     'no-multi-str': 'error',
     'no-negated-condition': 'error',
@@ -139,44 +138,6 @@ const base: TSESLint.FlatConfig.Config = {
     'no-useless-concat': 'error',
     'no-useless-rename': 'error',
     'no-useless-return': 'error',
-    'padding-line-between-statements': [
-      'error',
-      {
-        blankLine: 'always',
-        prev: ['directive', 'block', 'block-like', 'multiline-block-like', 'cjs-export', 'cjs-import', 'class', 'export', 'import', 'if'],
-        next: '*',
-      },
-      {
-        blankLine: 'never',
-        prev: 'directive',
-        next: 'directive',
-      },
-      {
-        blankLine: 'any',
-        prev: '*',
-        next: ['if', 'for', 'cjs-import', 'import'],
-      },
-      {
-        blankLine: 'any',
-        prev: ['export', 'import'],
-        next: ['export', 'import'],
-      },
-      {
-        blankLine: 'always',
-        prev: '*',
-        next: ['try', 'function', 'switch'],
-      },
-      {
-        blankLine: 'always',
-        prev: 'if',
-        next: 'if',
-      },
-      {
-        blankLine: 'never',
-        prev: ['return', 'throw'],
-        next: '*',
-      },
-    ],
     'prefer-const': [
       'error',
       {
@@ -213,9 +174,7 @@ const cjsAndEsm: TSESLint.FlatConfig.Config = {
   rules: {
     curly: ['error', 'multi-line'],
     'dot-notation': ['error', { allowKeywords: true }],
-    'dot-location': ['error', 'property'],
     'getter-return': ['error', { allowImplicit: true }],
-    'lines-between-class-members': ['error', 'always', { exceptAfterSingleLine: false }],
     'no-array-constructor': 'error',
     'no-empty-function': [
       'error',
@@ -240,7 +199,6 @@ const cjsAndEsm: TSESLint.FlatConfig.Config = {
       },
     ],
     'prefer-promise-reject-errors': ['error', { allowEmptyReject: true }],
-    'wrap-iife': ['error', 'outside', { functionPrototypeMethods: false }],
   },
 };
 
