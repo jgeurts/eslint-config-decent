@@ -1,5 +1,9 @@
 # Change Log
 
+## 2.6.1 - 2024-03-10
+
+- Update npms
+
 ## 2.6.0 - 2024-02-21
 
 - Add stylistic rules
