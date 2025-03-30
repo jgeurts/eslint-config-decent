@@ -15,6 +15,15 @@ const base: TSESLint.FlatConfig.Config = {
       },
     ],
     '@typescript-eslint/consistent-type-imports': 'error',
+    '@typescript-eslint/ban-ts-comment': [
+      'error',
+      {
+        minimumDescriptionLength: 10,
+        'ts-expect-error': {
+          descriptionFormat: '^ - [^ ].*$',
+        },
+      },
+    ],
     '@typescript-eslint/default-param-last': 'error',
     '@typescript-eslint/explicit-function-return-type': 'error',
     '@typescript-eslint/explicit-member-accessibility': 'error',
