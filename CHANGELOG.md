@@ -1,5 +1,10 @@
 # Change Log
 
+## 2.6.3 - 2024-03-30
+
+- Update npms
+- Enforce ts-expect-error description format
+
 ## 2.6.2 - 2024-03-18
 
 - Update npms
