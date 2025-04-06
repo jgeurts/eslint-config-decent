@@ -10,5 +10,9 @@
       matchDepTypes: ['peerDependencies'],
       enabled: false,
     },
+    {
+      matchDepTypes: ['engines'],
+      rangeStrategy: 'replace',
+    },
   ],
 }
