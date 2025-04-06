@@ -12,7 +12,7 @@ The title of your PR should match the following format:
 
 - **docs** - Documentation changes only
 - **feat** - Any new functionality additions
-- **fix** - Bug fixes that don't add new functionality
+- **fix** - Bugfixes that don't add new functionality
 - **test** - Test changes only
 - **chore** - Anything else
 
