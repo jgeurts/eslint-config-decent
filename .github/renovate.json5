@@ -5,6 +5,8 @@
   timezone: 'America/Chicago',
   labels: ['dependencies'],
   rangeStrategy: 'pin',
+  automerge: true,
+  automergeType: 'pr',
   packageRules: [
     {
       matchDepTypes: ['peerDependencies'],
