@@ -23,7 +23,6 @@ export default {
       '@semantic-release/changelog',
       {
         changelogFile: 'CHANGELOG.md',
-        changelogTitle: '# Change Log\n\n',
       },
     ],
     '@semantic-release/npm',
