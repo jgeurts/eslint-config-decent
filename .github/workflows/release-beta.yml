@@ -1,4 +1,4 @@
-name: Release
+name: Release (Beta)
 
 on:
   workflow_dispatch:
@@ -20,7 +20,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          ref: main
+          ref: beta
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
