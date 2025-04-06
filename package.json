@@ -40,16 +40,10 @@
       "prettier --write --cache",
       "markdownlint --config=.github/linters/.markdown-lint.yml --fix"
     ],
-    "*.js": [
-      "eslint --fix"
+    "*.json5": [
+      "prettier --write"
     ],
-    "*.cjs": [
-      "eslint --fix"
-    ],
-    "*.mjs": [
-      "eslint --fix"
-    ],
-    "*.ts": [
+    "*.{js,cjs,mjs,ts}": [
       "eslint --fix"
     ]
   },

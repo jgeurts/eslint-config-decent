@@ -1,0 +1,14 @@
+{
+  $schema: 'https://docs.renovatebot.com/renovate-schema.json',
+  extends: ['config:recommended', 'group:all'],
+  enabledManagers: ['github-actions', 'npm'],
+  timezone: 'America/Chicago',
+  labels: ['dependencies'],
+  rangeStrategy: 'pin',
+  packageRules: [
+    {
+      matchDepTypes: ['peerDependencies'],
+      enabled: false,
+    },
+  ],
+}
