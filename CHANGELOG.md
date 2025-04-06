@@ -1,3 +1,12 @@
+## [2.6.4](https://github.com/jgeurts/eslint-config-decent/compare/v2.6.3...v2.6.4) (2025-04-06)
+
+### Bug Fixes
+
+- **deps:** update all dependencies ([#2](https://github.com/jgeurts/eslint-config-decent/issues/2)) ([880ff65](https://github.com/jgeurts/eslint-config-decent/commit/880ff65fd1b76de02c8d3df0951af967eed88dc9))
+- Ignore markdown formatting issues for changelog ([b09ae66](https://github.com/jgeurts/eslint-config-decent/commit/b09ae66391714caab18ffae5d0fc5a05aa818611))
+- Permissions for semantic pr action ([1a340b4](https://github.com/jgeurts/eslint-config-decent/commit/1a340b40cc187ff3ff5b1b31b912de1177790958))
+- Set correct npm token variable name ([42c1c85](https://github.com/jgeurts/eslint-config-decent/commit/42c1c855a3aaacc70ea0e442acb0b04f0e998019))
+
 # 2.6.3 - 2024-03-30
 
 - Update npms
