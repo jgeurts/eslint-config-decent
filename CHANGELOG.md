@@ -1,3 +1,17 @@
+## [2.6.6](https://github.com/jgeurts/eslint-config-decent/compare/v2.6.5...v2.6.6) (2025-04-15)
+
+### Bug Fixes
+
+- **deps:** update all dependencies to v8.30.0 ([#15](https://github.com/jgeurts/eslint-config-decent/issues/15)) ([9b8a0ca](https://github.com/jgeurts/eslint-config-decent/commit/9b8a0ca6390b4abf821d1457313493d1bc1bbd8f))
+- **deps:** update all dependencies to v8.30.1 ([#16](https://github.com/jgeurts/eslint-config-decent/issues/16)) ([6217d53](https://github.com/jgeurts/eslint-config-decent/commit/6217d539a443c08024ff14cd9774075b367ce764))
+- **deps:** update dependency @next/eslint-plugin-next to v15.2.5 ([#8](https://github.com/jgeurts/eslint-config-decent/issues/8)) ([a752d56](https://github.com/jgeurts/eslint-config-decent/commit/a752d5645c5756ff446df88086612ad8b396f159))
+- **deps:** update dependency @next/eslint-plugin-next to v15.3.0 ([#9](https://github.com/jgeurts/eslint-config-decent/issues/9)) ([5d9a51a](https://github.com/jgeurts/eslint-config-decent/commit/5d9a51ac83a333bb62f6dd3bd48a9484fbdf1d02))
+- **deps:** update dependency eslint-config-prettier to v10.1.2 ([#10](https://github.com/jgeurts/eslint-config-decent/issues/10)) ([2aeefe9](https://github.com/jgeurts/eslint-config-decent/commit/2aeefe9856471f6b4aedc7f0dae75201db4bb601))
+- **deps:** update dependency eslint-plugin-import-x to v4.10.3 ([#13](https://github.com/jgeurts/eslint-config-decent/issues/13)) ([74cb749](https://github.com/jgeurts/eslint-config-decent/commit/74cb74968d6cc93a879923357f678bab0d712188))
+- **deps:** update dependency eslint-plugin-import-x to v4.10.4 ([#17](https://github.com/jgeurts/eslint-config-decent/issues/17)) ([2d9dd10](https://github.com/jgeurts/eslint-config-decent/commit/2d9dd1012b8949c564c42e94bbf2da85d0a0a410))
+- **deps:** update dependency eslint-plugin-import-x to v4.10.5 ([#18](https://github.com/jgeurts/eslint-config-decent/issues/18)) ([64a3e23](https://github.com/jgeurts/eslint-config-decent/commit/64a3e23b82339c50826955e3cfe256ac88600dbe))
+- include optional scope for commit pattern ([#19](https://github.com/jgeurts/eslint-config-decent/issues/19)) ([df9bff2](https://github.com/jgeurts/eslint-config-decent/commit/df9bff2f493d898cddfd5a94aeb633681f38cad9))
+
 ## [2.6.5](https://github.com/jgeurts/eslint-config-decent/compare/v2.6.4...v2.6.5) (2025-04-07)
 
 ### Bug Fixes
