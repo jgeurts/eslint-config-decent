@@ -34,6 +34,24 @@
 
 - Add vitest rules ([#35](https://github.com/jgeurts/eslint-config-decent/issues/35)) ([141bda3](https://github.com/jgeurts/eslint-config-decent/commit/141bda30d0ee0aa1e75e9d959c4474fdb607eb14))
 
+# [2.7.0](https://github.com/jgeurts/eslint-config-decent/compare/v2.6.7...v2.7.0) (2025-05-05)
+
+### Bug Fixes
+
+- **deps:** update all dependencies ([#24](https://github.com/jgeurts/eslint-config-decent/issues/24)) ([b15e012](https://github.com/jgeurts/eslint-config-decent/commit/b15e012caeeb659fd870dfc5a7cd53766129f4ea))
+- **deps:** update all dependencies ([#25](https://github.com/jgeurts/eslint-config-decent/issues/25)) ([1d92ccc](https://github.com/jgeurts/eslint-config-decent/commit/1d92ccc0d4310803b1c601fc36ce4db35de63e72))
+- **deps:** update all dependencies ([#31](https://github.com/jgeurts/eslint-config-decent/issues/31)) ([17c86f9](https://github.com/jgeurts/eslint-config-decent/commit/17c86f9a775f0375cd98b2bfe57d68a308a75307))
+- **deps:** update all dependencies to v8.31.1 ([#28](https://github.com/jgeurts/eslint-config-decent/issues/28)) ([da32285](https://github.com/jgeurts/eslint-config-decent/commit/da3228536693e3290933c9477856b751d35907a1))
+- **deps:** update dependency @eslint/compat to v1.2.9 ([#30](https://github.com/jgeurts/eslint-config-decent/issues/30)) ([3e23dac](https://github.com/jgeurts/eslint-config-decent/commit/3e23dace66d8ad0b866c41267327bab26469dd7e))
+- **deps:** update dependency eslint-plugin-mocha to v11 ([#26](https://github.com/jgeurts/eslint-config-decent/issues/26)) ([28e3fad](https://github.com/jgeurts/eslint-config-decent/commit/28e3fadd940344da6562167ad4a8930f4a0a39fb))
+- **deps:** update dependency eslint-plugin-prettier to v5.3.1 ([#32](https://github.com/jgeurts/eslint-config-decent/issues/32)) ([a0a4c2f](https://github.com/jgeurts/eslint-config-decent/commit/a0a4c2f1f8a194c05feac4a0738602f3206f414e))
+- **deps:** update dependency eslint-plugin-prettier to v5.4.0 ([#33](https://github.com/jgeurts/eslint-config-decent/issues/33)) ([7375ebe](https://github.com/jgeurts/eslint-config-decent/commit/7375ebe42706f275e182e707e1a8139c6d09b220))
+- **deps:** update dependency eslint-plugin-unicorn to v59 ([#27](https://github.com/jgeurts/eslint-config-decent/issues/27)) ([f3f53a0](https://github.com/jgeurts/eslint-config-decent/commit/f3f53a0b83cdd97c01163409ae59ebab301d05fa))
+
+### Features
+
+- Add vitest rules ([#35](https://github.com/jgeurts/eslint-config-decent/issues/35)) ([141bda3](https://github.com/jgeurts/eslint-config-decent/commit/141bda30d0ee0aa1e75e9d959c4474fdb607eb14))
+
 ## [2.6.7](https://github.com/jgeurts/eslint-config-decent/compare/v2.6.6...v2.6.7) (2025-04-22)
 
 ### Bug Fixes
