@@ -18,6 +18,7 @@ import { configs as stylisticConfigs } from './stylistic.js';
 import { configs as testingLibraryConfigs } from './testingLibrary.js';
 import { configs as typescriptEslintConfigs } from './typescriptEslint.js';
 import { configs as unicornConfigs } from './unicorn.js';
+import { configs as vitestConfigs } from './vitest.js';
 
 export {
   eslintConfigs, //
@@ -33,6 +34,7 @@ export {
   testingLibraryConfigs,
   typescriptEslintConfigs,
   unicornConfigs,
+  vitestConfigs,
 };
 
 export interface DefaultConfigOptions {
@@ -40,6 +42,7 @@ export interface DefaultConfigOptions {
   tsconfigRootDir?: string;
   enableRequireExtensionRule?: boolean;
   enableJest?: boolean;
+  enableVitest?: boolean;
   enableMocha?: boolean;
   enableReact?: boolean;
   enableNextJs?: boolean;
@@ -60,6 +63,7 @@ export const defaultConfig = tsEslintConfig;
 export function tsEslintConfig(options?: DefaultConfigOptions): ConfigWithExtends[] {
   const enableRequireExtensionRule = options?.enableRequireExtensionRule ?? true;
   const enableJest = options?.enableJest ?? true;
+  const enableVitest = options?.enableVitest ?? true;
   const enableMocha = options?.enableMocha ?? true;
   const enableReact = options?.enableReact ?? true;
   const enableNextJs = options?.enableNextJs ?? false;
@@ -186,6 +190,16 @@ export function tsEslintConfig(options?: DefaultConfigOptions): ConfigWithExtend
             files: ['**/__tests__/**/*.ts?(x)', '**/*.{spec,test}.ts?(x)'],
 
             ...jestConfigs.base,
+          },
+        ]
+      : []),
+    ...(enableVitest
+      ? [
+          {
+            name: 'eslint-config-decent/vitest-tests',
+            files: ['**/__tests__/**/*.ts?(x)', '**/*.{spec,test}.ts?(x)'],
+
+            ...vitestConfigs.base,
           },
         ]
       : []),
