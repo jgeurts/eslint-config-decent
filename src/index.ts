@@ -135,6 +135,19 @@ export function tsEslintConfig(options?: DefaultConfigOptions): ConfigWithExtend
             ...reactConfigs.base,
           },
           {
+            name: 'eslint-config-decent/tsx-components',
+            files: ['**/components/**/*.tsx'],
+            rules: {
+              'import/no-default-export': 'error',
+              'unicorn/filename-case': [
+                'error',
+                {
+                  case: 'pascalCase',
+                },
+              ],
+            },
+          },
+          {
             name: 'eslint-config-decent/tsx-disable-ts-rules',
             files: ['**/*.tsx'],
             rules: {
