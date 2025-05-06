@@ -1,3 +1,14 @@
+# [2.8.0](https://github.com/jgeurts/eslint-config-decent/compare/v2.7.1...v2.8.0) (2025-05-06)
+
+### Bug Fixes
+
+- **deps:** update all dependencies ([#39](https://github.com/jgeurts/eslint-config-decent/issues/39)) ([822217c](https://github.com/jgeurts/eslint-config-decent/commit/822217c31e891cdd1d4f46beb36a074a7e57fe5a))
+- **deps:** update all dependencies to v8.32.0 ([#38](https://github.com/jgeurts/eslint-config-decent/issues/38)) ([cf6a5bb](https://github.com/jgeurts/eslint-config-decent/commit/cf6a5bbdfcb47f3a930d9ab2d214804a64675ba2))
+
+### Features
+
+- Add rules for jsx components (no-default-export and filename-case) ([ce1ea0f](https://github.com/jgeurts/eslint-config-decent/commit/ce1ea0f1dac0de169cec8efc6405ec0ff77a2cb0))
+
 ## [2.7.1](https://github.com/jgeurts/eslint-config-decent/compare/v2.7.0...v2.7.1) (2025-05-05)
 
 # [2.7.0](https://github.com/jgeurts/eslint-config-decent/compare/v2.6.7...v2.7.0) (2025-05-05)
