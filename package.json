@@ -71,7 +71,7 @@
     "@next/eslint-plugin-next": "15.3.2",
     "@stylistic/eslint-plugin": "4.2.0",
     "@typescript-eslint/utils": "8.32.1",
-    "@vitest/eslint-plugin": "1.2.0",
+    "@vitest/eslint-plugin": "1.2.1",
     "eslint-config-prettier": "10.1.5",
     "eslint-plugin-import-x": "4.12.2",
     "eslint-plugin-jest": "28.11.0",
@@ -105,7 +105,7 @@
     "npm-run-all2": "8.0.3",
     "pinst": "3.0.0",
     "prettier": "3.5.3",
-    "semantic-release": "24.2.4",
+    "semantic-release": "24.2.5",
     "typescript": "5.8.3",
     "unbuild": "3.5.0"
   },
