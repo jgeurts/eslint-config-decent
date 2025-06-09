@@ -1,3 +1,18 @@
+## [2.8.2](https://github.com/jgeurts/eslint-config-decent/compare/v2.8.1...v2.8.2) (2025-06-09)
+
+### Bug Fixes
+
+- **deps:** update all dependencies ([#59](https://github.com/jgeurts/eslint-config-decent/issues/59)) ([408440a](https://github.com/jgeurts/eslint-config-decent/commit/408440a0a7d0022cfc3d317fa2b0773dab6f6725))
+- **deps:** update all dependencies ([#61](https://github.com/jgeurts/eslint-config-decent/issues/61)) ([2358f20](https://github.com/jgeurts/eslint-config-decent/commit/2358f20191ba2c15307ca1085e25ab5390b9722d))
+- **deps:** update all dependencies ([#66](https://github.com/jgeurts/eslint-config-decent/issues/66)) ([19a5e3b](https://github.com/jgeurts/eslint-config-decent/commit/19a5e3bd7a87c3f55fe7506df9cd3e0032c5cef0))
+- **deps:** update all dependencies to v8.33.1 ([#64](https://github.com/jgeurts/eslint-config-decent/issues/64)) ([14d4a35](https://github.com/jgeurts/eslint-config-decent/commit/14d4a35993d122cb0daa6398cbc546415df85b15))
+- **deps:** update dependency @stylistic/eslint-plugin to v4.4.1 ([#65](https://github.com/jgeurts/eslint-config-decent/issues/65)) ([293ca67](https://github.com/jgeurts/eslint-config-decent/commit/293ca67f5e4ea34e48688fa106ad6c51bf9adb95))
+- **deps:** update dependency eslint-plugin-jest to v28.13.0 ([#67](https://github.com/jgeurts/eslint-config-decent/issues/67)) ([dc9ab1f](https://github.com/jgeurts/eslint-config-decent/commit/dc9ab1f6c55233e00d7cab467ad0d38b77f41694))
+- **deps:** update dependency eslint-plugin-jsdoc to v50.7.0 ([#62](https://github.com/jgeurts/eslint-config-decent/issues/62)) ([7dfa84f](https://github.com/jgeurts/eslint-config-decent/commit/7dfa84fb0bb7fc62e70143277c629217fb893bb2))
+- **deps:** update dependency eslint-plugin-jsdoc to v50.7.1 ([#63](https://github.com/jgeurts/eslint-config-decent/issues/63)) ([9ae7cbb](https://github.com/jgeurts/eslint-config-decent/commit/9ae7cbbf1d1aafbe54ffc712c3eb0b017f6b57c4))
+- **deps:** update dependency eslint-plugin-prettier to v5.4.1 ([#60](https://github.com/jgeurts/eslint-config-decent/issues/60)) ([bc55a22](https://github.com/jgeurts/eslint-config-decent/commit/bc55a229848b8aad4b13b2f7120467b2239a29fb))
+- **deps:** update dependency eslint-plugin-testing-library to v7.5.0 ([#68](https://github.com/jgeurts/eslint-config-decent/issues/68)) ([9f06d5b](https://github.com/jgeurts/eslint-config-decent/commit/9f06d5b3221fb431dba7bedf8769278828ed0223))
+
 ## [2.8.1](https://github.com/jgeurts/eslint-config-decent/compare/v2.8.0...v2.8.1) (2025-05-29)
 
 ### Bug Fixes
