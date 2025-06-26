@@ -20,4 +20,9 @@
       rangeStrategy: 'replace',
     },
   ],
+  postUpgradeTasks: {
+    commands: ['npm ci', 'npm run lint'],
+    fileFilters: ['**/*.{ts,cjs,mjs,md,yml,json5}'],
+    executionMode: 'branch',
+  },
 }
