@@ -20,10 +20,4 @@
       rangeStrategy: 'replace',
     },
   ],
-  allowedPostUpgradeCommands: ['^npm ci$', '^npm run lint$'],
-  postUpgradeTasks: {
-    commands: ['npm ci', 'npm run lint'],
-    fileFilters: ['**/*.{ts,cjs,mjs,md,yml,json5}'],
-    executionMode: 'branch',
-  },
 }
