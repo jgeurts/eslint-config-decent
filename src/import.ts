@@ -12,6 +12,7 @@ const base: TSESLint.FlatConfig.Config = {
         'newlines-between': 'always',
         alphabetize: { order: 'asc', caseInsensitive: true },
         pathGroupsExcludedImportTypes: ['builtin'],
+        groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
       },
     ],
   },
