@@ -1,3 +1,9 @@
+## [2.8.27](https://github.com/jgeurts/eslint-config-decent/compare/v2.8.26...v2.8.27) (2025-06-29)
+
+### Bug Fixes
+
+- **deps:** update dependency @stylistic/eslint-plugin to v5.1.0 ([#90](https://github.com/jgeurts/eslint-config-decent/issues/90)) ([801b729](https://github.com/jgeurts/eslint-config-decent/commit/801b729a368f696865bf5f9dee245f11a3c702b4))
+
 ## [2.8.26](https://github.com/jgeurts/eslint-config-decent/compare/v2.8.25...v2.8.26) (2025-06-28)
 
 ### Bug Fixes
