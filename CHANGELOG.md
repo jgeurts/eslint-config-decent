@@ -1,3 +1,9 @@
+## [2.8.37](https://github.com/jgeurts/eslint-config-decent/compare/v2.8.36...v2.8.37) (2025-07-08)
+
+### Bug Fixes
+
+- **deps:** update all dependencies ([#100](https://github.com/jgeurts/eslint-config-decent/issues/100)) ([eaf96fa](https://github.com/jgeurts/eslint-config-decent/commit/eaf96fa13fe700a584fcd9c0cd6cd610305b5a29))
+
 ## [2.8.36](https://github.com/jgeurts/eslint-config-decent/compare/v2.8.35...v2.8.36) (2025-07-07)
 
 ## [2.8.35](https://github.com/jgeurts/eslint-config-decent/compare/v2.8.34...v2.8.35) (2025-07-04)
