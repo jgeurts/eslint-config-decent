@@ -96,7 +96,7 @@
     "@semantic-release/github": "11.0.3",
     "@semantic-release/npm": "12.0.2",
     "@semantic-release/release-notes-generator": "14.0.3",
-    "@swc/core": "1.12.9",
+    "@swc/core": "1.12.11",
     "@types/node": ">=22",
     "eslint": "9.30.1",
     "husky": "9.1.7",
