@@ -1,3 +1,9 @@
+## [2.8.39](https://github.com/jgeurts/eslint-config-decent/compare/v2.8.38...v2.8.39) (2025-07-10)
+
+### Bug Fixes
+
+- **deps:** update dependency eslint-plugin-testing-library to v7.5.4 ([#102](https://github.com/jgeurts/eslint-config-decent/issues/102)) ([b283d19](https://github.com/jgeurts/eslint-config-decent/commit/b283d19d6b1085e8943b76eb16f0f4ce050fb308))
+
 ## [2.8.38](https://github.com/jgeurts/eslint-config-decent/compare/v2.8.37...v2.8.38) (2025-07-08)
 
 ## [2.8.37](https://github.com/jgeurts/eslint-config-decent/compare/v2.8.36...v2.8.37) (2025-07-08)
