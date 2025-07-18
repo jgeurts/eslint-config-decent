@@ -1,3 +1,5 @@
+## [2.8.44](https://github.com/jgeurts/eslint-config-decent/compare/v2.8.43...v2.8.44) (2025-07-18)
+
 ## [2.8.43](https://github.com/jgeurts/eslint-config-decent/compare/v2.8.42...v2.8.43) (2025-07-16)
 
 ### Bug Fixes
