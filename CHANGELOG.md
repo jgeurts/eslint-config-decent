@@ -1,3 +1,5 @@
+## [2.8.47](https://github.com/jgeurts/eslint-config-decent/compare/v2.8.46...v2.8.47) (2025-07-21)
+
 ## [2.8.46](https://github.com/jgeurts/eslint-config-decent/compare/v2.8.45...v2.8.46) (2025-07-20)
 
 ## [2.8.45](https://github.com/jgeurts/eslint-config-decent/compare/v2.8.44...v2.8.45) (2025-07-19)
