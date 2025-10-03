@@ -1,3 +1,9 @@
+## [3.0.1](https://github.com/jgeurts/eslint-config-decent/compare/v3.0.0...v3.0.1) (2025-10-03)
+
+### Bug Fixes
+
+- **deps:** update dependency eslint-plugin-react-hooks to v6.1.1 ([#128](https://github.com/jgeurts/eslint-config-decent/issues/128)) ([33dd69b](https://github.com/jgeurts/eslint-config-decent/commit/33dd69b609b31092c60bf7ecea8ec2b7d36b4ba8))
+
 # [3.0.0](https://github.com/jgeurts/eslint-config-decent/compare/v2.8.64...v3.0.0) (2025-10-03)
 
 ### Features
