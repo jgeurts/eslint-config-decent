@@ -1,12 +1,12 @@
+import type { Config } from '@eslint/config-helpers';
 import stylistic from '@stylistic/eslint-plugin';
-import type { TSESLint } from '@typescript-eslint/utils';
 
 const baseStylistic = stylistic.configs.customize({
   braceStyle: '1tbs',
   jsx: true,
 });
 
-const base: TSESLint.FlatConfig.Config = {
+const base: Config = {
   ...baseStylistic,
   rules: {
     ...stylistic.configs['disable-legacy'].rules,

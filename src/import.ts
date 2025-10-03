@@ -1,9 +1,9 @@
-import type { TSESLint } from '@typescript-eslint/utils';
+import type { Config, Plugin } from '@eslint/config-helpers';
 import importPlugin from 'eslint-plugin-import-x';
 
-const base: TSESLint.FlatConfig.Config = {
+const base: Config = {
   plugins: {
-    import: importPlugin,
+    import: importPlugin as unknown as Plugin,
   },
   rules: {
     'import/order': [

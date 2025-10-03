@@ -1,9 +1,9 @@
 declare module 'eslint-plugin-mocha' {
-  import type { TSESLint } from '@typescript-eslint/utils';
+  import type { Config, Plugin } from '@eslint/config-helpers';
 
-  const value: TSESLint.FlatConfig.Plugin & {
+  const value: Plugin & {
     configs: {
-      recommended: TSESLint.FlatConfig.Config;
+      recommended: Config;
     };
   };
   export default value;

@@ -12,6 +12,8 @@ export default {
       {
         preset: 'angular',
         releaseRules: [
+          { breaking: true, release: 'major' },
+          { revert: true, release: 'patch' },
           { type: 'docs', release: 'patch' },
           { type: 'feat', release: 'minor' },
           { type: 'fix', release: 'patch' },
@@ -20,12 +22,22 @@ export default {
         ],
         parserOpts: {
           // eslint-disable-next-line security/detect-unsafe-regex
-          headerPattern: /^(\w+)(?:\([^)]+\))?: (.+)$/,
-          headerCorrespondence: ['type', 'subject'],
+          headerPattern: /^(\w+)(?:\(([^)]+)\))?!?: (.+)$/,
+          headerCorrespondence: ['type', 'scope', 'subject'],
         },
       },
     ],
-    '@semantic-release/release-notes-generator',
+    [
+      '@semantic-release/release-notes-generator',
+      {
+        preset: 'angular',
+        parserOpts: {
+          // eslint-disable-next-line security/detect-unsafe-regex
+          headerPattern: /^(\w+)(?:\(([^)]+)\))?!?: (.+)$/,
+          headerCorrespondence: ['type', 'scope', 'subject'],
+        },
+      },
+    ],
     [
       '@semantic-release/changelog',
       {

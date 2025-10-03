@@ -1,18 +1,14 @@
 import { existsSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 
-import type { TSESTree } from '@typescript-eslint/utils';
-import { ESLintUtils } from '@typescript-eslint/utils';
+import type { Rule } from 'eslint';
 
-type Options = [];
-type MessageIds = 'requireExtension';
-
-export const requireExtensionRule = ESLintUtils.RuleCreator(() => 'https://github.com/jgeurts/eslint-config-decent/tree/main/src/rules/requireExtensionRule.ts')<Options, MessageIds>({
-  name: 'require-extension',
+export const requireExtensionRule: Rule.RuleModule = {
   meta: {
     type: 'suggestion',
     docs: {
       description: 'Ensure import and export statements include a file extension',
+      url: 'https://github.com/jgeurts/eslint-config-decent/tree/main/src/rules/requireExtensionRule.ts',
     },
     fixable: 'code',
     schema: [],
@@ -20,9 +16,12 @@ export const requireExtensionRule = ESLintUtils.RuleCreator(() => 'https://githu
       requireExtension: 'Relative imports and exports must include a file extension.',
     },
   },
-  defaultOptions: [],
-  create(context) {
-    function checkSource(source: TSESTree.StringLiteral): void {
+  create(context: Rule.RuleContext) {
+    function checkSource(source: Rule.Node | null | undefined): void {
+      if (source?.type !== 'Literal' || typeof source.value !== 'string') {
+        return;
+      }
+
       const importPath = source.value;
 
       if (!importPath || !importPath.startsWith('.') || importPath.endsWith('.js')) {
@@ -46,17 +45,21 @@ export const requireExtensionRule = ESLintUtils.RuleCreator(() => 'https://githu
     }
 
     return {
-      ImportDeclaration(node: TSESTree.ImportDeclaration): void {
-        checkSource(node.source);
-      },
-      ExportNamedDeclaration(node: TSESTree.ExportNamedDeclaration): void {
-        if (node.source) {
-          checkSource(node.source);
+      ImportDeclaration(node: Rule.Node): void {
+        if (node.type === 'ImportDeclaration') {
+          checkSource(node.source as Rule.Node);
         }
       },
-      ExportAllDeclaration(node: TSESTree.ExportAllDeclaration): void {
-        checkSource(node.source);
+      ExportNamedDeclaration(node: Rule.Node): void {
+        if (node.type === 'ExportNamedDeclaration' && node.source) {
+          checkSource(node.source as Rule.Node);
+        }
+      },
+      ExportAllDeclaration(node: Rule.Node): void {
+        if (node.type === 'ExportAllDeclaration') {
+          checkSource(node.source as Rule.Node);
+        }
       },
     };
   },
-});
+};

@@ -1,7 +1,7 @@
-import type { TSESLint } from '@typescript-eslint/utils';
+import type { Config } from '@eslint/config-helpers';
 import mocha from 'eslint-plugin-mocha';
 
-const base: TSESLint.FlatConfig.Config = {
+const base: Config = {
   plugins: {
     mocha,
   },

@@ -1,9 +1,9 @@
-import type { TSESLint } from '@typescript-eslint/utils';
+import type { Config, Plugin } from '@eslint/config-helpers';
 import vitest from '@vitest/eslint-plugin';
 
-const base: TSESLint.FlatConfig.Config = {
+const base: Config = {
   plugins: {
-    vitest,
+    vitest: vitest as unknown as Plugin,
   },
   rules: {
     ...vitest.configs.recommended.rules,

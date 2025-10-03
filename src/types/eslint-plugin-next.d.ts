@@ -1,10 +1,10 @@
 declare module '@next/eslint-plugin-next' {
-  import type { TSESLint } from '@typescript-eslint/utils';
+  import type { Config, Plugin } from '@eslint/config-helpers';
 
-  const value: TSESLint.FlatConfig.Plugin & {
+  const value: Plugin & {
     configs: {
-      recommended: TSESLint.FlatConfig.Config;
-      'core-web-vitals': TSESLint.FlatConfig.Config;
+      recommended: Config;
+      'core-web-vitals': Config;
     };
   };
   export default value;

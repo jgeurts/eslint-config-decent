@@ -1,6 +1,6 @@
 declare module 'eslint-plugin-promise' {
-  import type { TSESLint } from '@typescript-eslint/utils';
+  import type { Plugin } from '@eslint/config-helpers';
 
-  const value: TSESLint.FlatConfig.Plugin;
+  const value: Plugin;
   export default value;
 }

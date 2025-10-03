@@ -1,8 +1,8 @@
-import type { TSESLint } from '@typescript-eslint/utils';
+import type { Config } from '@eslint/config-helpers';
 import jest from 'eslint-plugin-jest';
 import jestDom from 'eslint-plugin-jest-dom';
 
-const base: TSESLint.FlatConfig.Config = {
+const base: Config = {
   plugins: {
     jest,
     'jest-dom': jestDom,

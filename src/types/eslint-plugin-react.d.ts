@@ -1,11 +1,11 @@
 declare module 'eslint-plugin-react' {
-  import type { TSESLint } from '@typescript-eslint/utils';
+  import type { Config, Plugin } from '@eslint/config-helpers';
 
-  const value: TSESLint.FlatConfig.Plugin & {
+  const value: Plugin & {
     configs: {
-      all: TSESLint.FlatConfig.Config;
-      recommended: TSESLint.FlatConfig.Config;
-      'jsx-runtime': TSESLint.FlatConfig.Config;
+      all: Config;
+      recommended: Config;
+      'jsx-runtime': Config;
     };
   };
   export default value;

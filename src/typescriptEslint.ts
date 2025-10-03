@@ -1,6 +1,6 @@
-import type { TSESLint } from '@typescript-eslint/utils';
+import type { Config } from '@eslint/config-helpers';
 
-const base: TSESLint.FlatConfig.Config = {
+const base: Config = {
   rules: {
     'no-loss-of-precision': 'off',
     'no-loop-func': 'off',
