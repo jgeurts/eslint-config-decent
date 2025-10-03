@@ -1,8 +1,9 @@
+import type { Config, ConfigWithExtends } from '@eslint/config-helpers';
 import eslint from '@eslint/js';
-import type { TSESLint } from '@typescript-eslint/utils';
+import { defineConfig } from 'eslint/config';
 import prettier from 'eslint-plugin-prettier/recommended';
 import globals from 'globals';
-import tsEslint, { type ConfigWithExtends } from 'typescript-eslint';
+import tsEslint from 'typescript-eslint';
 
 import { configs as eslintConfigs } from './eslint.js';
 import { configs as extensionConfigs } from './extension.js';
@@ -51,16 +52,16 @@ export interface DefaultConfigOptions {
 }
 
 /**
- * @deprecated Use `tsEslintConfig` instead
- */
-export const defaultConfig = tsEslintConfig;
-
-/**
- * Exports the default configuration to be passed to `tsEslint.config`. Use this if you want more control of typescript-eslint configuration output.
+ * Exports the default configuration to be passed to `defineConfig` from eslint. Use this if you want more control of the configuration output.
  * @param {DefaultConfigOptions} options
  * @returns Array of typescript-eslint configurations
+ * @deprecated Will be removed in the future
  */
 export function tsEslintConfig(options?: DefaultConfigOptions): ConfigWithExtends[] {
+  return decentConfig(options);
+}
+
+function decentConfig(options?: DefaultConfigOptions): ConfigWithExtends[] {
   const enableRequireExtensionRule = options?.enableRequireExtensionRule ?? true;
   const enableJest = options?.enableJest ?? true;
   const enableVitest = options?.enableVitest ?? true;
@@ -77,7 +78,7 @@ export function tsEslintConfig(options?: DefaultConfigOptions): ConfigWithExtend
         defaultProject: 'tsconfig.json',
       },
       tsconfigRootDir: options?.tsconfigRootDir ?? import.meta.dirname,
-      ...options?.parserOptions,
+      ...(options?.parserOptions as Record<string, unknown> | undefined),
     },
   };
 
@@ -88,7 +89,7 @@ export function tsEslintConfig(options?: DefaultConfigOptions): ConfigWithExtend
     eslint.configs.recommended,
     {
       languageOptions: {
-        ...tsEslint.configs.base.languageOptions,
+        ...(tsEslint.configs.base as Config).languageOptions,
       },
     },
     {
@@ -154,7 +155,7 @@ export function tsEslintConfig(options?: DefaultConfigOptions): ConfigWithExtend
               '@typescript-eslint/explicit-function-return-type': 'off',
             },
           },
-        ] as TSESLint.FlatConfig.Config[])
+        ] as Config[])
       : []),
     ...(enableNextJs
       ? [
@@ -231,7 +232,7 @@ export function tsEslintConfig(options?: DefaultConfigOptions): ConfigWithExtend
               '@typescript-eslint/explicit-function-return-type': 'off',
             },
           },
-        ] as TSESLint.FlatConfig.Config[])
+        ] as Config[])
       : []),
     {
       ...stylisticConfigs.base,
@@ -261,6 +262,6 @@ export function tsEslintConfig(options?: DefaultConfigOptions): ConfigWithExtend
  * @param {object} options
  * @returns An array of eslint configurations
  */
-export function config(options?: DefaultConfigOptions): TSESLint.FlatConfig.ConfigArray {
-  return tsEslint.config(...tsEslintConfig(options));
+export function config(options?: DefaultConfigOptions): Config[] {
+  return defineConfig(...decentConfig(options));
 }

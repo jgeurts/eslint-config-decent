@@ -1,7 +1,7 @@
-import type { TSESLint } from '@typescript-eslint/utils';
+import type { Config } from '@eslint/config-helpers';
 import security from 'eslint-plugin-security';
 
-const base: TSESLint.FlatConfig.Config = {
+const base: Config = {
   plugins: {
     security,
   },

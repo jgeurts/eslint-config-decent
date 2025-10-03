@@ -66,21 +66,6 @@ export default [
 ];
 ```
 
-## Use typescript-eslint config
-
-```mjs
-// eslint.config.mjs
-
-import { tsEslintConfig } from 'eslint-config-decent';
-import tsEslint from 'typescript-eslint';
-
-export default tsEslint(
-  ...tsEslintConfig({
-    tsconfigRootDir: import.meta.dirname,
-  }),
-);
-```
-
 ## License
 
 MIT

@@ -1,28 +1,27 @@
 import { existsSync, lstatSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 
-import type { TSESTree } from '@typescript-eslint/utils';
-import { ESLintUtils } from '@typescript-eslint/utils';
+import type { Rule } from 'eslint';
 
-type Options = [];
-type MessageIds = 'requireExtension';
-
-export const requireIndexRule = ESLintUtils.RuleCreator(() => 'https://github.com/jgeurts/eslint-config-decent/tree/main/src/rules/requireIndexRule.ts')<Options, MessageIds>({
-  name: 'require-index',
+export const requireIndexRule: Rule.RuleModule = {
   meta: {
     type: 'suggestion',
     docs: {
       description: 'Ensure directory import and export statements use index.js',
+      url: 'https://github.com/jgeurts/eslint-config-decent/tree/main/src/rules/requireIndexRule.ts',
     },
     fixable: 'code',
     schema: [],
     messages: {
-      requireExtension: 'Directory imports and exports must use index.js.',
+      requireIndex: 'Directory imports and exports must use index.js.',
     },
   },
-  defaultOptions: [],
-  create(context) {
-    function checkSource(source: TSESTree.StringLiteral): void {
+  create(context: Rule.RuleContext) {
+    function checkSource(source: Rule.Node | null | undefined): void {
+      if (source?.type !== 'Literal' || typeof source.value !== 'string') {
+        return;
+      }
+
       const importPath = source.value;
 
       // Resolve the path relative to the file being linted
@@ -34,7 +33,7 @@ export const requireIndexRule = ESLintUtils.RuleCreator(() => 'https://github.co
       if (isDirectory) {
         context.report({
           node: source,
-          messageId: 'requireExtension',
+          messageId: 'requireIndex',
           fix(fixer) {
             const fixedPath = importPath.replace(/\/?$/, '/index.js');
             return fixer.replaceText(source, `'${fixedPath}'`);
@@ -44,17 +43,21 @@ export const requireIndexRule = ESLintUtils.RuleCreator(() => 'https://github.co
     }
 
     return {
-      ImportDeclaration(node: TSESTree.ImportDeclaration): void {
-        checkSource(node.source);
-      },
-      ExportNamedDeclaration(node: TSESTree.ExportNamedDeclaration): void {
-        if (node.source) {
-          checkSource(node.source);
+      ImportDeclaration(node: Rule.Node): void {
+        if (node.type === 'ImportDeclaration') {
+          checkSource(node.source as Rule.Node);
         }
       },
-      ExportAllDeclaration(node: TSESTree.ExportAllDeclaration): void {
-        checkSource(node.source);
+      ExportNamedDeclaration(node: Rule.Node): void {
+        if (node.type === 'ExportNamedDeclaration' && node.source) {
+          checkSource(node.source as Rule.Node);
+        }
+      },
+      ExportAllDeclaration(node: Rule.Node): void {
+        if (node.type === 'ExportAllDeclaration') {
+          checkSource(node.source as Rule.Node);
+        }
       },
     };
   },
-});
+};

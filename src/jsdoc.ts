@@ -1,7 +1,7 @@
-import type { TSESLint } from '@typescript-eslint/utils';
+import type { Config } from '@eslint/config-helpers';
 import jsdoc from 'eslint-plugin-jsdoc';
 
-const base: TSESLint.FlatConfig.Config = {
+const base: Config = {
   settings: {
     jsdoc: {
       preferredTypes: {

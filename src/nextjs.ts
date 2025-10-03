@@ -1,15 +1,15 @@
 import type { FixupPluginDefinition } from '@eslint/compat';
 import { fixupPluginRules } from '@eslint/compat';
+import type { Config, RuleConfig } from '@eslint/config-helpers';
 import nextJs from '@next/eslint-plugin-next';
-import type { TSESLint } from '@typescript-eslint/utils';
 
-const recommendedRules: Record<string, TSESLint.FlatConfig.RuleEntry> = {};
+const recommendedRules: Record<string, RuleConfig> = {};
 
 for (const ruleName of Object.keys({ ...nextJs.configs.recommended.rules })) {
   recommendedRules[ruleName] = 'error';
 }
 
-const base: TSESLint.FlatConfig.Config = {
+const base: Config = {
   plugins: {
     '@next/next': fixupPluginRules(nextJs as FixupPluginDefinition),
   },

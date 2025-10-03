@@ -1,9 +1,9 @@
-import type { TSESLint } from '@typescript-eslint/utils';
+import type { ConfigWithExtends } from '@eslint/config-helpers';
 
 import { requireExtensionRule } from './rules/requireExtensionRule.js';
 import { requireIndexRule } from './rules/requireIndexRule.js';
 
-const base: TSESLint.FlatConfig.Config = {
+const base: ConfigWithExtends = {
   plugins: {
     'decent-extension': {
       meta: {
