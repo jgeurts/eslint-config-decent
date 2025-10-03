@@ -1,3 +1,16 @@
+# [3.0.0](https://github.com/jgeurts/eslint-config-decent/compare/v2.8.64...v3.0.0) (2025-10-03)
+
+### Features
+
+- Migrate to native ESLint types ([caadb4c](https://github.com/jgeurts/eslint-config-decent/commit/caadb4c4157107527f5e8a51cec6df2f47be8f4e))
+
+### BREAKING CHANGES
+
+- Replace typescript-eslint types with built-in ESLint types.
+  Type signatures have changed and will require updates to user code.
+
+Specify unbuild config file to prevent bundling transitive dependencies.
+
 ## [2.8.64](https://github.com/jgeurts/eslint-config-decent/compare/v2.8.63...v2.8.64) (2025-09-22)
 
 ## [2.8.63](https://github.com/jgeurts/eslint-config-decent/compare/v2.8.62...v2.8.63) (2025-08-25)
