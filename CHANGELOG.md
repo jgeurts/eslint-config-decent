@@ -1,3 +1,9 @@
+## [3.0.9](https://github.com/jgeurts/eslint-config-decent/compare/v3.0.8...v3.0.9) (2025-10-09)
+
+### Bug Fixes
+
+- **deps:** update dependency eslint-plugin-testing-library to v7.13.1 ([#136](https://github.com/jgeurts/eslint-config-decent/issues/136)) ([fad33a6](https://github.com/jgeurts/eslint-config-decent/commit/fad33a6302a8a3af94a1107328706300edba4dd2))
+
 ## [3.0.8](https://github.com/jgeurts/eslint-config-decent/compare/v3.0.7...v3.0.8) (2025-10-09)
 
 ### Bug Fixes
