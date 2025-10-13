@@ -1,3 +1,9 @@
+# [3.1.0](https://github.com/jgeurts/eslint-config-decent/compare/v3.0.13...v3.1.0) (2025-10-13)
+
+### Features
+
+- Add recommended react-hooks rules ([ac651aa](https://github.com/jgeurts/eslint-config-decent/commit/ac651aa4ce3826119e86692d2ef4c11e2e7bb41f))
+
 ## [3.0.13](https://github.com/jgeurts/eslint-config-decent/compare/v3.0.12...v3.0.13) (2025-10-13)
 
 ## [3.0.12](https://github.com/jgeurts/eslint-config-decent/compare/v3.0.11...v3.0.12) (2025-10-12)
