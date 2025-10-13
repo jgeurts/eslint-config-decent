@@ -69,7 +69,7 @@ const base: Config = {
     'react/self-closing-comp': 'error',
     'react/style-prop-object': 'error',
 
-    ...reactHooks.configs.flat['recommended-latest'],
+    ...reactHooks.configs.flat['recommended-latest'].rules,
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'error',
   },
