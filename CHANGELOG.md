@@ -1,3 +1,9 @@
+## [3.1.16](https://github.com/jgeurts/eslint-config-decent/compare/v3.1.15...v3.1.16) (2025-10-26)
+
+### Bug Fixes
+
+- **deps:** update dependency eslint-plugin-unicorn to v62 ([#156](https://github.com/jgeurts/eslint-config-decent/issues/156)) ([5a73c2d](https://github.com/jgeurts/eslint-config-decent/commit/5a73c2d528a93f3754fd785f0f6aa8059f329eed))
+
 ## [3.1.15](https://github.com/jgeurts/eslint-config-decent/compare/v3.1.14...v3.1.15) (2025-10-25)
 
 ### Bug Fixes
