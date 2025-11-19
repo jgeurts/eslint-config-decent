@@ -1,3 +1,9 @@
+## [3.1.35](https://github.com/jgeurts/eslint-config-decent/compare/v3.1.34...v3.1.35) (2025-11-19)
+
+### Bug Fixes
+
+- **deps:** update all dependencies ([#175](https://github.com/jgeurts/eslint-config-decent/issues/175)) ([110facb](https://github.com/jgeurts/eslint-config-decent/commit/110facb8622ad3c80ba8bd9bd8abed5ba90b4f09))
+
 ## [3.1.34](https://github.com/jgeurts/eslint-config-decent/compare/v3.1.33...v3.1.34) (2025-11-18)
 
 ### Bug Fixes
