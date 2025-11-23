@@ -1,3 +1,9 @@
+## [3.1.39](https://github.com/jgeurts/eslint-config-decent/compare/v3.1.38...v3.1.39) (2025-11-23)
+
+### Bug Fixes
+
+- **deps:** update dependency eslint-plugin-jsdoc to v61.4.1 ([#179](https://github.com/jgeurts/eslint-config-decent/issues/179)) ([bcfd878](https://github.com/jgeurts/eslint-config-decent/commit/bcfd87844b0d93343e4dd78d0fe2e5aacd9a4646))
+
 ## [3.1.38](https://github.com/jgeurts/eslint-config-decent/compare/v3.1.37...v3.1.38) (2025-11-22)
 
 ### Bug Fixes
