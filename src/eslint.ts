@@ -145,7 +145,7 @@ const base: ConfigWithExtends = {
         ignoreReadBeforeAssign: true,
       },
     ],
-    'prefer-exponentiation-operator': 'error',
+    'prefer-exponentiation-operator': 'off',
     'prefer-numeric-literals': 'error',
     'prefer-object-spread': 'error',
     'prefer-regex-literals': [
