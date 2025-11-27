@@ -1,3 +1,9 @@
+## [3.1.46](https://github.com/jgeurts/eslint-config-decent/compare/v3.1.45...v3.1.46) (2025-11-27)
+
+### Bug Fixes
+
+- **deps:** update dependency @next/eslint-plugin-next to v16.0.5 ([#185](https://github.com/jgeurts/eslint-config-decent/issues/185)) ([a3341e3](https://github.com/jgeurts/eslint-config-decent/commit/a3341e354c597b2ba644df16021987cba393c424))
+
 ## [3.1.45](https://github.com/jgeurts/eslint-config-decent/compare/v3.1.44...v3.1.45) (2025-11-27)
 
 ## [3.1.44](https://github.com/jgeurts/eslint-config-decent/compare/v3.1.43...v3.1.44) (2025-11-26)
