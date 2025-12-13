@@ -128,6 +128,13 @@ function decentConfig(options?: DefaultConfigOptions): ConfigWithExtends[] {
       files: ['**/*.ts', '**/*.tsx'],
       ...typescriptEslintConfigs.base,
     },
+    {
+      name: 'eslint-config-decent/ts',
+      files: ['**/*.ts', '**/*.tsx', '**/*.mjs'],
+      rules: {
+        'import/no-commonjs': 'error',
+      },
+    },
     ...(enableReact
       ? ([
           {

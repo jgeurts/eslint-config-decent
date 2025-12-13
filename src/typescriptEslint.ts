@@ -14,7 +14,7 @@ const base: Config = {
         default: 'array',
       },
     ],
-    '@typescript-eslint/consistent-type-imports': 'error',
+    '@typescript-eslint/consistent-type-imports': ['error', { prefer: 'type-imports' }],
     '@typescript-eslint/ban-ts-comment': [
       'error',
       {
