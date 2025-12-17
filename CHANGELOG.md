@@ -1,3 +1,9 @@
+## [3.1.68](https://github.com/jgeurts/eslint-config-decent/compare/v3.1.67...v3.1.68) (2025-12-17)
+
+### Bug Fixes
+
+- Turn off import/no-commonjs due to false positives ([127a6b0](https://github.com/jgeurts/eslint-config-decent/commit/127a6b0640954a8d74588e57c31d6e93201f61af))
+
 ## [3.1.67](https://github.com/jgeurts/eslint-config-decent/compare/v3.1.66...v3.1.67) (2025-12-15)
 
 ### Bug Fixes
