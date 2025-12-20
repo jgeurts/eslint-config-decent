@@ -59,6 +59,7 @@ const base: Config = {
     '@typescript-eslint/no-empty-interface': 'error',
     '@typescript-eslint/no-extra-semi': 'error',
     '@typescript-eslint/no-shadow': 'error',
+    '@typescript-eslint/no-unnecessary-boolean-literal-compare': 'error',
     '@typescript-eslint/parameter-properties': [
       'error',
       {
