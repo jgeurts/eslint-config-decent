@@ -1,3 +1,9 @@
+## [3.1.77](https://github.com/jgeurts/eslint-config-decent/compare/v3.1.76...v3.1.77) (2025-12-24)
+
+### Bug Fixes
+
+- **deps:** update dependency eslint-plugin-jest to v29.11.0 ([#213](https://github.com/jgeurts/eslint-config-decent/issues/213)) ([fd13b16](https://github.com/jgeurts/eslint-config-decent/commit/fd13b1614500e18e376c07160370f007b017a0fe))
+
 ## [3.1.76](https://github.com/jgeurts/eslint-config-decent/compare/v3.1.75...v3.1.76) (2025-12-23)
 
 ### Bug Fixes
