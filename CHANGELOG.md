@@ -1,3 +1,5 @@
+## [3.1.79](https://github.com/jgeurts/eslint-config-decent/compare/v3.1.78...v3.1.79) (2025-12-25)
+
 ## [3.1.78](https://github.com/jgeurts/eslint-config-decent/compare/v3.1.77...v3.1.78) (2025-12-24)
 
 ### Bug Fixes
