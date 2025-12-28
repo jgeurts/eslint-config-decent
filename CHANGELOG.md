@@ -1,3 +1,33 @@
+## [3.1.79](https://github.com/jgeurts/eslint-config-decent/compare/v3.1.78...v3.1.79) (2025-12-25)
+
+## [3.1.78](https://github.com/jgeurts/eslint-config-decent/compare/v3.1.77...v3.1.78) (2025-12-24)
+
+### Bug Fixes
+
+- **deps:** update dependency @vitest/eslint-plugin to v1.6.4 ([#214](https://github.com/jgeurts/eslint-config-decent/issues/214)) ([d6c717e](https://github.com/jgeurts/eslint-config-decent/commit/d6c717e3a865bd360b6a144a62993552998c5cae))
+
+## [3.1.77](https://github.com/jgeurts/eslint-config-decent/compare/v3.1.76...v3.1.77) (2025-12-24)
+
+### Bug Fixes
+
+- **deps:** update dependency eslint-plugin-jest to v29.11.0 ([#213](https://github.com/jgeurts/eslint-config-decent/issues/213)) ([fd13b16](https://github.com/jgeurts/eslint-config-decent/commit/fd13b1614500e18e376c07160370f007b017a0fe))
+
+## [3.1.76](https://github.com/jgeurts/eslint-config-decent/compare/v3.1.75...v3.1.76) (2025-12-23)
+
+### Bug Fixes
+
+- **deps:** update dependency @vitest/eslint-plugin to v1.6.3 ([#212](https://github.com/jgeurts/eslint-config-decent/issues/212)) ([c838606](https://github.com/jgeurts/eslint-config-decent/commit/c8386064ca820e7cff01bba4d321e909f25e3913))
+
+## [3.1.75](https://github.com/jgeurts/eslint-config-decent/compare/v3.1.74...v3.1.75) (2025-12-23)
+
+### Bug Fixes
+
+- **deps:** update all dependencies ([#210](https://github.com/jgeurts/eslint-config-decent/issues/210)) ([716bca4](https://github.com/jgeurts/eslint-config-decent/commit/716bca44b359d59f163817c2936bac099b3646c2))
+
+## [3.1.74](https://github.com/jgeurts/eslint-config-decent/compare/v3.1.73...v3.1.74) (2025-12-22)
+
+## [3.1.73](https://github.com/jgeurts/eslint-config-decent/compare/v3.1.72...v3.1.73) (2025-12-20)
+
 ## [3.1.72](https://github.com/jgeurts/eslint-config-decent/compare/v3.1.71...v3.1.72) (2025-12-19)
 
 ### Bug Fixes
