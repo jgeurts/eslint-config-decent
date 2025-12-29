@@ -1,3 +1,9 @@
+## [3.1.81](https://github.com/jgeurts/eslint-config-decent/compare/v3.1.80...v3.1.81) (2025-12-29)
+
+### Bug Fixes
+
+- **deps:** update dependency typescript-eslint to v8.51.0 ([#218](https://github.com/jgeurts/eslint-config-decent/issues/218)) ([92a8fb0](https://github.com/jgeurts/eslint-config-decent/commit/92a8fb0722fbb33eb0735dc8a0f9f752d746c689))
+
 ## [3.1.80](https://github.com/jgeurts/eslint-config-decent/compare/v3.1.79...v3.1.80) (2025-12-29)
 
 ### Bug Fixes
