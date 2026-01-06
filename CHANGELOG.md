@@ -1,3 +1,51 @@
+## [3.1.87](https://github.com/jgeurts/eslint-config-decent/compare/v3.1.86...v3.1.87) (2026-01-05)
+
+### Bug Fixes
+
+- **deps:** update dependency typescript-eslint to v8.52.0 ([#224](https://github.com/jgeurts/eslint-config-decent/issues/224)) ([fc2296c](https://github.com/jgeurts/eslint-config-decent/commit/fc2296c9f07ba0cad47d720cddf7c54a708cac86))
+
+## [3.1.86](https://github.com/jgeurts/eslint-config-decent/compare/v3.1.85...v3.1.86) (2026-01-03)
+
+### Bug Fixes
+
+- **deps:** update all dependencies ([#223](https://github.com/jgeurts/eslint-config-decent/issues/223)) ([71313a8](https://github.com/jgeurts/eslint-config-decent/commit/71313a8093f9d82f522176388a232f38f9b91f53))
+
+## [3.1.85](https://github.com/jgeurts/eslint-config-decent/compare/v3.1.84...v3.1.85) (2026-01-02)
+
+### Bug Fixes
+
+- **deps:** update dependency globals to v17 ([#222](https://github.com/jgeurts/eslint-config-decent/issues/222)) ([2837937](https://github.com/jgeurts/eslint-config-decent/commit/2837937b5b536001741bdf78413c5c1c18290c70))
+
+## [3.1.84](https://github.com/jgeurts/eslint-config-decent/compare/v3.1.83...v3.1.84) (2025-12-31)
+
+### Bug Fixes
+
+- **deps:** update dependency eslint-plugin-testing-library to v7.15.4 ([#221](https://github.com/jgeurts/eslint-config-decent/issues/221)) ([5ae5926](https://github.com/jgeurts/eslint-config-decent/commit/5ae592637a5b8efe0eb69227d0260369ee7cd711))
+
+## [3.1.83](https://github.com/jgeurts/eslint-config-decent/compare/v3.1.82...v3.1.83) (2025-12-31)
+
+### Bug Fixes
+
+- **deps:** update dependency eslint-plugin-jest to v29.12.0 ([#220](https://github.com/jgeurts/eslint-config-decent/issues/220)) ([74560c8](https://github.com/jgeurts/eslint-config-decent/commit/74560c8ed7bbf151f2d85755cfc0df87955475a8))
+
+## [3.1.82](https://github.com/jgeurts/eslint-config-decent/compare/v3.1.81...v3.1.82) (2025-12-30)
+
+### Bug Fixes
+
+- **deps:** update all dependencies ([#219](https://github.com/jgeurts/eslint-config-decent/issues/219)) ([2f5fe6c](https://github.com/jgeurts/eslint-config-decent/commit/2f5fe6c9472fb346283e67b06dd025d98a472bad))
+
+## [3.1.81](https://github.com/jgeurts/eslint-config-decent/compare/v3.1.80...v3.1.81) (2025-12-29)
+
+### Bug Fixes
+
+- **deps:** update dependency typescript-eslint to v8.51.0 ([#218](https://github.com/jgeurts/eslint-config-decent/issues/218)) ([92a8fb0](https://github.com/jgeurts/eslint-config-decent/commit/92a8fb0722fbb33eb0735dc8a0f9f752d746c689))
+
+## [3.1.80](https://github.com/jgeurts/eslint-config-decent/compare/v3.1.79...v3.1.80) (2025-12-29)
+
+### Bug Fixes
+
+- **deps:** update dependency eslint-plugin-jest to v29.11.1 ([#216](https://github.com/jgeurts/eslint-config-decent/issues/216)) ([2d89393](https://github.com/jgeurts/eslint-config-decent/commit/2d89393a1fe4561e6e293995f1f12ab926e06470))
+
 ## [3.1.79](https://github.com/jgeurts/eslint-config-decent/compare/v3.1.78...v3.1.79) (2025-12-25)
 
 ## [3.1.78](https://github.com/jgeurts/eslint-config-decent/compare/v3.1.77...v3.1.78) (2025-12-24)
