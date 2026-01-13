@@ -1,3 +1,9 @@
+## [3.1.94](https://github.com/jgeurts/eslint-config-decent/compare/v3.1.93...v3.1.94) (2026-01-13)
+
+### Bug Fixes
+
+- Fix custom rule syntax for require extension and index ([ce46ec7](https://github.com/jgeurts/eslint-config-decent/commit/ce46ec729bbdcb1e1a94583e44980803945c16f8))
+
 ## [3.1.93](https://github.com/jgeurts/eslint-config-decent/compare/v3.1.92...v3.1.93) (2026-01-09)
 
 ### Bug Fixes
