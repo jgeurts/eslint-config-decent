@@ -1,3 +1,9 @@
+## [3.1.95](https://github.com/jgeurts/eslint-config-decent/compare/v3.1.94...v3.1.95) (2026-01-14)
+
+### Bug Fixes
+
+- **deps:** update dependency eslint-plugin-prettier to v5.5.5 ([#231](https://github.com/jgeurts/eslint-config-decent/issues/231)) ([11d40bc](https://github.com/jgeurts/eslint-config-decent/commit/11d40bce410421ae9f1af210682bda58c6b772e1))
+
 ## [3.1.94](https://github.com/jgeurts/eslint-config-decent/compare/v3.1.93...v3.1.94) (2026-01-13)
 
 ### Bug Fixes
