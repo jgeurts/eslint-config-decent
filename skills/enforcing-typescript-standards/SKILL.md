@@ -25,6 +25,31 @@ Activate this skill when:
 - **Sorted type constituents**: Union/intersection types must be alphabetically sorted
 - **Only throw Error objects**: Never throw strings or other primitives
 - **Avoid `any` and type assertions**: Prefer proper typing over `any` or `as` casts; use them only when truly necessary
+- **Type JSON fields explicitly**: Use `Record<string, unknown>` or specific interfaces for JSON data, never `any`
+- **Use Number() for conversion**: Prefer `Number(value)` over `parseInt(value, 10)` or `parseFloat(value)`
+
+#### Alternatives to Type Assertions
+
+Before using `as`, try these approaches in order:
+
+1. Proper typing at the source
+2. Type guards (`typeof`, `instanceof`)
+3. Type narrowing through control flow
+4. Custom type predicate functions
+5. Discriminated unions
+
+```ts
+// Bad
+const user = data as User;
+
+// Good
+function isUser(data: unknown): data is User {
+  return typeof data === 'object' && data !== null && 'id' in data;
+}
+if (isUser(data)) {
+  // data is now typed as User
+}
+```
 
 ### Import Organization
 
@@ -55,6 +80,9 @@ Activate this skill when:
 - **Strict equality**: Use `===` except for null comparisons
 - **One class per file**: Maximum one class definition per file
 - **Avoid `reduce`**: Prefer `for...of` loops or other array methods for clarity
+- **Functions over classes**: Prefer exported functions over classes with static methods (unless state is needed)
+- **No nested functions**: Define helper functions at module level, not inside other functions
+- **Immutability**: Create new objects/arrays instead of mutating existing ones
 
 ### Naming Conventions
 
@@ -65,7 +93,7 @@ Activate this skill when:
 
 - **No redundant comments**: Never comment what the code already expresses clearly
 - **No duplicate comments**: Don't repeat information from function names, types, or nearby comments
-- **Meaningful only**: Only add comments to explain *why*, not *what* — the code shows what it does
+- **Meaningful only**: Only add comments to explain _why_, not _what_ — the code shows what it does
 
 ### Boolean Expressions
 
@@ -83,6 +111,7 @@ Activate this skill when:
 - **Specific error types**: Prefer specific error types over generic `Error` when meaningful
 - **Avoid silent failures**: Don't swallow errors with empty catch blocks
 - **Handle rejections**: Always handle promise rejections
+- **Let errors propagate**: Don't catch errors just to re-throw or log — let them bubble up to error handlers
 
 ## Negative Knowledge
 
@@ -106,6 +135,11 @@ Avoid these anti-patterns:
 - Empty catch blocks that silently swallow errors
 - Using `||` for defaults when `??` is more appropriate
 - Deep nesting when early returns would simplify
+- Catching errors just to re-throw or log them
+- Nested function definitions inside other functions
+- Mutating objects/arrays instead of creating new ones
+- TOCTOU: Checking file/resource existence before operating (try and handle errors instead)
+- Classes with only static methods (use plain functions instead)
 
 ## Verification Workflow
 
@@ -161,17 +195,26 @@ async function fetchWithRetry(url: string, attempts = 3): Promise<Response> {
 
 ```ts
 // Standard
-if (myArray.length) { }
-if (myString) { }
-if (myObject) { }
-if (!value) { }
+if (myArray.length) {
+}
+if (myString) {
+}
+if (myObject) {
+}
+if (!value) {
+}
 
 // Non-Standard
-if (myArray.length !== 0) { }
-if (myArray.length > 0) { }
-if (myString !== '') { }
-if (myObject !== null && myObject !== undefined) { }
-if (value === null || value === undefined) { }
+if (myArray.length !== 0) {
+}
+if (myArray.length > 0) {
+}
+if (myString !== '') {
+}
+if (myObject !== null && myObject !== undefined) {
+}
+if (value === null || value === undefined) {
+}
 ```
 
 ### Early Return Examples
@@ -199,5 +242,124 @@ function processUser(user: User | null): Result {
   } else {
     return { error: 'No user provided' };
   }
+}
+```
+
+### Functions Over Classes Examples
+
+```ts
+// Standard
+export function calculateTotal(items: Item[]): number {
+  return items.reduce((sum, item) => sum + item.price, 0);
+}
+
+export function formatCurrency(amount: number): string {
+  return `$${amount.toFixed(2)}`;
+}
+
+// Non-Standard
+export class Calculator {
+  static calculateTotal(items: Item[]): number {
+    return items.reduce((sum, item) => sum + item.price, 0);
+  }
+
+  static formatCurrency(amount: number): string {
+    return `$${amount.toFixed(2)}`;
+  }
+}
+```
+
+### No Nested Functions Examples
+
+```ts
+// Standard
+function transformItem(item: Item): TransformedItem {
+  return { id: item.id, name: item.name.toUpperCase() };
+}
+
+async function processItems(items: Item[]): Promise<TransformedItem[]> {
+  return items.map(transformItem);
+}
+
+// Non-Standard
+async function processItems(items: Item[]): Promise<TransformedItem[]> {
+  function transformItem(item: Item): TransformedItem {
+    return { id: item.id, name: item.name.toUpperCase() };
+  }
+  return items.map(transformItem);
+}
+```
+
+### Immutability Examples
+
+```ts
+// Standard
+function addItem(items: Item[], newItem: Item): Item[] {
+  return [...items, newItem];
+}
+
+function removeItem(items: Item[], id: string): Item[] {
+  return items.filter((item) => item.id !== id);
+}
+
+function updateItem(items: Item[], id: string, updates: Partial<Item>): Item[] {
+  return items.map((item) => (item.id === id ? { ...item, ...updates } : item));
+}
+
+// Non-Standard
+function addItem(items: Item[], newItem: Item): Item[] {
+  items.push(newItem);
+  return items;
+}
+
+function removeItem(items: Item[], id: string): Item[] {
+  const index = items.findIndex((item) => item.id === id);
+  items.splice(index, 1);
+  return items;
+}
+```
+
+### Error Propagation Examples
+
+```ts
+// Standard
+async function getUser(id: string): Promise<User> {
+  return userService.findById(id);
+}
+
+// Non-Standard
+async function getUser(id: string): Promise<User> {
+  try {
+    return await userService.findById(id);
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+}
+```
+
+### TOCTOU Examples
+
+```ts
+// Standard
+async function readConfig(path: string): Promise<Config> {
+  try {
+    const content = await readFile(path, 'utf-8');
+    return JSON.parse(content);
+  } catch (error) {
+    if (isNotFoundError(error)) {
+      return defaultConfig;
+    }
+    throw error;
+  }
+}
+
+// Non-Standard
+async function readConfig(path: string): Promise<Config> {
+  if (await fileExists(path)) {
+    const content = await readFile(path, 'utf-8');
+    return JSON.parse(content);
+  }
+  return defaultConfig;
 }
 ```
