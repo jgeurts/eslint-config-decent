@@ -1,6 +1,6 @@
 ---
 name: enforcing-typescript-standards
-description: Enforces the project's core TypeScript standards including explicit typing, import organization, class member ordering, and code safety rules.
+description: Enforces the project's core TypeScript standards including explicit typing, import organization, class member ordering, and code safety rules. ALWAYS apply when creating, modifying, or reviewing any TypeScript (.ts/.tsx) file.
 ---
 
 # Enforcing TypeScript Standards
@@ -9,7 +9,14 @@ Enforces the project's core TypeScript standards including explicit typing, impo
 
 ## Triggers
 
-Activate this skill when:
+Activate this skill when the user says or implies any of these:
+
+- "write", "create", "implement", "add", "build" (new TypeScript code)
+- "fix", "update", "change", "modify", "refactor" (existing TypeScript code)
+- "review", "check", "improve", "clean up" (code quality)
+- Any request involving `.ts` or `.tsx` files
+
+Specific triggers:
 
 - Creating a new `.ts` or `.tsx` file
 - Modifying existing TypeScript code
