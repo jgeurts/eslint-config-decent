@@ -34,6 +34,7 @@ Specific triggers:
 - **Avoid `any` and type assertions**: Prefer proper typing over `any` or `as` casts; use them only when truly necessary
 - **Type JSON fields explicitly**: Use `Record<string, unknown>` or specific interfaces for JSON data, never `any`
 - **Use Number() for conversion**: Prefer `Number(value)` over `parseInt(value, 10)` or `parseFloat(value)`
+- **Reuse existing types**: Before defining a new interface, search for existing types that can be reused directly, extended, or derived using `Pick`, `Omit`, `Partial`, or other utility types
 
 #### Alternatives to Type Assertions
 
@@ -147,6 +148,7 @@ Avoid these anti-patterns:
 - Mutating objects/arrays instead of creating new ones
 - TOCTOU: Checking file/resource existence before operating (try and handle errors instead)
 - Classes with only static methods (use plain functions instead)
+- Duplicating existing interfaces instead of reusing or deriving with `Pick`/`Omit`/`Partial`
 
 ## Verification Workflow
 
@@ -368,5 +370,43 @@ async function readConfig(path: string): Promise<Config> {
     return JSON.parse(content);
   }
   return defaultConfig;
+}
+```
+
+### Type Reuse Examples
+
+```ts
+// Given an existing type
+interface User {
+  id: string;
+  email: string;
+  name: string;
+  passwordHash: string;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+// Standard - derive from existing type
+type PublicUser = Omit<User, 'passwordHash'>;
+type UserSummary = Pick<User, 'id' | 'name'>;
+type UserUpdate = Partial<Pick<User, 'email' | 'name'>>;
+
+// Non-Standard - duplicating fields that already exist
+interface PublicUser {
+  id: string;
+  email: string;
+  name: string;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+interface UserSummary {
+  id: string;
+  name: string;
+}
+
+interface UserUpdate {
+  email?: string;
+  name?: string;
 }
 ```
