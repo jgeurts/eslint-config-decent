@@ -1,3 +1,9 @@
+## [3.1.111](https://github.com/jgeurts/eslint-config-decent/compare/v3.1.110...v3.1.111) (2026-01-30)
+
+### Bug Fixes
+
+- **deps:** update dependency @eslint/compat to v2.0.2 ([#254](https://github.com/jgeurts/eslint-config-decent/issues/254)) ([d83faab](https://github.com/jgeurts/eslint-config-decent/commit/d83faab1509397511d8bac426898778f9e76ce90))
+
 ## [3.1.110](https://github.com/jgeurts/eslint-config-decent/compare/v3.1.109...v3.1.110) (2026-01-30)
 
 ### Bug Fixes
