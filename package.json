@@ -25,7 +25,7 @@
   "scripts": {
     "build": "unbuild",
     "test": "tsc --noEmit --skipLibCheck",
-    "lint:markdown": "prettier --cache --write '*.md' '!**/(node_modules|dist)/**/*.md' && markdownlint '*.md' '!**/(node_modules|dist)/**/*.md' --config=.github/linters/.markdown-lint.yml --fix",
+    "lint:markdown": "prettier --write '**/*.md' '!**/node_modules/**' '!**/dist/**' && markdownlint '**/*.md' --ignore '**/node_modules/**' --ignore '**/dist/**' --config=.github/linters/.markdown-lint.yml --fix",
     "lint:code": "eslint --fix",
     "prelint": "npm run build",
     "lint": "run-p lint:*",
