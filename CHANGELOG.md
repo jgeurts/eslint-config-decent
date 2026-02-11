@@ -1,3 +1,9 @@
+## [3.1.122](https://github.com/jgeurts/eslint-config-decent/compare/v3.1.121...v3.1.122) (2026-02-11)
+
+### Bug Fixes
+
+- use inline type imports to prevent invalid `import type { type X }` syntax ([46cf6d5](https://github.com/jgeurts/eslint-config-decent/commit/46cf6d5c4ba1c1daf24a8c47d5cac2f6532793b8))
+
 ## [3.1.121](https://github.com/jgeurts/eslint-config-decent/compare/v3.1.120...v3.1.121) (2026-02-10)
 
 ### Bug Fixes
