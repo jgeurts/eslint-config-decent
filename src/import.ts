@@ -1,4 +1,4 @@
-import type { Config, Plugin } from '@eslint/config-helpers';
+import { type Config, type Plugin } from '@eslint/config-helpers';
 import importPlugin from 'eslint-plugin-import-x';
 
 const base: Config = {
@@ -6,7 +6,7 @@ const base: Config = {
     import: importPlugin as unknown as Plugin,
   },
   rules: {
-    'import/consistent-type-specifier-style': ['error', 'prefer-top-level'],
+    'import/consistent-type-specifier-style': ['error', 'prefer-inline'],
     'import/first': 'error',
     'import/newline-after-import': 'error',
     'import/no-duplicates': 'error',

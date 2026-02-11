@@ -1,4 +1,4 @@
-import type { Config } from '@eslint/config-helpers';
+import { type Config } from '@eslint/config-helpers';
 
 const base: Config = {
   rules: {
@@ -14,7 +14,7 @@ const base: Config = {
         default: 'array',
       },
     ],
-    '@typescript-eslint/consistent-type-imports': ['error', { prefer: 'type-imports' }],
+    '@typescript-eslint/consistent-type-imports': ['error', { prefer: 'type-imports', fixStyle: 'inline-type-imports' }],
     '@typescript-eslint/ban-ts-comment': [
       'error',
       {
