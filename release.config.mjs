@@ -10,7 +10,7 @@ export default {
     [
       '@semantic-release/commit-analyzer',
       {
-        preset: 'angular',
+        preset: 'conventionalcommits',
         releaseRules: [
           { breaking: true, release: 'major' },
           { revert: true, release: 'patch' },
@@ -21,22 +21,12 @@ export default {
           { type: 'chore', release: 'patch' },
           { type: 'chore', scope: 'deps', release: false },
         ],
-        parserOpts: {
-          // eslint-disable-next-line security/detect-unsafe-regex
-          headerPattern: /^(\w+)(?:\(([^)]+)\))?!?: (.+)$/,
-          headerCorrespondence: ['type', 'scope', 'subject'],
-        },
       },
     ],
     [
       '@semantic-release/release-notes-generator',
       {
-        preset: 'angular',
-        parserOpts: {
-          // eslint-disable-next-line security/detect-unsafe-regex
-          headerPattern: /^(\w+)(?:\(([^)]+)\))?!?: (.+)$/,
-          headerCorrespondence: ['type', 'scope', 'subject'],
-        },
+        preset: 'conventionalcommits',
       },
     ],
     [
