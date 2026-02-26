@@ -9,7 +9,6 @@ import { configs as eslintConfigs } from './eslint.js';
 import { configs as extensionConfigs } from './extension.js';
 import { configs as importConfigs } from './import.js';
 import { configs as jsdocConfigs } from './jsdoc.js';
-import { configs as mochaConfigs } from './mocha.js';
 import { configs as nextJsConfigs } from './nextjs.js';
 import { configs as promiseConfigs } from './promise.js';
 import { configs as reactConfigs } from './react.js';
@@ -25,7 +24,6 @@ export {
   extensionConfigs,
   importConfigs,
   jsdocConfigs,
-  mochaConfigs,
   promiseConfigs,
   reactConfigs,
   nextJsConfigs,
@@ -41,7 +39,6 @@ export interface DefaultConfigOptions {
   tsconfigRootDir?: string;
   enableRequireExtensionRule?: boolean;
   enableVitest?: boolean;
-  enableMocha?: boolean;
   enableReact?: boolean;
   enableNextJs?: boolean;
   nextJsRootDir?: string;
@@ -61,7 +58,6 @@ export function tsEslintConfig(options?: DefaultConfigOptions): ConfigWithExtend
 function decentConfig(options?: DefaultConfigOptions): ConfigWithExtends[] {
   const enableRequireExtensionRule = options?.enableRequireExtensionRule ?? true;
   const enableVitest = options?.enableVitest ?? true;
-  const enableMocha = options?.enableMocha ?? true;
   const enableReact = options?.enableReact ?? true;
   const enableNextJs = options?.enableNextJs ?? false;
   const enableTestingLibrary = options?.enableTestingLibrary ?? true;
@@ -183,16 +179,6 @@ function decentConfig(options?: DefaultConfigOptions): ConfigWithExtends[] {
       },
       ...eslintConfigs.cjs,
     },
-    ...(enableMocha
-      ? [
-          {
-            name: 'eslint-config-decent/mocha-tests',
-            files: ['**/*.tests.ts', 'tests/tests.ts'],
-
-            ...mochaConfigs.base,
-          },
-        ]
-      : []),
     ...(enableVitest
       ? [
           {
