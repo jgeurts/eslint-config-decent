@@ -4,12 +4,10 @@
     "module": "Node16",
     "lib": ["ES2023"],
     "moduleResolution": "node16",
+    "types": ["node"],
     "allowJs": false,
 
-    "esModuleInterop": true,
-
     "outDir": "dist",
-    "baseUrl": ".",
 
     "declaration": true,
     "sourceMap": true,
@@ -33,9 +31,5 @@
   "exclude": [
     "node_modules",
     "dist"
-  ],
-  "ts-node": {
-    "transpileOnly": true,
-    "swc": true
-  }
+  ]
 }

@@ -1,6 +1,6 @@
-import type { FixupPluginDefinition } from '@eslint/compat';
+import { type FixupPluginDefinition } from '@eslint/compat';
 import { fixupPluginRules } from '@eslint/compat';
-import type { Config, RuleConfig } from '@eslint/config-helpers';
+import { type Config, type RuleConfig } from '@eslint/config-helpers';
 import nextJs from '@next/eslint-plugin-next';
 
 const recommendedRules: Record<string, RuleConfig> = {};

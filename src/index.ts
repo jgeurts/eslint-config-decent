@@ -1,4 +1,4 @@
-import type { Config, ConfigWithExtends } from '@eslint/config-helpers';
+import { type Config, type ConfigWithExtends } from '@eslint/config-helpers';
 import eslint from '@eslint/js';
 import { defineConfig } from 'eslint/config';
 import prettier from 'eslint-plugin-prettier/recommended';
@@ -8,9 +8,7 @@ import tsEslint from 'typescript-eslint';
 import { configs as eslintConfigs } from './eslint.js';
 import { configs as extensionConfigs } from './extension.js';
 import { configs as importConfigs } from './import.js';
-import { configs as jestConfigs } from './jest.js';
 import { configs as jsdocConfigs } from './jsdoc.js';
-import { configs as mochaConfigs } from './mocha.js';
 import { configs as nextJsConfigs } from './nextjs.js';
 import { configs as promiseConfigs } from './promise.js';
 import { configs as reactConfigs } from './react.js';
@@ -25,9 +23,7 @@ export {
   eslintConfigs, //
   extensionConfigs,
   importConfigs,
-  jestConfigs,
   jsdocConfigs,
-  mochaConfigs,
   promiseConfigs,
   reactConfigs,
   nextJsConfigs,
@@ -42,9 +38,7 @@ export interface DefaultConfigOptions {
   parserOptions?: NonNullable<ConfigWithExtends['languageOptions']>['parserOptions'];
   tsconfigRootDir?: string;
   enableRequireExtensionRule?: boolean;
-  enableJest?: boolean;
   enableVitest?: boolean;
-  enableMocha?: boolean;
   enableReact?: boolean;
   enableNextJs?: boolean;
   nextJsRootDir?: string;
@@ -63,9 +57,7 @@ export function tsEslintConfig(options?: DefaultConfigOptions): ConfigWithExtend
 
 function decentConfig(options?: DefaultConfigOptions): ConfigWithExtends[] {
   const enableRequireExtensionRule = options?.enableRequireExtensionRule ?? true;
-  const enableJest = options?.enableJest ?? true;
   const enableVitest = options?.enableVitest ?? true;
-  const enableMocha = options?.enableMocha ?? true;
   const enableReact = options?.enableReact ?? true;
   const enableNextJs = options?.enableNextJs ?? false;
   const enableTestingLibrary = options?.enableTestingLibrary ?? true;
@@ -187,26 +179,6 @@ function decentConfig(options?: DefaultConfigOptions): ConfigWithExtends[] {
       },
       ...eslintConfigs.cjs,
     },
-    ...(enableMocha
-      ? [
-          {
-            name: 'eslint-config-decent/mocha-tests',
-            files: ['**/*.tests.ts', 'tests/tests.ts'],
-
-            ...mochaConfigs.base,
-          },
-        ]
-      : []),
-    ...(enableJest
-      ? [
-          {
-            name: 'eslint-config-decent/jest-tests',
-            files: ['**/__tests__/**/*.ts?(x)', '**/*.{spec,test}.ts?(x)'],
-
-            ...jestConfigs.base,
-          },
-        ]
-      : []),
     ...(enableVitest
       ? [
           {

@@ -24,7 +24,7 @@
   ],
   "scripts": {
     "build": "unbuild",
-    "test": "tsc --noEmit --skipLibCheck",
+    "test": "tsgo --noEmit --skipLibCheck",
     "lint:markdown": "prettier --write '**/*.md' '!**/node_modules/**' '!**/dist/**' && markdownlint '**/*.md' --ignore '**/node_modules/**' --ignore '**/dist/**' --config=.github/linters/.markdown-lint.yml --fix",
     "lint:code": "eslint --fix",
     "prelint": "npm run build",
@@ -63,28 +63,25 @@
   },
   "homepage": "https://github.com/jgeurts/eslint-config-decent#readme",
   "engines": {
-    "node": ">=20.11.0"
+    "node": ">=22.13.0"
   },
   "dependencies": {
     "@eslint/compat": "2.0.2",
-    "@eslint/js": "9.39.3",
+    "@eslint/js": "10.0.1",
     "@next/eslint-plugin-next": "16.1.6",
     "@stylistic/eslint-plugin": "5.9.0",
     "@vitest/eslint-plugin": "1.6.9",
     "eslint-config-prettier": "10.1.8",
     "eslint-plugin-import-x": "4.16.1",
-    "eslint-plugin-jest": "29.15.0",
-    "eslint-plugin-jest-dom": "5.5.0",
     "eslint-plugin-jsdoc": "62.7.1",
     "eslint-plugin-jsx-a11y": "6.10.2",
-    "eslint-plugin-mocha": "11.2.0",
     "eslint-plugin-prettier": "5.5.5",
     "eslint-plugin-promise": "7.2.1",
     "eslint-plugin-react": "7.37.5",
     "eslint-plugin-react-hooks": "7.0.1",
-    "eslint-plugin-security": "3.0.1",
+    "eslint-plugin-security": "4.0.0",
     "eslint-plugin-testing-library": "7.16.0",
-    "eslint-plugin-unicorn": "62.0.0",
+    "eslint-plugin-unicorn": "63.0.0",
     "globals": "17.3.0",
     "typescript-eslint": "8.56.1"
   },
@@ -98,7 +95,8 @@
     "@semantic-release/release-notes-generator": "14.1.0",
     "@swc/core": "1.15.13",
     "@types/node": ">=22",
-    "eslint": "9.39.3",
+    "@typescript/native-preview": "7.0.0-dev.20260225.1",
+    "eslint": "10.0.2",
     "husky": "9.1.7",
     "lint-staged": "16.2.7",
     "markdownlint-cli": "0.47.0",
@@ -110,7 +108,13 @@
     "unbuild": "3.6.1"
   },
   "overrides": {
+    "eslint-plugin-import-x": {
+      "eslint": "$eslint"
+    },
     "eslint-plugin-jsx-a11y": {
+      "eslint": "$eslint"
+    },
+    "eslint-plugin-promise": {
       "eslint": "$eslint"
     },
     "eslint-plugin-react": {

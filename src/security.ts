@@ -1,4 +1,4 @@
-import type { Config } from '@eslint/config-helpers';
+import { type Config } from '@eslint/config-helpers';
 import security from 'eslint-plugin-security';
 
 const base: Config = {

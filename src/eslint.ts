@@ -1,4 +1,4 @@
-import type { ConfigWithExtends } from '@eslint/config-helpers';
+import { type ConfigWithExtends } from '@eslint/config-helpers';
 
 const base: ConfigWithExtends = {
   rules: {
@@ -208,12 +208,12 @@ const cjs: ConfigWithExtends = {
   },
 };
 
-export const configs = {
+export const configs: {
+  base: ConfigWithExtends;
+  cjsAndEsm: ConfigWithExtends;
+  cjs: ConfigWithExtends;
+} = {
   base,
   cjsAndEsm,
   cjs,
-};
-
-export default {
-  configs,
 };

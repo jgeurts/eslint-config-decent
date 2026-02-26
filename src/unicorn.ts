@@ -1,4 +1,4 @@
-import type { Config } from '@eslint/config-helpers';
+import { type Config } from '@eslint/config-helpers';
 import unicorn from 'eslint-plugin-unicorn';
 
 const base: Config = {
