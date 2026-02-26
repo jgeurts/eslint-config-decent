@@ -197,11 +197,18 @@ function decentConfig(options?: DefaultConfigOptions): ConfigWithExtends[] {
 
             ...testingLibraryConfigs.base,
           },
+        ] as Config[])
+      : []),
+    ...(enableVitest || enableTestingLibrary
+      ? ([
           {
-            name: 'eslint-config-decent/testing-library-disable-ts-rules',
+            name: 'eslint-config-decent/tests-disable-ts-rules',
             files: ['**/__tests__/**/*.ts?(x)', '**/*.{spec,test,tests}.ts?(x)'],
             rules: {
               '@typescript-eslint/explicit-function-return-type': 'off',
+              '@typescript-eslint/no-confusing-void-expression': 'off',
+              '@typescript-eslint/no-non-null-assertion': 'off',
+              '@typescript-eslint/no-unsafe-member-access': 'off',
             },
           },
         ] as Config[])
