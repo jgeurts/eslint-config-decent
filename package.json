@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-decent",
-  "version": "3.2.0",
+  "version": "4.0.0",
   "description": "A decent ESLint configuration",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
