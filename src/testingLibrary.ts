@@ -1,6 +1,6 @@
-import type { FixupPluginDefinition } from '@eslint/compat';
+import { type FixupPluginDefinition } from '@eslint/compat';
 import { fixupPluginRules } from '@eslint/compat';
-import type { Config } from '@eslint/config-helpers';
+import { type Config } from '@eslint/config-helpers';
 import testingLibrary from 'eslint-plugin-testing-library';
 
 const base: Config = {

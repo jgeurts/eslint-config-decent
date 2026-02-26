@@ -1,4 +1,4 @@
-import type { Config, Plugin } from '@eslint/config-helpers';
+import { type Config, type Plugin } from '@eslint/config-helpers';
 import vitest from '@vitest/eslint-plugin';
 
 const base: Config = {

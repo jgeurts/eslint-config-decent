@@ -1,5 +1,5 @@
-import type { ConfigWithExtends } from '@eslint/config-helpers';
-import type { ESLint } from 'eslint';
+import { type ConfigWithExtends } from '@eslint/config-helpers';
+import { type ESLint } from 'eslint';
 
 import { requireExtensionRule } from './rules/requireExtensionRule.js';
 import { requireIndexRule } from './rules/requireIndexRule.js';
@@ -25,10 +25,8 @@ const base: ConfigWithExtends = {
   },
 };
 
-export const configs = {
+export const configs: {
+  base: ConfigWithExtends;
+} = {
   base,
-};
-
-export default {
-  configs,
 };

@@ -1,4 +1,4 @@
-import type { Config } from '@eslint/config-helpers';
+import { type Config } from '@eslint/config-helpers';
 import jsdoc from 'eslint-plugin-jsdoc';
 
 const base: Config = {

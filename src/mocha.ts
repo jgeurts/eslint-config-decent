@@ -1,4 +1,4 @@
-import type { Config } from '@eslint/config-helpers';
+import { type Config } from '@eslint/config-helpers';
 import mocha from 'eslint-plugin-mocha';
 
 const base: Config = {

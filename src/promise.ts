@@ -1,4 +1,4 @@
-import type { Config } from '@eslint/config-helpers';
+import { type Config } from '@eslint/config-helpers';
 import promise from 'eslint-plugin-promise';
 
 const base: Config = {

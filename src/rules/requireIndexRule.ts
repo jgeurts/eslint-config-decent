@@ -1,7 +1,7 @@
 import { existsSync, lstatSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 
-import type { Rule } from 'eslint';
+import { type Rule } from 'eslint';
 
 export const requireIndexRule: Rule.RuleModule = {
   meta: {

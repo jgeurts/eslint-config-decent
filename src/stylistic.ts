@@ -1,4 +1,4 @@
-import type { Config } from '@eslint/config-helpers';
+import { type Config } from '@eslint/config-helpers';
 import stylistic from '@stylistic/eslint-plugin';
 
 const baseStylistic = stylistic.configs.customize({
