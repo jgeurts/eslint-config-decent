@@ -1,3 +1,9 @@
+## [4.1.0](https://github.com/jgeurts/eslint-config-decent/compare/v4.0.0...v4.1.0) (2026-02-26)
+
+### Features
+
+- Disable strict typescript rules for test files ([7debbc8](https://github.com/jgeurts/eslint-config-decent/commit/7debbc8d570e268ce2f8547eecd55e60b86a3d17))
+
 ## [4.0.0](https://github.com/jgeurts/eslint-config-decent/compare/v3.2.0...v4.0.0) (2026-02-26)
 
 ### ⚠ BREAKING CHANGES
