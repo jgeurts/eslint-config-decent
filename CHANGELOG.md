@@ -1,3 +1,9 @@
+# [3.2.0](https://github.com/jgeurts/eslint-config-decent/compare/v3.1.132...v3.2.0) (2026-02-26)
+
+### Features
+
+- Upgrade to eslint v10. Drop node 20 support. Prepare for TypeScript 6 ([#286](https://github.com/jgeurts/eslint-config-decent/issues/286)) ([a56814d](https://github.com/jgeurts/eslint-config-decent/commit/a56814da510df007cf34b70bf98fa471c7ca8c25))
+
 ## [3.1.132](https://github.com/jgeurts/eslint-config-decent/compare/v3.1.131...v3.1.132) (2026-02-24)
 
 ### Bug Fixes
