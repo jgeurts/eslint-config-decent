@@ -1,3 +1,10 @@
+## [4.1.2](https://github.com/jgeurts/eslint-config-decent/compare/v4.1.1...v4.1.2) (2026-02-27)
+
+### Bug Fixes
+
+- wrap eslint-plugin-import-x with fixupPluginRules for eslint v10 compatibility ([ecf4490](https://github.com/jgeurts/eslint-config-decent/commit/ecf449044f0b369b74fb74cb62d3a7965198d912))
+- wrap eslint-plugin-import-x with fixupPluginRules for eslint v10 compatibility ([65a6a52](https://github.com/jgeurts/eslint-config-decent/commit/65a6a52aae44d53ebb0358a913cc241135a82763))
+
 ## [4.1.1](https://github.com/jgeurts/eslint-config-decent/compare/v4.1.0...v4.1.1) (2026-02-27)
 
 ### Bug Fixes
