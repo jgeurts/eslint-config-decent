@@ -4,7 +4,7 @@ import importPlugin from 'eslint-plugin-import-x';
 
 const base: Config = {
   plugins: {
-    import: fixupPluginRules(importPlugin as FixupPluginDefinition),
+    import: fixupPluginRules(importPlugin as unknown as FixupPluginDefinition),
   },
   rules: {
     'import/consistent-type-specifier-style': ['error', 'prefer-inline'],
