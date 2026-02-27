@@ -1,3 +1,9 @@
+## [4.1.1](https://github.com/jgeurts/eslint-config-decent/compare/v4.1.0...v4.1.1) (2026-02-27)
+
+### Bug Fixes
+
+- wrap eslint-plugin-react with fixupPluginRules for eslint v10 compatibility ([fcc593d](https://github.com/jgeurts/eslint-config-decent/commit/fcc593d0cb757f65f38cb2bbfe7143fd89acf8c7))
+
 ## [4.1.0](https://github.com/jgeurts/eslint-config-decent/compare/v4.0.0...v4.1.0) (2026-02-26)
 
 ### Features
