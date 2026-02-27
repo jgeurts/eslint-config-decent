@@ -1,3 +1,5 @@
+import { type FixupPluginDefinition } from '@eslint/compat';
+import { fixupPluginRules } from '@eslint/compat';
 import { type Config } from '@eslint/config-helpers';
 import a11y from 'eslint-plugin-jsx-a11y';
 import react from 'eslint-plugin-react';
@@ -15,7 +17,7 @@ const base: Config = {
   },
   plugins: {
     'jsx-a11y': a11y,
-    react,
+    react: fixupPluginRules(react as FixupPluginDefinition),
     'react-hooks': reactHooks,
   },
   rules: {
