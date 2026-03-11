@@ -171,7 +171,7 @@ const typescriptExplicitRules: Record<string, RuleEntry> = {
   'typescript/consistent-type-imports': ['error', { prefer: 'type-imports', fixStyle: 'inline-type-imports' }],
   'typescript/ban-ts-comment': ['error', { minimumDescriptionLength: 10, 'ts-expect-error': { descriptionFormat: '^ - [^ ].*$' } }],
   'typescript/default-param-last': 'error',
-  'typescript/explicit-function-return-type': 'error',
+  'typescript/explicit-function-return-type': 'off',
   'typescript/no-dupe-class-members': 'error',
   'typescript/no-loop-func': 'error',
   'typescript/no-redeclare': 'error',

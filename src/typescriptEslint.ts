@@ -25,7 +25,7 @@ const base: Config = {
       },
     ],
     '@typescript-eslint/default-param-last': 'error',
-    '@typescript-eslint/explicit-function-return-type': 'error',
+    '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/explicit-member-accessibility': 'error',
     '@typescript-eslint/naming-convention': [
       'error',
