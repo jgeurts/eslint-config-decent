@@ -158,7 +158,6 @@ const eslintCompatRules: Record<string, RuleEntry> = {
   'eslint-compat/no-restricted-syntax': ['error', 'DebuggerStatement', 'LabeledStatement', 'WithStatement'],
   'eslint-compat/no-undef-init': 'error',
   'eslint-compat/no-unreachable-loop': ['error', { ignore: [] }],
-  'eslint-compat/prefer-arrow-callback': ['error', { allowNamedFunctions: false, allowUnboundThis: true }],
 };
 
 // ─── TypeScript rules (src/typescriptEslint.ts) ────────────────────────────
