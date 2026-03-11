@@ -1,3 +1,9 @@
+## [4.2.6](https://github.com/jgeurts/eslint-config-decent/compare/v4.2.5...v4.2.6) (2026-03-11)
+
+### Bug Fixes
+
+- Remove eslint-plugin-import-x plugin ([ae5cf9c](https://github.com/jgeurts/eslint-config-decent/commit/ae5cf9ce9c84f489059c884e75a8689d05d245e6))
+
 ## [4.2.5](https://github.com/jgeurts/eslint-config-decent/compare/v4.2.4...v4.2.5) (2026-03-11)
 
 ### Bug Fixes
