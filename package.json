@@ -16,6 +16,16 @@
         "types": "./dist/index.d.cts",
         "default": "./dist/index.cjs"
       }
+    },
+    "./oxlint": {
+      "import": {
+        "types": "./dist/oxlint.d.ts",
+        "default": "./dist/oxlint.mjs"
+      },
+      "require": {
+        "types": "./dist/oxlint.d.cts",
+        "default": "./dist/oxlint.cjs"
+      }
     }
   },
   "files": [
@@ -53,6 +63,7 @@
   },
   "keywords": [
     "eslint",
+    "oxlint",
     "config",
     "decent"
   ],
@@ -67,7 +78,17 @@
   },
   "peerDependencies": {
     "eslint": "^9.0.0 || ^10.0.0",
+    "oxlint": ">=1.53.0",
+    "oxlint-tsgolint": ">=0.1.0",
     "typescript": ">=5.5.0"
+  },
+  "peerDependenciesMeta": {
+    "oxlint": {
+      "optional": true
+    },
+    "oxlint-tsgolint": {
+      "optional": true
+    }
   },
   "dependencies": {
     "@eslint/compat": "2.0.3",

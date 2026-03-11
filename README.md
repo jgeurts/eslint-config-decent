@@ -66,6 +66,46 @@ export default [
 ];
 ```
 
+## Oxlint
+
+Mirrors the ESLint rules from this package for [oxlint](https://oxc.rs/docs/guide/usage/linter.html).
+Uses native oxlint plugins where available, `-compat` JS plugins for gap rules,
+and standalone JS plugins for the rest (~95% coverage).
+
+### Setup
+
+```bash
+npm install -D oxlint oxlint-tsgolint
+```
+
+```ts
+// oxlint.config.ts
+
+import { defineConfig } from 'oxlint';
+import { oxlintConfig } from 'eslint-config-decent/oxlint';
+
+export default defineConfig({
+  extends: [
+    oxlintConfig({
+      enableNextJs: true,
+      nextJsRootDir: '.',
+    }),
+  ],
+});
+```
+
+Requires oxlint >= 1.43.0 for TypeScript config support.
+
+### Type-aware linting
+
+The config enables `options.typeAware` for use with
+[oxlint-tsgolint](https://github.com/nicolo-ribaudo/oxlint-tsgolint),
+which provides type-aware rules powered by TypeScript's Go port.
+
+```bash
+npx oxlint-tsgolint
+```
+
 ## Agent Skill for AI-Assisted Development
 
 This package includes an Agent Skill that teaches AI coding assistants (Claude Code, OpenCode, etc.) to follow the same TypeScript standards enforced by the ESLint rules.
