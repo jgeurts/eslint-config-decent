@@ -1,3 +1,9 @@
+## [4.2.5](https://github.com/jgeurts/eslint-config-decent/compare/v4.2.4...v4.2.5) (2026-03-11)
+
+### Bug Fixes
+
+- Fix oxlint type definitions ([f919757](https://github.com/jgeurts/eslint-config-decent/commit/f919757f9805f90b48aa51fb337195530540346b))
+
 ## [4.2.4](https://github.com/jgeurts/eslint-config-decent/compare/v4.2.3...v4.2.4) (2026-03-11)
 
 ### Bug Fixes
