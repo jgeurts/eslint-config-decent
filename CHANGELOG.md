@@ -1,3 +1,9 @@
+## [4.2.0](https://github.com/jgeurts/eslint-config-decent/compare/v4.1.6...v4.2.0) (2026-03-11)
+
+### Features
+
+- add oxlint configuration export ([#307](https://github.com/jgeurts/eslint-config-decent/issues/307)) ([3eccd78](https://github.com/jgeurts/eslint-config-decent/commit/3eccd78e54968b6babfa4bc98c4c9bb1eb44f301))
+
 ## [4.1.6](https://github.com/jgeurts/eslint-config-decent/compare/v4.1.5...v4.1.6) (2026-03-09)
 
 ### Bug Fixes
