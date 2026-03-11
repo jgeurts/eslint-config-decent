@@ -80,6 +80,14 @@
     "eslint": "^9.0.0 || ^10.0.0",
     "oxlint": ">=1.53.0",
     "oxlint-tsgolint": ">=0.1.0",
+    "oxlint-plugin-eslint": ">=1.52.0",
+    "@stylistic/eslint-plugin": ">=5.0.0",
+    "@vitest/eslint-plugin": ">=1.0.0",
+    "eslint-plugin-jsdoc": ">=62.0.0",
+    "eslint-plugin-react": ">=7.0.0",
+    "eslint-plugin-security": ">=4.0.0",
+    "eslint-plugin-testing-library": ">=7.0.0",
+    "eslint-plugin-unicorn": ">=63.0.0",
     "typescript": ">=5.5.0"
   },
   "peerDependenciesMeta": {
@@ -87,6 +95,30 @@
       "optional": true
     },
     "oxlint-tsgolint": {
+      "optional": true
+    },
+    "oxlint-plugin-eslint": {
+      "optional": true
+    },
+    "@stylistic/eslint-plugin": {
+      "optional": true
+    },
+    "@vitest/eslint-plugin": {
+      "optional": true
+    },
+    "eslint-plugin-jsdoc": {
+      "optional": true
+    },
+    "eslint-plugin-react": {
+      "optional": true
+    },
+    "eslint-plugin-security": {
+      "optional": true
+    },
+    "eslint-plugin-testing-library": {
+      "optional": true
+    },
+    "eslint-plugin-unicorn": {
       "optional": true
     }
   },
