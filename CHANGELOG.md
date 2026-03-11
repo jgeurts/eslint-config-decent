@@ -1,3 +1,9 @@
+## [4.2.7](https://github.com/jgeurts/eslint-config-decent/compare/v4.2.6...v4.2.7) (2026-03-11)
+
+### Bug Fixes
+
+- add oxlint js plugin packages as optional peer dependencies ([f459b6b](https://github.com/jgeurts/eslint-config-decent/commit/f459b6b62fc11e31c6d3be1da230fb6266df95ef))
+
 ## [4.2.6](https://github.com/jgeurts/eslint-config-decent/compare/v4.2.5...v4.2.6) (2026-03-11)
 
 ### Bug Fixes
