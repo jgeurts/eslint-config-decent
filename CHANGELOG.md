@@ -1,3 +1,9 @@
+## [4.2.3](https://github.com/jgeurts/eslint-config-decent/compare/v4.2.2...v4.2.3) (2026-03-11)
+
+### Bug Fixes
+
+- Removed typescript-compat JS plugin ([71e28ce](https://github.com/jgeurts/eslint-config-decent/commit/71e28ceb52606ca8249e471fc957c8fe18d760f9))
+
 ## [4.2.2](https://github.com/jgeurts/eslint-config-decent/compare/v4.2.1...v4.2.2) (2026-03-11)
 
 ### Bug Fixes
