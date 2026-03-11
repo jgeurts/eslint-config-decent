@@ -161,40 +161,26 @@ const eslintCompatRules: Record<string, RuleEntry> = {
 };
 
 // ─── TypeScript rules (src/typescriptEslint.ts) ────────────────────────────
-const typescriptExplicitRules: Record<string, RuleEntry> = {
+const typescriptRules: Record<string, RuleEntry> = {
   // Disable base ESLint rules that TS extends
   'eslint/no-loss-of-precision': 'off',
   'eslint/no-unused-expressions': 'off',
 
   'typescript/array-type': ['error', { default: 'array' }],
-  'typescript/consistent-type-imports': ['error', { prefer: 'type-imports', fixStyle: 'inline-type-imports' }],
+  'typescript/await-thenable': 'error',
   'typescript/ban-ts-comment': ['error', { minimumDescriptionLength: 10, 'ts-expect-error': { descriptionFormat: '^ - [^ ].*$' } }],
+  'typescript/ban-tslint-comment': 'error',
+  'typescript/class-literal-property-style': 'error',
+  'typescript/consistent-generic-constructors': 'error',
+  'typescript/consistent-indexed-object-style': 'error',
+  'typescript/consistent-type-assertions': 'error',
+  'typescript/consistent-type-definitions': 'error',
+  'typescript/consistent-type-imports': ['error', { prefer: 'type-imports', fixStyle: 'inline-type-imports' }],
   'typescript/default-param-last': 'error',
+  'typescript/dot-notation': 'error',
   'typescript/explicit-function-return-type': 'off',
-  'typescript/no-dupe-class-members': 'error',
-  'typescript/no-loop-func': 'error',
-  'typescript/no-redeclare': 'error',
-  'typescript/only-throw-error': 'error',
-  'typescript/no-empty-interface': 'error',
-  'typescript/no-shadow': 'error',
-  'typescript/no-unnecessary-boolean-literal-compare': 'error',
-  'typescript/parameter-properties': ['error', { allow: ['readonly'] }],
-  'typescript/restrict-template-expressions': ['error', { allowNumber: true }],
-  'typescript/return-await': 'error',
-  'typescript/use-unknown-in-catch-callback-variable': 'off',
-};
-
-// Gap rules not yet natively supported — covered via typescript-compat JS plugin
-const typescriptCompatRules: Record<string, RuleEntry> = {
-  'typescript-compat/naming-convention': [
-    'error',
-    {
-      selector: 'enumMember',
-      format: ['camelCase', 'PascalCase', 'UPPER_CASE'],
-      trailingUnderscore: 'forbid',
-    },
-  ],
-  'typescript-compat/member-ordering': [
+  'typescript/explicit-member-accessibility': 'error',
+  'typescript/member-ordering': [
     'error',
     {
       default: [
@@ -211,27 +197,24 @@ const typescriptCompatRules: Record<string, RuleEntry> = {
       ],
     },
   ],
-  'typescript-compat/explicit-member-accessibility': 'error',
-};
-
-// Inherited from strictTypeChecked + stylisticTypeChecked
-const typescriptInheritedRules: Record<string, RuleEntry> = {
-  'typescript/await-thenable': 'error',
-  'typescript/ban-tslint-comment': 'error',
-  'typescript/class-literal-property-style': 'error',
-  'typescript/consistent-generic-constructors': 'error',
-  'typescript/consistent-indexed-object-style': 'error',
-  'typescript/consistent-type-assertions': 'error',
-  'typescript/consistent-type-definitions': 'error',
-  'typescript/dot-notation': 'error',
+  'typescript/naming-convention': [
+    'error',
+    {
+      selector: 'enumMember',
+      format: ['camelCase', 'PascalCase', 'UPPER_CASE'],
+      trailingUnderscore: 'forbid',
+    },
+  ],
   'typescript/no-array-delete': 'error',
   'typescript/no-base-to-string': 'error',
   'typescript/no-confusing-non-null-assertion': 'error',
   'typescript/no-confusing-void-expression': 'error',
   'typescript/no-deprecated': 'error',
+  'typescript/no-dupe-class-members': 'error',
   'typescript/no-duplicate-enum-values': 'error',
   'typescript/no-duplicate-type-constituents': 'error',
   'typescript/no-dynamic-delete': 'error',
+  'typescript/no-empty-interface': 'error',
   'typescript/no-empty-object-type': 'error',
   'typescript/no-explicit-any': 'error',
   'typescript/no-extra-non-null-assertion': 'error',
@@ -241,6 +224,7 @@ const typescriptInheritedRules: Record<string, RuleEntry> = {
   'typescript/no-implied-eval': 'error',
   'typescript/no-inferrable-types': 'error',
   'typescript/no-invalid-void-type': 'error',
+  'typescript/no-loop-func': 'error',
   'typescript/no-meaningless-void-operator': 'error',
   'typescript/no-misused-new': 'error',
   'typescript/no-misused-promises': 'error',
@@ -249,9 +233,12 @@ const typescriptInheritedRules: Record<string, RuleEntry> = {
   'typescript/no-non-null-asserted-nullish-coalescing': 'error',
   'typescript/no-non-null-asserted-optional-chain': 'error',
   'typescript/no-non-null-assertion': 'error',
+  'typescript/no-redeclare': 'error',
   'typescript/no-redundant-type-constituents': 'error',
   'typescript/no-require-imports': 'error',
+  'typescript/no-shadow': 'error',
   'typescript/no-this-alias': 'error',
+  'typescript/no-unnecessary-boolean-literal-compare': 'error',
   'typescript/no-unnecessary-condition': 'error',
   'typescript/no-unnecessary-template-expression': 'error',
   'typescript/no-unnecessary-type-arguments': 'error',
@@ -270,6 +257,8 @@ const typescriptInheritedRules: Record<string, RuleEntry> = {
   'typescript/no-useless-empty-export': 'error',
   'typescript/no-wrapper-object-types': 'error',
   'typescript/non-nullable-type-assertion-style': 'error',
+  'typescript/only-throw-error': 'error',
+  'typescript/parameter-properties': ['error', { allow: ['readonly'] }],
   'typescript/prefer-as-const': 'error',
   'typescript/prefer-find': 'error',
   'typescript/prefer-for-of': 'error',
@@ -287,10 +276,13 @@ const typescriptInheritedRules: Record<string, RuleEntry> = {
   'typescript/prefer-ts-expect-error': 'error',
   'typescript/require-await': 'error',
   'typescript/restrict-plus-operands': 'error',
+  'typescript/restrict-template-expressions': ['error', { allowNumber: true }],
+  'typescript/return-await': 'error',
   'typescript/switch-exhaustiveness-check': 'error',
   'typescript/triple-slash-reference': 'error',
   'typescript/unbound-method': 'error',
   'typescript/unified-signatures': 'error',
+  'typescript/use-unknown-in-catch-callback-variable': 'off',
 };
 
 // ─── Import rules (src/import.ts) ──────────────────────────────────────────
@@ -650,7 +642,6 @@ export function oxlintConfig(options?: OxlintConfigOptions): OxlintConfig {
     'eslint-plugin-security',
     // -compat JS plugins for gap rules in partially-supported native plugins
     { name: 'eslint-compat', specifier: 'oxlint-plugin-eslint' },
-    { name: 'typescript-compat', specifier: '@typescript-eslint/eslint-plugin' },
     { name: 'import-compat', specifier: 'eslint-plugin-import-x' },
     { name: 'unicorn-compat', specifier: 'eslint-plugin-unicorn' },
     { name: 'jsdoc-compat', specifier: 'eslint-plugin-jsdoc' },
@@ -669,9 +660,7 @@ export function oxlintConfig(options?: OxlintConfigOptions): OxlintConfig {
     ...eslintBaseRules,
     ...eslintCjsEsmRules,
     ...eslintCompatRules,
-    ...typescriptExplicitRules,
-    ...typescriptCompatRules,
-    ...typescriptInheritedRules,
+    ...typescriptRules,
     ...importRules,
     ...importCompatRules,
     ...unicornRules,
