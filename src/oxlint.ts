@@ -14,6 +14,7 @@ export interface OxlintConfigOptions {
   enableNextJs?: boolean;
   enableTestingLibrary?: boolean;
   nextJsRootDir?: string;
+  reactVersion?: string;
 }
 
 type RuleSeverity = 'error' | 'off' | 'warn';
@@ -135,7 +136,6 @@ const eslintCjsEsmRules: Record<string, RuleEntry> = {
   'eslint/no-empty-function': ['error', { allow: ['arrowFunctions', 'functions', 'methods'] }],
   'eslint/no-new-func': 'error',
   'eslint/no-shadow': 'error',
-  'eslint/no-undef': 'error',
   'eslint/no-unexpected-multiline': 'error',
   'eslint/no-use-before-define': ['error', { functions: true, classes: true, variables: true }],
   'eslint/no-useless-constructor': 'error',
@@ -209,7 +209,7 @@ const typescriptRules: Record<string, RuleEntry> = {
   'typescript/no-base-to-string': 'error',
   'typescript/no-confusing-non-null-assertion': 'error',
   'typescript/no-confusing-void-expression': 'error',
-  'typescript/no-deprecated': 'error',
+  'typescript/no-deprecated': 'off',
   'typescript/no-dupe-class-members': 'error',
   'typescript/no-duplicate-enum-values': 'error',
   'typescript/no-duplicate-type-constituents': 'error',
@@ -652,7 +652,7 @@ export function oxlintConfig(options?: OxlintConfigOptions): OxlintConfig {
   ];
 
   const settings: Record<string, unknown> = {
-    ...(enableReact ? { react: { version: 'detect' } } : {}),
+    ...(enableReact ? { react: { version: options?.reactVersion ?? '19' } } : {}),
     ...(enableNextJs && options?.nextJsRootDir ? { next: { rootDir: options.nextJsRootDir } } : {}),
   };
 
