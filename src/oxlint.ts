@@ -1,12 +1,4 @@
-// Oxlint configuration generator
-// Generates an oxlint-compatible config mirroring eslint-config-decent rules.
-//
-// Prefix mappings: @typescript-eslint/ → typescript/, react-hooks/ → react/, @next/next/ → nextjs/
-//
-// Native plugins handle rules oxlint implements in Rust.
-// -compat JS plugins handle gap rules not yet natively supported (ESLint plugin running in oxlint's JS runtime).
-// Standalone JS plugins handle plugins with no native support (security, testing-library).
-// Stylistic rules (@stylistic/*) and custom decent-extension rules are excluded (ESLint-only).
+import { type DummyRule, type ExternalPluginEntry, type OxlintConfig, type OxlintOverride } from 'oxlint';
 
 export interface OxlintConfigOptions {
   enableReact?: boolean;
@@ -17,40 +9,13 @@ export interface OxlintConfigOptions {
   reactVersion?: string;
 }
 
-type RuleSeverity = 'error' | 'off' | 'warn';
-type RuleEntry = RuleSeverity | [RuleSeverity, ...unknown[]];
-
-type JsPlugin = string | { name: string; specifier: string };
-
-export interface OxlintOverride {
-  files: string[];
-  rules?: Record<string, RuleEntry>;
-  jsPlugins?: JsPlugin[];
-}
-
-export interface OxlintConfig {
-  plugins: string[];
-  jsPlugins?: JsPlugin[];
-  rules: Record<string, RuleEntry>;
-  options?: {
-    typeAware?: boolean;
-  };
-  settings?: Record<string, unknown>;
-  overrides?: OxlintOverride[];
-  ignorePatterns?: string[];
-  env?: Record<string, boolean>;
-}
-
-// ─── File glob constants ───────────────────────────────────────────────────
-
 // Matches ESLint vitest config: **/*.{spec,test}.ts?(x)
 const VITEST_FILE_GLOBS = ['**/__tests__/**/*.ts', '**/__tests__/**/*.tsx', '**/*.spec.ts', '**/*.spec.tsx', '**/*.test.ts', '**/*.test.tsx'];
 
 // Matches ESLint testing-library + test TS relaxation config: **/*.{spec,test,tests}.ts?(x)
 const TEST_FILE_GLOBS = [...VITEST_FILE_GLOBS, '**/*.tests.ts', '**/*.tests.tsx'];
 
-// ─── Base ESLint rules (src/eslint.ts - base) ──────────────────────────────
-const eslintBaseRules: Record<string, RuleEntry> = {
+const eslintBaseRules: Record<string, DummyRule> = {
   'eslint/array-callback-return': ['error', { allowImplicit: true }],
   'eslint/block-scoped-var': 'error',
   'eslint/default-case': ['error', { commentPattern: '^no default$' }],
@@ -128,7 +93,7 @@ const eslintBaseRules: Record<string, RuleEntry> = {
 };
 
 // CJS/ESM rules that also apply to TS files via typescript extensions
-const eslintCjsEsmRules: Record<string, RuleEntry> = {
+const eslintCjsEsmRules: Record<string, DummyRule> = {
   'eslint/curly': ['error', 'multi-line'],
   'eslint/dot-notation': ['error', { allowKeywords: true }],
   'eslint/getter-return': ['error', { allowImplicit: true }],
@@ -144,7 +109,7 @@ const eslintCjsEsmRules: Record<string, RuleEntry> = {
 };
 
 // Gap core ESLint rules not yet natively supported — covered via eslint-compat JS plugin (oxlint-plugin-eslint)
-const eslintCompatRules: Record<string, RuleEntry> = {
+const eslintCompatRules: Record<string, DummyRule> = {
   'eslint-compat/object-shorthand': ['error', 'always', { ignoreConstructors: false, avoidQuotes: true, avoidExplicitReturnArrows: true }],
   'eslint-compat/one-var': ['error', 'never'],
   'eslint-compat/no-octal-escape': 'error',
@@ -160,8 +125,7 @@ const eslintCompatRules: Record<string, RuleEntry> = {
   'eslint-compat/no-unreachable-loop': ['error', { ignore: [] }],
 };
 
-// ─── TypeScript rules (src/typescriptEslint.ts) ────────────────────────────
-const typescriptRules: Record<string, RuleEntry> = {
+const typescriptRules: Record<string, DummyRule> = {
   // Disable base ESLint rules that TS extends
   'eslint/no-loss-of-precision': 'off',
   'eslint/no-unused-expressions': 'off',
@@ -285,15 +249,14 @@ const typescriptRules: Record<string, RuleEntry> = {
   'typescript/use-unknown-in-catch-callback-variable': 'off',
 };
 
-// ─── Import rules (src/import.ts) ──────────────────────────────────────────
-const importRules: Record<string, RuleEntry> = {
+const importRules: Record<string, DummyRule> = {
   'import/consistent-type-specifier-style': ['error', 'prefer-inline'],
   'import/first': 'error',
   'import/no-duplicates': 'error',
 };
 
 // Gap rules not yet natively supported — covered via import-compat JS plugin
-const importCompatRules: Record<string, RuleEntry> = {
+const importCompatRules: Record<string, DummyRule> = {
   'import-compat/newline-after-import': 'error',
   'import-compat/order': [
     'error',
@@ -306,8 +269,7 @@ const importCompatRules: Record<string, RuleEntry> = {
   ],
 };
 
-// ─── Unicorn rules (src/unicorn.ts) ────────────────────────────────────────
-const unicornRules: Record<string, RuleEntry> = {
+const unicornRules: Record<string, DummyRule> = {
   'unicorn/no-array-method-this-argument': 'error',
   'unicorn/prefer-array-find': 'error',
   'unicorn/prefer-node-protocol': 'error',
@@ -316,21 +278,19 @@ const unicornRules: Record<string, RuleEntry> = {
 };
 
 // Gap rules not yet natively supported — covered via unicorn-compat JS plugin
-const unicornCompatRules: Record<string, RuleEntry> = {
+const unicornCompatRules: Record<string, DummyRule> = {
   'unicorn-compat/better-regex': 'error',
   'unicorn-compat/custom-error-definition': 'error',
   'unicorn-compat/no-for-loop': 'error',
 };
 
-// ─── Promise rules (src/promise.ts) ────────────────────────────────────────
-const promiseRules: Record<string, RuleEntry> = {
+const promiseRules: Record<string, DummyRule> = {
   'promise/always-return': 'error',
   'promise/catch-or-return': ['error', { allowThen: true }],
   'promise/param-names': 'error',
 };
 
-// ─── JSDoc rules (src/jsdoc.ts) ────────────────────────────────────────────
-const jsdocRules: Record<string, RuleEntry> = {
+const jsdocRules: Record<string, DummyRule> = {
   // Explicitly configured
   'jsdoc/check-param-names': 'off',
   'jsdoc/check-tag-names': 'error',
@@ -361,7 +321,7 @@ const jsdocRules: Record<string, RuleEntry> = {
 };
 
 // Gap rules not yet natively supported — covered via jsdoc-compat JS plugin
-const jsdocCompatRules: Record<string, RuleEntry> = {
+const jsdocCompatRules: Record<string, DummyRule> = {
   'jsdoc-compat/check-alignment': 'error',
   'jsdoc-compat/check-indentation': 'error',
   'jsdoc-compat/check-types': 'error',
@@ -369,10 +329,9 @@ const jsdocCompatRules: Record<string, RuleEntry> = {
   'jsdoc-compat/valid-types': 'error',
 };
 
-// ─── Stylistic rules (src/stylistic.ts) ─────────────────────────────────────
 // Most stylistic rules are formatting-only (handled by oxfmt/Prettier). The one structural
 // rule that formatters don't handle is padding-line-between-statements.
-const stylisticCompatRules: Record<string, RuleEntry> = {
+const stylisticCompatRules: Record<string, DummyRule> = {
   'stylistic-compat/padding-line-between-statements': [
     'error',
     {
@@ -413,8 +372,7 @@ const stylisticCompatRules: Record<string, RuleEntry> = {
   ],
 };
 
-// ─── Security rules (all via JS plugin, no native equivalents) ──────────────
-const securityRules: Record<string, RuleEntry> = {
+const securityRules: Record<string, DummyRule> = {
   'security/detect-buffer-noassert': 'error',
   'security/detect-child-process': 'error',
   'security/detect-disable-mustache-escape': 'error',
@@ -430,8 +388,7 @@ const securityRules: Record<string, RuleEntry> = {
   'security/detect-unsafe-regex': 'error',
 };
 
-// ─── React rules (src/react.ts) ────────────────────────────────────────────
-const reactRules: Record<string, RuleEntry> = {
+const reactRules: Record<string, DummyRule> = {
   // From react.configs.recommended
   'react/jsx-key': 'error',
   'react/jsx-no-comment-textnodes': 'error',
@@ -470,7 +427,7 @@ const reactRules: Record<string, RuleEntry> = {
 };
 
 // Gap rules not yet natively supported — covered via react-compat JS plugin
-const reactCompatRules: Record<string, RuleEntry> = {
+const reactCompatRules: Record<string, DummyRule> = {
   'react-compat/default-props-match-prop-types': 'error',
   'react-compat/forbid-foreign-prop-types': ['error', { allowInPropTypes: true }],
   'react-compat/jsx-no-leaked-render': ['error', { validStrategies: ['ternary'] }],
@@ -488,8 +445,7 @@ const reactCompatRules: Record<string, RuleEntry> = {
   // Formatting rules excluded: jsx-closing-bracket-location, jsx-props-no-multi-spaces
 };
 
-// ─── JSX-A11Y rules (from a11y.configs.recommended) ────────────────────────
-const jsxA11yRules: Record<string, RuleEntry> = {
+const jsxA11yRules: Record<string, DummyRule> = {
   'jsx-a11y/alt-text': 'error',
   'jsx-a11y/anchor-has-content': 'error',
   'jsx-a11y/anchor-is-valid': 'error',
@@ -521,8 +477,7 @@ const jsxA11yRules: Record<string, RuleEntry> = {
   'jsx-a11y/tabindex-no-positive': 'error',
 };
 
-// ─── Next.js rules (src/nextjs.ts) ─────────────────────────────────────────
-const nextjsRules: Record<string, RuleEntry> = {
+const nextjsRules: Record<string, DummyRule> = {
   'nextjs/google-font-display': 'error',
   'nextjs/google-font-preconnect': 'error',
   'nextjs/inline-script-id': 'error',
@@ -546,8 +501,7 @@ const nextjsRules: Record<string, RuleEntry> = {
   'nextjs/no-unwanted-polyfillio': 'error',
 };
 
-// ─── Vitest rules (src/vitest.ts) ──────────────────────────────────────────
-const vitestRules: Record<string, RuleEntry> = {
+const vitestRules: Record<string, DummyRule> = {
   // From vitest.configs.recommended
   'vitest/expect-expect': 'error',
   'vitest/no-identical-title': 'error',
@@ -578,7 +532,7 @@ const vitestRules: Record<string, RuleEntry> = {
 };
 
 // Gap rules not yet natively supported — covered via vitest-compat JS plugin
-const vitestCompatRules: Record<string, RuleEntry> = {
+const vitestCompatRules: Record<string, DummyRule> = {
   'vitest-compat/padding-around-after-all-blocks': 'error',
   'vitest-compat/padding-around-after-each-blocks': 'error',
   'vitest-compat/padding-around-describe-blocks': 'error',
@@ -586,9 +540,8 @@ const vitestCompatRules: Record<string, RuleEntry> = {
   'vitest-compat/prefer-vi-mocked': 'error',
 };
 
-// ─── Testing Library rules (all via JS plugin, no native equivalents) ───────
 // From testingLibrary.configs['flat/react'].rules + overrides
-const testingLibraryRules: Record<string, RuleEntry> = {
+const testingLibraryRules: Record<string, DummyRule> = {
   'testing-library/await-async-events': ['error', { eventModule: 'userEvent' }],
   'testing-library/await-async-queries': 'error',
   'testing-library/await-async-utils': 'error',
@@ -616,14 +569,13 @@ const testingLibraryRules: Record<string, RuleEntry> = {
   'testing-library/render-result-naming-convention': 'error',
 };
 
-// ─── Main config builder ───────────────────────────────────────────────────
 export function oxlintConfig(options?: OxlintConfigOptions): OxlintConfig {
   const enableReact = options?.enableReact ?? true;
   const enableVitest = options?.enableVitest ?? true;
   const enableNextJs = options?.enableNextJs ?? false;
   const enableTestingLibrary = options?.enableTestingLibrary ?? true;
 
-  const plugins: string[] = [
+  const plugins: OxlintConfig['plugins'] = [
     'eslint',
     'typescript',
     'unicorn',
@@ -632,12 +584,12 @@ export function oxlintConfig(options?: OxlintConfigOptions): OxlintConfig {
     'promise',
     'jsdoc',
     'node',
-    ...(enableReact ? ['react', 'jsx-a11y'] : []),
-    ...(enableNextJs ? ['nextjs'] : []),
-    ...(enableVitest ? ['vitest'] : []),
+    ...(enableReact ? (['react', 'jsx-a11y'] as const) : []),
+    ...(enableNextJs ? (['nextjs'] as const) : []),
+    ...(enableVitest ? (['vitest'] as const) : []),
   ];
 
-  const jsPlugins: JsPlugin[] = [
+  const jsPlugins: ExternalPluginEntry[] = [
     // Standalone JS plugins (no native equivalents)
     'eslint-plugin-security',
     // -compat JS plugins for gap rules in partially-supported native plugins
@@ -656,7 +608,7 @@ export function oxlintConfig(options?: OxlintConfigOptions): OxlintConfig {
     ...(enableNextJs && options?.nextJsRootDir ? { next: { rootDir: options.nextJsRootDir } } : {}),
   };
 
-  const rules: Record<string, RuleEntry> = {
+  const rules: Record<string, DummyRule> = {
     ...eslintBaseRules,
     ...eslintCjsEsmRules,
     ...eslintCompatRules,
@@ -685,7 +637,7 @@ export function oxlintConfig(options?: OxlintConfigOptions): OxlintConfig {
             files: ['**/components/**/*.tsx'],
             rules: {
               'import/no-default-export': 'error' as const,
-              'unicorn/filename-case': ['error', { case: 'pascalCase' }] as RuleEntry,
+              'unicorn/filename-case': ['error', { case: 'pascalCase' }] as DummyRule,
             },
           },
         ]
@@ -702,7 +654,7 @@ export function oxlintConfig(options?: OxlintConfigOptions): OxlintConfig {
       ? [
           {
             files: TEST_FILE_GLOBS,
-            jsPlugins: ['eslint-plugin-testing-library'] as JsPlugin[],
+            jsPlugins: ['eslint-plugin-testing-library'] as ExternalPluginEntry[],
             rules: testingLibraryRules,
           },
         ]
