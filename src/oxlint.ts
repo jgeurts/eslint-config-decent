@@ -255,20 +255,6 @@ const importRules: Record<string, DummyRule> = {
   'import/no-duplicates': 'error',
 };
 
-// Gap rules not yet natively supported — covered via import-compat JS plugin
-const importCompatRules: Record<string, DummyRule> = {
-  'import-compat/newline-after-import': 'error',
-  'import-compat/order': [
-    'error',
-    {
-      'newlines-between': 'always',
-      alphabetize: { order: 'asc', caseInsensitive: true },
-      pathGroupsExcludedImportTypes: ['builtin'],
-      groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
-    },
-  ],
-};
-
 const unicornRules: Record<string, DummyRule> = {
   'unicorn/no-array-method-this-argument': 'error',
   'unicorn/prefer-array-find': 'error',
@@ -594,7 +580,6 @@ export function oxlintConfig(options?: OxlintConfigOptions): OxlintConfig {
     'eslint-plugin-security',
     // -compat JS plugins for gap rules in partially-supported native plugins
     { name: 'eslint-compat', specifier: 'oxlint-plugin-eslint' },
-    { name: 'import-compat', specifier: 'eslint-plugin-import-x' },
     { name: 'unicorn-compat', specifier: 'eslint-plugin-unicorn' },
     { name: 'jsdoc-compat', specifier: 'eslint-plugin-jsdoc' },
     { name: 'stylistic-compat', specifier: '@stylistic/eslint-plugin' },
@@ -614,7 +599,6 @@ export function oxlintConfig(options?: OxlintConfigOptions): OxlintConfig {
     ...eslintCompatRules,
     ...typescriptRules,
     ...importRules,
-    ...importCompatRules,
     ...unicornRules,
     ...unicornCompatRules,
     ...promiseRules,
