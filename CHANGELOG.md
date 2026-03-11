@@ -1,3 +1,9 @@
+## [4.2.4](https://github.com/jgeurts/eslint-config-decent/compare/v4.2.3...v4.2.4) (2026-03-11)
+
+### Bug Fixes
+
+- default react version to 19 and disable no-deprecated rule ([0cd6bf2](https://github.com/jgeurts/eslint-config-decent/commit/0cd6bf24d06c61232eb17a2dd70f3d0ae2d3dc8e))
+
 ## [4.2.3](https://github.com/jgeurts/eslint-config-decent/compare/v4.2.2...v4.2.3) (2026-03-11)
 
 ### Bug Fixes
