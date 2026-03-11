@@ -1,3 +1,5 @@
+## [4.2.1](https://github.com/jgeurts/eslint-config-decent/compare/v4.2.0...v4.2.1) (2026-03-11)
+
 ## [4.2.0](https://github.com/jgeurts/eslint-config-decent/compare/v4.1.6...v4.2.0) (2026-03-11)
 
 ### Features
