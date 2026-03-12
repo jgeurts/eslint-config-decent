@@ -1,3 +1,9 @@
+## [4.2.8](https://github.com/jgeurts/eslint-config-decent/compare/v4.2.7...v4.2.8) (2026-03-12)
+
+### Bug Fixes
+
+- **deps:** update dependency eslint-plugin-import-x to v4.16.2 ([#308](https://github.com/jgeurts/eslint-config-decent/issues/308)) ([e4e2e14](https://github.com/jgeurts/eslint-config-decent/commit/e4e2e1408e1f06b5628204d444d0189f032eac4e))
+
 ## [4.2.7](https://github.com/jgeurts/eslint-config-decent/compare/v4.2.6...v4.2.7) (2026-03-11)
 
 ### Bug Fixes
