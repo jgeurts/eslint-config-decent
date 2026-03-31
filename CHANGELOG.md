@@ -1,3 +1,9 @@
+## [4.2.23](https://github.com/jgeurts/eslint-config-decent/compare/v4.2.22...v4.2.23) (2026-03-31)
+
+### Bug Fixes
+
+- **deps:** update dependency @vitest/eslint-plugin to v1.6.14 ([#343](https://github.com/jgeurts/eslint-config-decent/issues/343)) ([b049304](https://github.com/jgeurts/eslint-config-decent/commit/b049304144d87b96d9e60e91c47b3d47c722570a))
+
 ## [4.2.22](https://github.com/jgeurts/eslint-config-decent/compare/v4.2.21...v4.2.22) (2026-03-30)
 
 ### Bug Fixes
