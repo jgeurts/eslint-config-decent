@@ -1,3 +1,9 @@
+## [4.2.28](https://github.com/jgeurts/eslint-config-decent/compare/v4.2.27...v4.2.28) (2026-04-08)
+
+### Bug Fixes
+
+- **deps:** update dependency @eslint/compat to v2.0.5 ([#353](https://github.com/jgeurts/eslint-config-decent/issues/353)) ([53f5ff9](https://github.com/jgeurts/eslint-config-decent/commit/53f5ff9580bc0dc681e453ae0cebb2799e93bd6d))
+
 ## [4.2.27](https://github.com/jgeurts/eslint-config-decent/compare/v4.2.26...v4.2.27) (2026-04-08)
 
 ### Bug Fixes
