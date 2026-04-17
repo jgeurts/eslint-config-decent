@@ -1,3 +1,9 @@
+## [4.2.35](https://github.com/jgeurts/eslint-config-decent/compare/v4.2.34...v4.2.35) (2026-04-17)
+
+### Bug Fixes
+
+- **oxlint:** move unimplemented rules to compat JS plugins ([#369](https://github.com/jgeurts/eslint-config-decent/issues/369)) ([6e90c54](https://github.com/jgeurts/eslint-config-decent/commit/6e90c54cb367ef8afc22ab9e7ad9ba5a233bc601)), closes [oxc-project/oxc#479](https://github.com/oxc-project/oxc/issues/479) [oxc-project/oxc#1170](https://github.com/oxc-project/oxc/issues/1170) [oxc-project/oxc#2180](https://github.com/oxc-project/oxc/issues/2180) [oxc-project/oxc#20895](https://github.com/oxc-project/oxc/issues/20895)
+
 ## [4.2.34](https://github.com/jgeurts/eslint-config-decent/compare/v4.2.33...v4.2.34) (2026-04-17)
 
 ### Bug Fixes
