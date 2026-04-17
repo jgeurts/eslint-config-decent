@@ -1,3 +1,9 @@
+## [4.2.36](https://github.com/jgeurts/eslint-config-decent/compare/v4.2.35...v4.2.36) (2026-04-17)
+
+### Bug Fixes
+
+- **oxlint:** scope typescript-compat rules to TS/TSX files only ([3394f5c](https://github.com/jgeurts/eslint-config-decent/commit/3394f5c1d355dd264ce4923557ff0a18c81f6efb))
+
 ## [4.2.35](https://github.com/jgeurts/eslint-config-decent/compare/v4.2.34...v4.2.35) (2026-04-17)
 
 ### Bug Fixes
