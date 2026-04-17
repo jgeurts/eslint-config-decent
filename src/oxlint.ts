@@ -79,7 +79,6 @@ const eslintBaseRules: Record<string, DummyRule> = {
   'eslint/prefer-exponentiation-operator': 'off',
   'eslint/prefer-numeric-literals': 'error',
   'eslint/prefer-object-spread': 'error',
-  'eslint/prefer-regex-literals': ['error', { disallowRedundantWrapping: true }],
   'eslint/prefer-template': 'error',
   'eslint/sort-imports': ['error', { ignoreCase: true, ignoreDeclarationSort: true, allowSeparatedGroups: true }],
   'eslint/symbol-description': 'error',
@@ -95,7 +94,6 @@ const eslintBaseRules: Record<string, DummyRule> = {
 // CJS/ESM rules that also apply to TS files via typescript extensions
 const eslintCjsEsmRules: Record<string, DummyRule> = {
   'eslint/curly': ['error', 'multi-line'],
-  'eslint/dot-notation': ['error', { allowKeywords: true }],
   'eslint/getter-return': ['error', { allowImplicit: true }],
   'eslint/no-array-constructor': 'error',
   'eslint/no-empty-function': ['error', { allow: ['arrowFunctions', 'functions', 'methods'] }],
@@ -123,6 +121,7 @@ const eslintCompatRules: Record<string, DummyRule> = {
   'eslint-compat/no-restricted-syntax': ['error', 'DebuggerStatement', 'LabeledStatement', 'WithStatement'],
   'eslint-compat/no-undef-init': 'error',
   'eslint-compat/no-unreachable-loop': ['error', { ignore: [] }],
+  'eslint-compat/prefer-regex-literals': ['error', { disallowRedundantWrapping: true }],
 };
 
 const typescriptRules: Record<string, DummyRule> = {
@@ -143,32 +142,6 @@ const typescriptRules: Record<string, DummyRule> = {
   'typescript/default-param-last': 'error',
   'typescript/dot-notation': 'error',
   'typescript/explicit-function-return-type': 'off',
-  'typescript/explicit-member-accessibility': 'error',
-  'typescript/member-ordering': [
-    'error',
-    {
-      default: [
-        'signature',
-        'private-field',
-        'public-field',
-        'protected-field',
-        'public-constructor',
-        'protected-constructor',
-        'private-constructor',
-        'public-method',
-        'protected-method',
-        'private-method',
-      ],
-    },
-  ],
-  'typescript/naming-convention': [
-    'error',
-    {
-      selector: 'enumMember',
-      format: ['camelCase', 'PascalCase', 'UPPER_CASE'],
-      trailingUnderscore: 'forbid',
-    },
-  ],
   'typescript/no-array-delete': 'error',
   'typescript/no-base-to-string': 'error',
   'typescript/no-confusing-non-null-assertion': 'error',
@@ -249,6 +222,36 @@ const typescriptRules: Record<string, DummyRule> = {
   'typescript/use-unknown-in-catch-callback-variable': 'off',
 };
 
+// Gap rules not yet natively supported — covered via typescript-compat JS plugin (@typescript-eslint/eslint-plugin)
+const typescriptCompatRules: Record<string, DummyRule> = {
+  'typescript-compat/explicit-member-accessibility': 'error',
+  'typescript-compat/member-ordering': [
+    'error',
+    {
+      default: [
+        'signature',
+        'private-field',
+        'public-field',
+        'protected-field',
+        'public-constructor',
+        'protected-constructor',
+        'private-constructor',
+        'public-method',
+        'protected-method',
+        'private-method',
+      ],
+    },
+  ],
+  'typescript-compat/naming-convention': [
+    'error',
+    {
+      selector: 'enumMember',
+      format: ['camelCase', 'PascalCase', 'UPPER_CASE'],
+      trailingUnderscore: 'forbid',
+    },
+  ],
+};
+
 const importRules: Record<string, DummyRule> = {
   'import/consistent-type-specifier-style': ['error', 'prefer-inline'],
   'import/first': 'error',
@@ -278,15 +281,12 @@ const promiseRules: Record<string, DummyRule> = {
 
 const jsdocRules: Record<string, DummyRule> = {
   // Explicitly configured
-  'jsdoc/check-param-names': 'off',
   'jsdoc/check-tag-names': 'error',
-  'jsdoc/require-description': 'off',
   'jsdoc/require-param': ['error', { enableFixer: false, ignoreWhenAllParamsMissing: true, unnamedRootBase: ['args'] }],
   'jsdoc/require-param-description': 'off',
   'jsdoc/require-param-name': 'error',
   'jsdoc/require-param-type': 'error',
   'jsdoc/require-returns-description': 'off',
-  'jsdoc/require-jsdoc': 'off',
   'jsdoc/require-returns-type': 'off',
 
   // From flat/recommended inheritance
@@ -300,10 +300,7 @@ const jsdocRules: Record<string, DummyRule> = {
   'jsdoc/require-property-name': 'error',
   'jsdoc/require-property-type': 'error',
   'jsdoc/require-returns': 'error',
-  'jsdoc/require-returns-check': 'error',
   'jsdoc/require-yields': 'error',
-  'jsdoc/require-yields-check': 'error',
-  'jsdoc/tag-lines': 'error',
 };
 
 // Gap rules not yet natively supported — covered via jsdoc-compat JS plugin
@@ -312,6 +309,9 @@ const jsdocCompatRules: Record<string, DummyRule> = {
   'jsdoc-compat/check-indentation': 'error',
   'jsdoc-compat/check-types': 'error',
   'jsdoc-compat/require-hyphen-before-param-description': 'error',
+  'jsdoc-compat/require-returns-check': 'error',
+  'jsdoc-compat/require-yields-check': 'error',
+  'jsdoc-compat/tag-lines': 'error',
   'jsdoc-compat/valid-types': 'error',
 };
 
@@ -582,6 +582,7 @@ export function oxlintConfig(options?: OxlintConfigOptions): OxlintConfig {
     { name: 'eslint-compat', specifier: 'oxlint-plugin-eslint' },
     { name: 'unicorn-compat', specifier: 'eslint-plugin-unicorn' },
     { name: 'jsdoc-compat', specifier: 'eslint-plugin-jsdoc' },
+    { name: 'typescript-compat', specifier: '@typescript-eslint/eslint-plugin' },
     { name: 'stylistic-compat', specifier: '@stylistic/eslint-plugin' },
     ...(enableReact ? [{ name: 'react-compat', specifier: 'eslint-plugin-react' }] : []),
     ...(enableVitest ? [{ name: 'vitest-compat', specifier: '@vitest/eslint-plugin' }] : []),
@@ -598,6 +599,7 @@ export function oxlintConfig(options?: OxlintConfigOptions): OxlintConfig {
     ...eslintCjsEsmRules,
     ...eslintCompatRules,
     ...typescriptRules,
+    ...typescriptCompatRules,
     ...importRules,
     ...unicornRules,
     ...unicornCompatRules,
