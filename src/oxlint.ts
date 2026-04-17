@@ -599,7 +599,6 @@ export function oxlintConfig(options?: OxlintConfigOptions): OxlintConfig {
     ...eslintCjsEsmRules,
     ...eslintCompatRules,
     ...typescriptRules,
-    ...typescriptCompatRules,
     ...importRules,
     ...unicornRules,
     ...unicornCompatRules,
@@ -613,6 +612,10 @@ export function oxlintConfig(options?: OxlintConfigOptions): OxlintConfig {
   };
 
   const overrides: OxlintOverride[] = [
+    {
+      files: ['**/*.ts', '**/*.tsx', '**/*.mts', '**/*.cts'],
+      rules: typescriptCompatRules,
+    },
     ...(enableReact
       ? [
           {
