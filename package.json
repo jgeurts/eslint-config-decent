@@ -35,6 +35,7 @@
   "scripts": {
     "build": "unbuild",
     "test": "tsgo --noEmit --skipLibCheck",
+    "test:oxlint-rules": "node scripts/test-oxlint-rules.mjs",
     "lint:markdown": "prettier --write '**/*.md' '!**/node_modules/**' '!**/dist/**' && markdownlint '**/*.md' --ignore '**/node_modules/**' --ignore '**/dist/**' --config=.github/linters/.markdown-lint.yml --fix",
     "lint:code": "eslint --fix",
     "prelint": "npm run build",
@@ -83,6 +84,7 @@
     "oxlint-plugin-eslint": ">=1.52.0",
     "@stylistic/eslint-plugin": ">=5.0.0",
     "@vitest/eslint-plugin": ">=1.0.0",
+    "@typescript-eslint/eslint-plugin": ">=8.0.0",
     "eslint-plugin-jsdoc": ">=62.0.0",
     "eslint-plugin-react": ">=7.0.0",
     "eslint-plugin-security": ">=4.0.0",
@@ -98,6 +100,9 @@
       "optional": true
     },
     "oxlint-plugin-eslint": {
+      "optional": true
+    },
+    "@typescript-eslint/eslint-plugin": {
       "optional": true
     },
     "@stylistic/eslint-plugin": {

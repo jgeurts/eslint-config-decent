@@ -9,7 +9,7 @@ Every active rule enforced by `eslint-config-decent` and its oxlint status.
 - 🔌 JS — via standalone JS plugin
 - ❌ N/A — not available (reason noted)
 
-**Totals:** ~393 enforced rules → 298 native, 42 compat, 36 JS plugin, 17 not available (**96% coverage**)
+**Totals:** ~393 enforced rules → 293 native, 46 compat, 36 JS plugin, 18 not available (**95% coverage**)
 
 > Rules explicitly set to `off` are excluded. Recommended config spreads are resolved against `src/oxlint.ts`.
 
@@ -86,7 +86,7 @@ Every active rule enforced by `eslint-config-decent` and its oxlint status.
 | `prefer-const`                | ✅ Native                              |
 | `prefer-numeric-literals`     | ✅ Native                              |
 | `prefer-object-spread`        | ✅ Native                              |
-| `prefer-regex-literals`       | ✅ Native                              |
+| `prefer-regex-literals`       | 🔌 Compat (via `oxlint-plugin-eslint`) |
 | `prefer-template`             | ✅ Native                              |
 | `sort-imports`                | ✅ Native                              |
 | `symbol-description`          | ✅ Native                              |
@@ -94,14 +94,14 @@ Every active rule enforced by `eslint-config-decent` and its oxlint status.
 | `vars-on-top`                 | ✅ Native                              |
 | `yoda`                        | ✅ Native                              |
 
-62 native, 8 compat, 4 N/A — **95%**
+61 native, 9 compat, 4 N/A — **95%**
 
 ## ESLint Core — CJS/ESM (`src/eslint.ts`)
 
 | Rule                           | Status                                                           |
 | ------------------------------ | ---------------------------------------------------------------- |
 | `curly`                        | ✅ Native                                                        |
-| `dot-notation`                 | ✅ Native                                                        |
+| `dot-notation`                 | ❌ N/A (won't implement; use `typescript/dot-notation`)          |
 | `getter-return`                | ✅ Native                                                        |
 | `no-array-constructor`         | ✅ Native                                                        |
 | `no-empty-function`            | ✅ Native                                                        |
@@ -117,7 +117,7 @@ Every active rule enforced by `eslint-config-decent` and its oxlint status.
 | `prefer-arrow-callback`        | 🔌 Compat (via `oxlint-plugin-eslint`)                           |
 | `prefer-promise-reject-errors` | ✅ Native                                                        |
 
-13 native, 1 compat, 2 N/A — **88%**
+12 native, 1 compat, 3 N/A — **81%**
 
 ## ESLint Core — CJS (`src/eslint.ts`)
 
@@ -127,28 +127,28 @@ Every active rule enforced by `eslint-config-decent` and its oxlint status.
 
 ## TypeScript — explicit (`src/typescriptEslint.ts`)
 
-| Rule                                                        | Status              |
-| ----------------------------------------------------------- | ------------------- |
-| `@typescript-eslint/array-type`                             | ✅ Native           |
-| `@typescript-eslint/ban-ts-comment`                         | ✅ Native           |
-| `@typescript-eslint/consistent-type-imports`                | ✅ Native           |
-| `@typescript-eslint/default-param-last`                     | ✅ Native           |
-| `@typescript-eslint/explicit-function-return-type`          | ✅ Native           |
-| `@typescript-eslint/explicit-member-accessibility`          | 🔌 Compat           |
-| `@typescript-eslint/member-ordering`                        | 🔌 Compat           |
-| `@typescript-eslint/naming-convention`                      | 🔌 Compat           |
-| `@typescript-eslint/no-dupe-class-members`                  | ✅ Native           |
-| `@typescript-eslint/no-empty-interface`                     | ✅ Native           |
-| `@typescript-eslint/no-extra-semi`                          | ❌ N/A (deprecated) |
-| `@typescript-eslint/no-loop-func`                           | ✅ Native           |
-| `@typescript-eslint/no-redeclare`                           | ✅ Native           |
-| `@typescript-eslint/no-shadow`                              | ✅ Native           |
-| `@typescript-eslint/no-unnecessary-boolean-literal-compare` | ✅ Native           |
-| `@typescript-eslint/only-throw-error`                       | ✅ Native           |
-| `@typescript-eslint/parameter-properties`                   | ✅ Native           |
-| `@typescript-eslint/restrict-template-expressions`          | ✅ Native           |
-| `@typescript-eslint/return-await`                           | ✅ Native           |
-| `@typescript-eslint/sort-type-constituents`                 | ❌ N/A (deprecated) |
+| Rule                                                        | Status                                  |
+| ----------------------------------------------------------- | --------------------------------------- |
+| `@typescript-eslint/array-type`                             | ✅ Native                               |
+| `@typescript-eslint/ban-ts-comment`                         | ✅ Native                               |
+| `@typescript-eslint/consistent-type-imports`                | ✅ Native                               |
+| `@typescript-eslint/default-param-last`                     | ✅ Native                               |
+| `@typescript-eslint/explicit-function-return-type`          | ✅ Native                               |
+| `@typescript-eslint/explicit-member-accessibility`          | 🔌 Compat (ships native in oxlint 1.61) |
+| `@typescript-eslint/member-ordering`                        | 🔌 Compat                               |
+| `@typescript-eslint/naming-convention`                      | 🔌 Compat                               |
+| `@typescript-eslint/no-dupe-class-members`                  | ✅ Native                               |
+| `@typescript-eslint/no-empty-interface`                     | ✅ Native                               |
+| `@typescript-eslint/no-extra-semi`                          | ❌ N/A (deprecated)                     |
+| `@typescript-eslint/no-loop-func`                           | ✅ Native                               |
+| `@typescript-eslint/no-redeclare`                           | ✅ Native                               |
+| `@typescript-eslint/no-shadow`                              | ✅ Native                               |
+| `@typescript-eslint/no-unnecessary-boolean-literal-compare` | ✅ Native                               |
+| `@typescript-eslint/only-throw-error`                       | ✅ Native                               |
+| `@typescript-eslint/parameter-properties`                   | ✅ Native                               |
+| `@typescript-eslint/restrict-template-expressions`          | ✅ Native                               |
+| `@typescript-eslint/return-await`                           | ✅ Native                               |
+| `@typescript-eslint/sort-type-constituents`                 | ❌ N/A (deprecated)                     |
 
 15 native, 3 compat, 2 N/A — **90%**
 
@@ -302,13 +302,13 @@ Spreads `jsdoc.configs['flat/recommended'].rules`, then applies explicit overrid
 | `jsdoc/require-property-name`                   | ✅ Native |
 | `jsdoc/require-property-type`                   | ✅ Native |
 | `jsdoc/require-returns`                         | ✅ Native |
-| `jsdoc/require-returns-check`                   | ✅ Native |
+| `jsdoc/require-returns-check`                   | 🔌 Compat |
 | `jsdoc/require-yields`                          | ✅ Native |
-| `jsdoc/require-yields-check`                    | ✅ Native |
-| `jsdoc/tag-lines`                               | ✅ Native |
+| `jsdoc/require-yields-check`                    | 🔌 Compat |
+| `jsdoc/tag-lines`                               | 🔌 Compat |
 | `jsdoc/valid-types`                             | 🔌 Compat |
 
-18 native, 5 compat — **100%**
+15 native, 8 compat — **100%**
 
 ## Security (`src/security.ts`)
 
