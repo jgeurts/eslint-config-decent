@@ -1,3 +1,9 @@
+## [4.2.33](https://github.com/jgeurts/eslint-config-decent/compare/v4.2.32...v4.2.33) (2026-04-17)
+
+### Bug Fixes
+
+- **deps:** update dependency eslint-plugin-react-hooks to v7.1.0 ([#366](https://github.com/jgeurts/eslint-config-decent/issues/366)) ([67d39a3](https://github.com/jgeurts/eslint-config-decent/commit/67d39a3bde958e2ffa3e2cd6f8e385d2147d0cac))
+
 ## [4.2.32](https://github.com/jgeurts/eslint-config-decent/compare/v4.2.31...v4.2.32) (2026-04-16)
 
 ### Bug Fixes
