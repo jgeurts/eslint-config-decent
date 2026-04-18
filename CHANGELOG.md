@@ -1,3 +1,9 @@
+## [4.2.37](https://github.com/jgeurts/eslint-config-decent/compare/v4.2.36...v4.2.37) (2026-04-18)
+
+### Bug Fixes
+
+- **oxlint:** drop naming-convention (unrunnable under oxlint's JS bridge) ([18ed1fc](https://github.com/jgeurts/eslint-config-decent/commit/18ed1fc7aaded4b937d5d0117d6212a6636229e8)), closes [oxc-project/oxc#2180](https://github.com/oxc-project/oxc/issues/2180)
+
 ## [4.2.36](https://github.com/jgeurts/eslint-config-decent/compare/v4.2.35...v4.2.36) (2026-04-17)
 
 ### Bug Fixes
