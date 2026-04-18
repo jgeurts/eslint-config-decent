@@ -242,14 +242,6 @@ const typescriptCompatRules: Record<string, DummyRule> = {
       ],
     },
   ],
-  'typescript-compat/naming-convention': [
-    'error',
-    {
-      selector: 'enumMember',
-      format: ['camelCase', 'PascalCase', 'UPPER_CASE'],
-      trailingUnderscore: 'forbid',
-    },
-  ],
 };
 
 const importRules: Record<string, DummyRule> = {
