@@ -189,6 +189,9 @@
     },
     "eslint-plugin-testing-library": {
       "eslint": "$eslint"
+    },
+    "unbuild": {
+      "typescript": "$typescript"
     }
   }
 }
