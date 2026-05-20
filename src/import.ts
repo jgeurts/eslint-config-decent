@@ -1,10 +1,10 @@
-import { type FixupPluginDefinition, fixupPluginRules } from '@eslint/compat';
+import { fixupPluginRules } from '@eslint/compat';
 import { type Config } from '@eslint/config-helpers';
 import importPlugin from 'eslint-plugin-import-x';
 
 const base: Config = {
   plugins: {
-    import: fixupPluginRules(importPlugin as unknown as FixupPluginDefinition),
+    import: fixupPluginRules(importPlugin),
   },
   rules: {
     'import/consistent-type-specifier-style': ['error', 'prefer-inline'],
