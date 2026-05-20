@@ -1,4 +1,3 @@
-import { type FixupPluginDefinition } from '@eslint/compat';
 import { fixupPluginRules } from '@eslint/compat';
 import { type Config, type RuleConfig } from '@eslint/config-helpers';
 import nextJs from '@next/eslint-plugin-next';
@@ -11,7 +10,7 @@ for (const ruleName of Object.keys({ ...nextJs.configs.recommended.rules })) {
 
 const base: Config = {
   plugins: {
-    '@next/next': fixupPluginRules(nextJs as FixupPluginDefinition),
+    '@next/next': fixupPluginRules(nextJs),
   },
   rules: {
     ...recommendedRules,
