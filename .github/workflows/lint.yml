@@ -32,6 +32,8 @@ jobs:
         env:
           # To report GitHub Actions status checks
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Generated file; codespell false-positives on hashes and package names
+          FILTER_REGEX_EXCLUDE: .*pnpm-lock\.yaml
           FIX_CSS_PRETTIER: false
           VALIDATE_ALL_CODEBASE: false
           VALIDATE_ANSIBLE: false
@@ -53,11 +55,9 @@ jobs:
           VALIDATE_YAML_PRETTIER: false
           VALIDATE_JAVASCRIPT_ES: false
           VALIDATE_JAVASCRIPT_PRETTIER: false
-          VALIDATE_JAVASCRIPT_STANDARD: false
           VALIDATE_NATURAL_LANGUAGE: false
           VALIDATE_TRIVY: false
           VALIDATE_TSX: false
           VALIDATE_TYPESCRIPT_ES: false
           VALIDATE_TYPESCRIPT_PRETTIER: false
-          VALIDATE_TYPESCRIPT_STANDARD: false
           DEFAULT_BRANCH: main
