@@ -11,11 +11,25 @@ Uses native oxlint rules where available, `-compat` JS plugins for gap rules, an
 ## Setup
 
 ```bash
-npm install -D oxlint-config-decent oxlint oxlint-tsgolint
+npm install -D oxlint-config-decent oxlint oxlint-tsgolint eslint
 ```
 
 npm (and pnpm 8+) automatically install the required peer dependencies (`oxlint-plugin-eslint`, `@stylistic/eslint-plugin`,
-`@typescript-eslint/eslint-plugin`, `eslint-plugin-jsdoc`, `eslint-plugin-security`, `eslint-plugin-unicorn`).
+`@typescript-eslint/eslint-plugin`, `eslint-plugin-jsdoc`, `eslint-plugin-security`, `eslint-plugin-unicorn`). Installing `eslint`
+explicitly keeps npm's peer resolver from picking conflicting ESLint versions for those plugins — it is only resolved as a peer,
+never executed.
+
+If you enable React support, `eslint-plugin-react` currently caps its `eslint` peer below what `eslint-plugin-unicorn` requires.
+Tell npm to resolve it against your ESLint version:
+
+```jsonc
+// package.json
+"overrides": {
+  "eslint-plugin-react": {
+    "eslint": "$eslint"
+  }
+}
+```
 
 ```ts
 // oxlint.config.ts
@@ -33,7 +47,7 @@ export default defineConfig({
 });
 ```
 
-Requires oxlint >= 1.43.0 for TypeScript config support.
+Requires oxlint >= 1.53.0 for TypeScript config support.
 
 ## Feature flags
 
@@ -43,6 +57,10 @@ Requires oxlint >= 1.43.0 for TypeScript config support.
 | `enableVitest`         | `true`  | `@vitest/eslint-plugin`         |
 | `enableTestingLibrary` | `true`  | `eslint-plugin-testing-library` |
 | `enableNextJs`         | `false` | nothing (native oxlint plugin)  |
+
+Two options tune plugin settings rather than toggle features: `reactVersion` sets the React version reported to `eslint-plugin-react`
+(default `'19'`), and `nextJsRootDir` sets the Next.js root directory when `enableNextJs` is on (useful in monorepos where the Next.js
+app is not at the repo root).
 
 The React, Vitest, and Testing Library plugins are optional peer dependencies. They are enabled by default, so either install them or disable the flags:
 
@@ -56,7 +74,7 @@ oxlintConfig({
 
 ## Type-aware linting
 
-The config enables `options.typeAware` for use with [oxlint-tsgolint](https://github.com/nicolo-ribaudo/oxlint-tsgolint), which provides type-aware rules powered by TypeScript's Go port.
+The config enables `options.typeAware` for use with [oxlint-tsgolint](https://github.com/oxc-project/tsgolint), which provides type-aware rules powered by TypeScript's Go port.
 
 ## Override a rule
 

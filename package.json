@@ -6,6 +6,7 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "type": "module",
+  "sideEffects": false,
   "packageManager": "pnpm@11.11.0",
   "exports": {
     ".": {
@@ -29,6 +30,13 @@
       }
     }
   },
+  "typesVersions": {
+    "*": {
+      "oxlint": [
+        "./dist/oxlint.d.ts"
+      ]
+    }
+  },
   "files": [
     "dist",
     "src",
@@ -41,7 +49,7 @@
     "lint:fmt": "oxfmt",
     "lint:code": "oxlint --fix",
     "lint:markdown": "markdownlint '**/*.md' --ignore '**/node_modules/**' --ignore '**/dist/**' --config=.github/linters/.markdown-lint.yml --fix",
-    "lint": "pnpm run /^lint:/",
+    "lint": "pnpm run lint:fmt && pnpm run lint:code && pnpm run lint:markdown",
     "lint-staged": "lint-staged",
     "beta": "npm publish --tag beta",
     "prepublishOnly": "pinst --disable",

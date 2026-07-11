@@ -38,3 +38,5 @@ jobs:
         env:
           CI: true
       - run: pnpm run lint
+      # The lint scripts run in fix mode; fail if they changed anything
+      - run: git diff --exit-code

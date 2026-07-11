@@ -51,7 +51,9 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Lint
-        run: pnpm run lint
+        run: |
+          pnpm run lint
+          git diff --exit-code
 
       - name: Test
         run: pnpm test
@@ -63,3 +65,6 @@ jobs:
         run: pnpm exec semantic-release
         env:
           GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
+          # Token auth is required for the first publish of a new package name;
+          # switch to npm trusted publishing (OIDC) once the package exists.
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
