@@ -156,8 +156,8 @@ Avoid these anti-patterns:
 2. **Generate/Refactor**: Write or modify code to comply with all rules above
 3. **Simplify**: Review for opportunities to simplify — prefer clear, straightforward code over clever solutions
 4. **Review naming**: Verify variable and function names still make sense in context after changes
-5. **Build**: Verify types compile without errors (e.g., `npm run build` or `npx tsc --noEmit`)
-6. **Lint**: Run `npm run lint` to confirm compliance before completing the task
+5. **Build**: Verify types compile without errors (e.g., `pnpm run build` or `pnpm exec tsc --noEmit`)
+6. **Lint**: Run `pnpm run lint` to confirm compliance before completing the task
 
 ## Examples
 
