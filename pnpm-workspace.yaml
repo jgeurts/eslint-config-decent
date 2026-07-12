@@ -2,12 +2,18 @@ minimumReleaseAgeExclude:
   - semantic-release@25.0.6
 # pnpm 11 reads settings from this file (.npmrc non-auth settings are ignored).
 saveExact: true
-# typescript 7 and eslint 10 are ahead of what @typescript-eslint/* / tsdown /
-# eslint-plugin-react declare; the -compat plugins are only used syntactically via
-# oxlint's JS-plugin runtime, so these mismatches are acceptable.
+catalog:
+  vite: npm:@voidzero-dev/vite-plus-core@0.2.4
+  vite-plus: 0.2.4
+overrides:
+  vite: 'catalog:'
+# typescript 7 and eslint 10 are ahead of what the eslint-ecosystem plugins declare;
+# the -compat plugins are only used syntactically via oxlint's JS-plugin runtime, so
+# these mismatches are acceptable.
 peerDependencyRules:
+  allowAny:
+    - vite
   allowedVersions:
     typescript: '7'
     eslint: '10'
-# See .pnpmfile.cjs: the ESLint-ecosystem plugins loaded through oxlint's JS-plugin
-# runtime get a private JS-API TypeScript 6, while the repo itself uses TypeScript 7.
+    vite: '*'

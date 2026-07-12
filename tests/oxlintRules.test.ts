@@ -8,9 +8,11 @@
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
-import { describe, expect, it } from 'vitest';
+import { type Plugin } from '@oxlint/plugins';
+import { describe, expect, it } from 'vite-plus/test';
 
 import { oxlintConfig } from '../src/index.js';
+import decentPlugin from '../src/plugin.js';
 
 interface NativeRule {
   configKey: string;
@@ -53,6 +55,36 @@ describe('oxlintConfig', () => {
     expect(config.plugins).not.toContain('jsx-a11y');
     expect(config.plugins).not.toContain('vitest');
     expect(config.jsPlugins).not.toContain('eslint-plugin-testing-library');
+  });
+
+  it('omits estree-dependent js plugins when enableTypeScriptEstreePlugins is false', () => {
+    const config = oxlintConfig({ enableTypeScriptEstreePlugins: false });
+
+    const jsPluginSpecifiers = (config.jsPlugins ?? []).map((entry) => (typeof entry === 'string' ? entry : entry.specifier));
+    expect(jsPluginSpecifiers).not.toContain('@typescript-eslint/eslint-plugin');
+    expect(jsPluginSpecifiers).not.toContain('@vitest/eslint-plugin');
+    // eslint-plugin-testing-library imports @typescript-eslint/utils
+    expect(jsPluginSpecifiers).not.toContain('eslint-plugin-testing-library');
+    // Loadable plugins stay
+    expect(jsPluginSpecifiers).toContain('eslint-plugin-security');
+    expect(jsPluginSpecifiers).toContain('@stylistic/eslint-plugin');
+
+    const allRuleKeys = [...Object.keys(config.rules ?? {}), ...(config.overrides ?? []).flatMap((override) => Object.keys(override.rules ?? {}))];
+    expect(allRuleKeys.some((key) => key.startsWith('typescript-compat/'))).toBe(false);
+    expect(allRuleKeys.some((key) => key.startsWith('vitest-compat/'))).toBe(false);
+  });
+
+  it('exposes the decent plugin with require-extension and require-index rules', () => {
+    // Assignability check against the real oxlint plugin types
+    const typedPlugin: Plugin = decentPlugin;
+    expect(Object.keys(typedPlugin.rules)).toStrictEqual(['require-extension', 'require-index']);
+
+    const config = oxlintConfig();
+    expect(config.jsPlugins).toContainEqual({ name: 'decent', specifier: 'oxlint-config-decent/plugin' });
+    expect(config.rules).toMatchObject({
+      'decent/require-extension': 'error',
+      'decent/require-index': 'error',
+    });
   });
 
   it('references only native rules that exist in the installed oxlint', () => {

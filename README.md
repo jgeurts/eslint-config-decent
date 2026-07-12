@@ -49,18 +49,50 @@ export default defineConfig({
 
 Requires oxlint >= 1.53.0 for TypeScript config support.
 
+### With Vite+
+
+In a [Vite+](https://viteplus.dev) project, spread the config into the `lint` section of `vite.config.ts` instead:
+
+```ts
+// vite.config.ts
+
+import { defineConfig } from 'vite-plus';
+import { oxlintConfig } from 'oxlint-config-decent';
+
+export default defineConfig({
+  lint: oxlintConfig({ enableReact: false }),
+});
+```
+
 ## Feature flags
 
-| Option                 | Default | Requires (peer)                 |
-| ---------------------- | ------- | ------------------------------- |
-| `enableReact`          | `true`  | `eslint-plugin-react`           |
-| `enableVitest`         | `true`  | `@vitest/eslint-plugin`         |
-| `enableTestingLibrary` | `true`  | `eslint-plugin-testing-library` |
-| `enableNextJs`         | `false` | nothing (native oxlint plugin)  |
+| Option                          | Default | Requires (peer)                          |
+| ------------------------------- | ------- | ---------------------------------------- |
+| `enableReact`                   | `true`  | `eslint-plugin-react`                    |
+| `enableVitest`                  | `true`  | `@vitest/eslint-plugin`                  |
+| `enableTestingLibrary`          | `true`  | `eslint-plugin-testing-library`          |
+| `enableNextJs`                  | `false` | nothing (native oxlint plugin)           |
+| `enableTypeScriptEstreePlugins` | `true`  | `@typescript-eslint/eslint-plugin`, etc. |
 
 Two options tune plugin settings rather than toggle features: `reactVersion` sets the React version reported to `eslint-plugin-react`
 (default `'19'`), and `nextJsRootDir` sets the Next.js root directory when `enableNextJs` is on (useful in monorepos where the Next.js
 app is not at the repo root).
+
+## Custom rules
+
+The package ships its own oxlint JS plugin (exported at `oxlint-config-decent/plugin`) with two rules, both enabled by default and
+auto-fixable:
+
+- `decent/require-extension` — relative imports/exports must include a file extension (adapted from
+  [eslint-plugin-require-extensions](https://github.com/solana-labs/eslint-plugin-require-extensions) to work with ESM)
+- `decent/require-index` — directory imports/exports must reference `index.js` explicitly
+
+Disable them like any other rule:
+
+```ts
+oxlintConfig(); // then override:
+// rules: { 'decent/require-extension': 'off', 'decent/require-index': 'off' }
+```
 
 The React, Vitest, and Testing Library plugins are optional peer dependencies. They are enabled by default, so either install them or disable the flags:
 
@@ -94,11 +126,17 @@ export default defineConfig({
 
 ## Using TypeScript 7
 
-The `-compat` JS plugins load `@typescript-eslint/*` packages, which require a JS-API TypeScript (`>=4.8.4 <6.1.0`) to be resolvable at lint time —
-TypeScript 7's Go-native compiler does not provide the JS API they import. If your project's `typescript` is v7, give those packages a private
-TypeScript 6 instance. With pnpm, a `.pnpmfile.cjs` handles it — this repo dogfoods exactly that setup; copy [`.pnpmfile.cjs`](.pnpmfile.cjs) from
-this repo. The compat plugins are only used for syntactic rules, so the version skew is harmless; type-aware rules come from `oxlint-tsgolint`,
-which uses the Go compiler directly.
+The typescript-compat, vitest-compat, and testing-library plugins load `@typescript-eslint/*` packages, which require a JS-API TypeScript
+(`>=4.8.4 <6.1.0`) to be resolvable at lint time — TypeScript 7's Go-native compiler does not provide the JS API they import. If your
+project's `typescript` is v7, disable those plugins until typescript-eslint supports it:
+
+```ts
+oxlintConfig({ enableTypeScriptEstreePlugins: false });
+```
+
+This drops the `typescript-compat/*` and `vitest-compat/*` gap rules (member ordering, explicit member accessibility, vitest padding
+rules, and similar) and the testing-library rules. Everything else — including the type-aware rules, which come from `oxlint-tsgolint`
+driving the Go compiler directly — keeps working. This repo dogfoods exactly that setup in [`vite.config.ts`](vite.config.ts).
 
 ## Migrating from eslint-config-decent v4
 

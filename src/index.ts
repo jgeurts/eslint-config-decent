@@ -5,6 +5,14 @@ export interface OxlintConfigOptions {
   enableVitest?: boolean;
   enableNextJs?: boolean;
   enableTestingLibrary?: boolean;
+  /**
+   * The typescript-compat, vitest-compat, and testing-library plugins import
+   * `@typescript-eslint/typescript-estree`, which requires a JS-API TypeScript
+   * (`<6.1`) to be resolvable at lint time. Set to `false` when the project
+   * uses TypeScript 7 (no JS compiler API) until typescript-eslint supports it.
+   * @default true
+   */
+  enableTypeScriptEstreePlugins?: boolean;
   nextJsRootDir?: string;
   reactVersion?: string;
 }
@@ -551,7 +559,10 @@ export function oxlintConfig(options?: OxlintConfigOptions): OxlintConfig {
   const enableReact = options?.enableReact ?? true;
   const enableVitest = options?.enableVitest ?? true;
   const enableNextJs = options?.enableNextJs ?? false;
-  const enableTestingLibrary = options?.enableTestingLibrary ?? true;
+  const enableTsEstree = options?.enableTypeScriptEstreePlugins ?? true;
+  // eslint-plugin-testing-library imports @typescript-eslint/utils, so it
+  // cannot load when the estree-dependent plugins are disabled.
+  const enableTestingLibrary = (options?.enableTestingLibrary ?? true) && enableTsEstree;
 
   const plugins: OxlintConfig['plugins'] = [
     'eslint',
@@ -568,16 +579,18 @@ export function oxlintConfig(options?: OxlintConfigOptions): OxlintConfig {
   ];
 
   const jsPlugins: ExternalPluginEntry[] = [
+    // This package's own rules (require-extension, require-index)
+    { name: 'decent', specifier: 'oxlint-config-decent/plugin' },
     // Standalone JS plugins (no native equivalents)
     'eslint-plugin-security',
     // -compat JS plugins for gap rules in partially-supported native plugins
     { name: 'eslint-compat', specifier: 'oxlint-plugin-eslint' },
     { name: 'unicorn-compat', specifier: 'eslint-plugin-unicorn' },
     { name: 'jsdoc-compat', specifier: 'eslint-plugin-jsdoc' },
-    { name: 'typescript-compat', specifier: '@typescript-eslint/eslint-plugin' },
     { name: 'stylistic-compat', specifier: '@stylistic/eslint-plugin' },
+    ...(enableTsEstree ? [{ name: 'typescript-compat', specifier: '@typescript-eslint/eslint-plugin' }] : []),
     ...(enableReact ? [{ name: 'react-compat', specifier: 'eslint-plugin-react' }] : []),
-    ...(enableVitest ? [{ name: 'vitest-compat', specifier: '@vitest/eslint-plugin' }] : []),
+    ...(enableVitest && enableTsEstree ? [{ name: 'vitest-compat', specifier: '@vitest/eslint-plugin' }] : []),
     ...(enableTestingLibrary ? ['eslint-plugin-testing-library'] : []),
   ];
 
@@ -587,6 +600,8 @@ export function oxlintConfig(options?: OxlintConfigOptions): OxlintConfig {
   };
 
   const rules: Record<string, DummyRule> = {
+    'decent/require-extension': 'error',
+    'decent/require-index': 'error',
     ...eslintBaseRules,
     ...eslintCjsEsmRules,
     ...eslintCompatRules,
@@ -604,10 +619,14 @@ export function oxlintConfig(options?: OxlintConfigOptions): OxlintConfig {
   };
 
   const overrides: OxlintOverride[] = [
-    {
-      files: ['**/*.ts', '**/*.tsx', '**/*.mts', '**/*.cts'],
-      rules: typescriptCompatRules,
-    },
+    ...(enableTsEstree
+      ? [
+          {
+            files: ['**/*.ts', '**/*.tsx', '**/*.mts', '**/*.cts'],
+            rules: typescriptCompatRules,
+          },
+        ]
+      : []),
     ...(enableReact
       ? [
           {
@@ -627,7 +646,7 @@ export function oxlintConfig(options?: OxlintConfigOptions): OxlintConfig {
       ? [
           {
             files: VITEST_FILE_GLOBS,
-            rules: { ...vitestRules, ...vitestCompatRules },
+            rules: { ...vitestRules, ...(enableTsEstree ? vitestCompatRules : {}) },
           },
         ]
       : []),

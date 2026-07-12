@@ -32,6 +32,12 @@
       groupName: 'dev dependencies',
       semanticCommitType: 'chore',
     },
+    // vite / vite-plus versions live in the pnpm-workspace.yaml catalog.
+    {
+      matchDepTypes: ['catalog'],
+      groupName: 'dev dependencies',
+      semanticCommitType: 'chore',
+    },
     {
       matchDepTypes: ['dependencies'],
       groupName: 'all dependencies',
