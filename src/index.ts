@@ -8,8 +8,10 @@ export interface OxlintConfigOptions {
   /**
    * The typescript-compat, vitest-compat, and testing-library plugins import
    * `@typescript-eslint/typescript-estree`, which requires a JS-API TypeScript
-   * (`<6.1`) to be resolvable at lint time. Set to `false` when the project
-   * uses TypeScript 7 (no JS compiler API) until typescript-eslint supports it.
+   * (`<6.1`) to be resolvable at lint time. TypeScript 7 projects can keep
+   * these plugins by aliasing `typescript` to `@typescript/typescript6`
+   * (Microsoft's official side-by-side arrangement — see the README), or set
+   * this to `false` to drop them instead.
    * @default true
    */
   enableTypeScriptEstreePlugins?: boolean;

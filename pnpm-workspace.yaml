@@ -7,13 +7,14 @@ catalog:
   vite-plus: 0.2.4
 overrides:
   vite: 'catalog:'
-# typescript 7 and eslint 10 are ahead of what the eslint-ecosystem plugins declare;
-# the -compat plugins are only used syntactically via oxlint's JS-plugin runtime, so
-# these mismatches are acceptable.
+# eslint 10 is ahead of what some eslint-ecosystem plugins declare; the -compat
+# plugins are only used syntactically via oxlint's JS-plugin runtime, so the
+# mismatch is acceptable. typescript needs no rule: it resolves to the official
+# @typescript/typescript6 compatibility package (TS 6.0 JS API), which satisfies
+# typescript-eslint's peer range while tsc comes from TS 7 (@typescript/native).
 peerDependencyRules:
   allowAny:
     - vite
   allowedVersions:
-    typescript: '7'
     eslint: '10'
     vite: '*'

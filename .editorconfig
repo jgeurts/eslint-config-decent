@@ -11,3 +11,7 @@ insert_final_newline = true
 
 [*.md]
 indent_size = unset
+
+# shfmt: keep a space after redirect operators (cat > file)
+[*.sh]
+space_redirects = true

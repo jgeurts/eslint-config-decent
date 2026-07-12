@@ -126,17 +126,33 @@ export default defineConfig({
 
 ## Using TypeScript 7
 
-The typescript-compat, vitest-compat, and testing-library plugins load `@typescript-eslint/*` packages, which require a JS-API TypeScript
-(`>=4.8.4 <6.1.0`) to be resolvable at lint time — TypeScript 7's Go-native compiler does not provide the JS API they import. If your
-project's `typescript` is v7, disable those plugins until typescript-eslint supports it:
+TypeScript 7 does not ship the JS API that the typescript-compat, vitest-compat, and testing-library plugins need (they load
+`@typescript-eslint/*` packages, which import `typescript` at lint time). The recommended fix is the official
+[side-by-side arrangement](https://devblogs.microsoft.com/typescript/announcing-typescript-7-0/#running-side-by-side-with-typescript-60):
+alias `typescript` to Microsoft's `@typescript/typescript6` compatibility package (the TypeScript 6.0 JS API plus a `tsc6` binary) and
+install TypeScript 7 under a separate alias:
+
+```jsonc
+// package.json
+"devDependencies": {
+  "@typescript/native": "npm:typescript@^7.0.2",
+  "typescript": "npm:@typescript/typescript6@^6.0.2"
+}
+```
+
+`tsc` keeps coming from TypeScript 7 (`@typescript/native`), while tools that import `typescript` — typescript-eslint and friends —
+resolve the 6.0 API, so every rule in this config keeps working. The type-aware rules are unaffected either way: `oxlint-tsgolint`
+drives the Go compiler directly and never touches the JS API. This repo dogfoods exactly that setup — see
+[`package.json`](package.json) and [`vite.config.ts`](vite.config.ts).
+
+If you would rather not carry the compatibility package, disable the estree-dependent plugins instead:
 
 ```ts
 oxlintConfig({ enableTypeScriptEstreePlugins: false });
 ```
 
 This drops the `typescript-compat/*` and `vitest-compat/*` gap rules (member ordering, explicit member accessibility, vitest padding
-rules, and similar) and the testing-library rules. Everything else — including the type-aware rules, which come from `oxlint-tsgolint`
-driving the Go compiler directly — keeps working. This repo dogfoods exactly that setup in [`vite.config.ts`](vite.config.ts).
+rules, and similar) and the testing-library rules. Everything else keeps working.
 
 ## Migrating from eslint-config-decent v4
 

@@ -17,18 +17,18 @@ const config: UserConfig = defineConfig({
     sortPackageJson: false,
     ignorePatterns: ['CHANGELOG.md'],
   },
-  // Dogfood this package's own config. The repo uses TypeScript 7, so the
-  // estree-dependent compat plugins cannot load (see the
-  // enableTypeScriptEstreePlugins option); the 'decent' jsPlugin resolves via
-  // package self-reference to dist, so `vp pack` must run before `vp lint`.
+  // Dogfood this package's own config. The estree-dependent compat plugins
+  // (typescript-compat, vitest-compat, testing-library) load because
+  // `typescript` is aliased to @typescript/typescript6 (the official TS 7
+  // side-by-side arrangement — TS 6.0 JS API, while tsc comes from
+  // @typescript/native). The 'decent' jsPlugin resolves via package
+  // self-reference to dist, so `vp pack` must run before `vp lint`.
   // The cast bridges a type-level skew: vite-plus bundles oxlint 1.72 types
   // while this repo dev-depends on 1.73 (the version the parity tests target).
   // The config itself is JSON-compatible across both.
   lint: oxlintConfig({
     enableReact: false,
     enableNextJs: false,
-    enableTestingLibrary: false,
-    enableTypeScriptEstreePlugins: false,
   }) as NonNullable<UserConfig['lint']>,
   pack: {
     entry: ['src/index.ts', 'src/oxlint.ts', 'src/plugin.ts'],
