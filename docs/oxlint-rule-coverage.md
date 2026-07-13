@@ -1,6 +1,8 @@
 # Oxlint Rule Coverage
 
-Every active rule enforced by `eslint-config-decent` and its oxlint status.
+Every active rule enforced by `oxlint-config-decent` and its oxlint status. (The rule set
+originated as a mirror of the ESLint config shipped by this package's predecessor,
+`eslint-config-decent` v4.)
 
 **Status key:**
 

@@ -183,6 +183,12 @@ where dependency bumps silently add new rules.
 
 ## Architecture Decision: Same Package vs. Separate
 
+> **Superseded (2026-07-11):** v5 reversed this decision. The ESLint config was removed
+> entirely (typescript-eslint caps TypeScript at <6.1.0, blocking TypeScript 7 without the
+> `@typescript/typescript6` alias — see typescript-7-js-api-shim-for-compat-plugins.md) and
+> the package was renamed to `oxlint-config-decent`. The `./oxlint` subpath still exists as
+> a compatibility alias. Do not restore the ESLint export.
+
 Decided to keep the oxlint config in `eslint-config-decent` (not a separate `oxlint-config-decent` package) because:
 
 - The coupling is the feature -- oxlint config is a direct mirror of ESLint rules

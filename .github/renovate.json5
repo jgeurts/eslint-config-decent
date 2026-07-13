@@ -26,6 +26,18 @@
       groupName: 'dev dependencies',
       semanticCommitType: 'chore',
     },
+    // pnpm itself, pinned via the packageManager field (pnpm-lock.yaml is maintained natively).
+    {
+      matchDepTypes: ['packageManager'],
+      groupName: 'dev dependencies',
+      semanticCommitType: 'chore',
+    },
+    // vite / vite-plus versions live in the pnpm-workspace.yaml catalog.
+    {
+      matchDepTypes: ['catalog'],
+      groupName: 'dev dependencies',
+      semanticCommitType: 'chore',
+    },
     {
       matchDepTypes: ['dependencies'],
       groupName: 'all dependencies',
